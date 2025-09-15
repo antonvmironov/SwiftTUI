@@ -1,24 +1,44 @@
 import Foundation
 
-public enum VerticalAlignment {
+public enum VerticalAlignment: Sendable, CaseIterable, Hashable, CustomStringConvertible {
     case top
     case center
     case bottom
+    
+    public var description: String {
+        switch self {
+        case .top: return "top"
+        case .center: return "center"
+        case .bottom: return "bottom"
+        }
+    }
 }
 
-public enum HorizontalAlignment {
+public enum HorizontalAlignment: Sendable, CaseIterable, Hashable, CustomStringConvertible {
     case leading
     case center
     case trailing
+    
+    public var description: String {
+        switch self {
+        case .leading: return "leading"
+        case .center: return "center"
+        case .trailing: return "trailing"
+        }
+    }
 }
 
-public struct Alignment {
+public struct Alignment: Sendable, Hashable, CustomStringConvertible {
     public var horizontalAlignment: HorizontalAlignment
     public var verticalAlignment: VerticalAlignment
 
     public init(horizontalAlignment: HorizontalAlignment, verticalAlignment: VerticalAlignment) {
         self.horizontalAlignment = horizontalAlignment
         self.verticalAlignment = verticalAlignment
+    }
+    
+    public var description: String {
+        return "\(horizontalAlignment.description)-\(verticalAlignment.description)"
     }
 
     public static let top = Alignment(horizontalAlignment: .center, verticalAlignment: .top)

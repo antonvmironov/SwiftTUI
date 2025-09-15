@@ -1,4 +1,4 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 6.1
 
 import PackageDescription
 
@@ -18,9 +18,15 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftTUI",
-            dependencies: []),
+            dependencies: [],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
         .testTarget(
             name: "SwiftTUITests",
-            dependencies: ["SwiftTUI"]),
+            dependencies: ["SwiftTUI"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
     ]
 )

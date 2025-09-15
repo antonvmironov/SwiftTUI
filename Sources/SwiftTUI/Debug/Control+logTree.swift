@@ -7,7 +7,7 @@ extension Control {
     ///   → TextControl
     ///   → TextControl
     /// ```
-    func logTree() {
+    @MainActor func logTree() {
         log(treeDescription)
     }
 

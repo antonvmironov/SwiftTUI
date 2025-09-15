@@ -1,0 +1,1718 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.Colors-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/sources",
+      "importPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorCell.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorRow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules/SwiftTUI.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "Colors",
+      "moduleOutputPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules/Colors.swiftmodule",
+      "objects" : [
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorCell.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorRow.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorState.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ContentView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "Colors_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorCell.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorRow.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules/Colors.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorCell.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorRow.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorState.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ContentView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/main.swift"
+      ],
+      "tempsPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SwiftTUI-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/sources",
+      "importPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Control.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Window.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Control+logTree.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Node+logTree.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/log.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/AttributeScopes+SwiftTUIAttributes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Cell.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/CellAttributes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Color.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Edges.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Extended.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Position.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rect.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/EscapeSequence.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Layer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/LayerDrawing.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Renderer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Size.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Binding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/ObservedObject.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/State.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+ObservableObject.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+State.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ASCII.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/Application.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ArrowKeyParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/SwiftTUI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ComposedView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/GenericView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/LayoutRootView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ModifierView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Node.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/PrimitiveView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Weak.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/WeakSet.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Button.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Color+View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Divider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/GeometryReader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/ScrollView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Spacer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Text.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/TextField.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/EmptyView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ForEach.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Group.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Background.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Bold.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Border.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FixedFrame.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FlexibleFrame.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/ForegroundColor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Italic.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/OnAppear.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Padding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/SetEnvironment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Strikethrough.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Underline.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Optional+View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Alignment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Axis.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/HStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/VStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/ZStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/TupleView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ViewBuilder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/_ConditionalView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SwiftTUI",
+      "moduleOutputPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules/SwiftTUI.swiftmodule",
+      "objects" : [
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Window.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control+logTree.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node+logTree.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/log.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/AttributeScopes+SwiftTUIAttributes.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Cell.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/CellAttributes.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Edges.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Extended.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Position.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Rect.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EscapeSequence.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Layer.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayerDrawing.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Renderer.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Size.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Binding.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Environment.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ObservedObject.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/State.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+Environment.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+ObservableObject.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+State.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ASCII.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Application.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ArrowKeyParser.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SwiftTUI.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ComposedView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GenericView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayoutRootView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ModifierView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/PrimitiveView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Weak.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/WeakSet.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Button.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color+View.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Divider.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GeometryReader.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ScrollView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Spacer.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Text.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TextField.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EmptyView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForEach.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Group.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Background.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Bold.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Border.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FixedFrame.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FlexibleFrame.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForegroundColor.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Italic.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/OnAppear.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Padding.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SetEnvironment.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Strikethrough.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Underline.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Optional+View.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Alignment.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Axis.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/HStack.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/VStack.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ZStack.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TupleView.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ViewBuilder.swift.o",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/_ConditionalView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Window.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control+logTree.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node+logTree.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/AttributeScopes+SwiftTUIAttributes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Cell.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/CellAttributes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Edges.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Extended.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Position.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Rect.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EscapeSequence.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Layer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayerDrawing.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Renderer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Size.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Binding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Environment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ObservedObject.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/State.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+Environment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+ObservableObject.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+State.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ASCII.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Application.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ArrowKeyParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SwiftTUI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ComposedView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GenericView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayoutRootView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ModifierView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/PrimitiveView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Weak.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/WeakSet.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Button.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color+View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Divider.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GeometryReader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ScrollView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Spacer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Text.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TextField.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EmptyView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForEach.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Group.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Background.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Bold.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Border.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FixedFrame.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FlexibleFrame.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForegroundColor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Italic.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/OnAppear.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Padding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SetEnvironment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Strikethrough.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Underline.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Optional+View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Alignment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Axis.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/HStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/VStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ZStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TupleView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ViewBuilder.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/_ConditionalView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules/SwiftTUI.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Control.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Window.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Control+logTree.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Node+logTree.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/log.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/AttributeScopes+SwiftTUIAttributes.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Cell.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/CellAttributes.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Color.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Edges.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Extended.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Position.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rect.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/EscapeSequence.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Layer.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/LayerDrawing.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Renderer.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Size.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Binding.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Environment.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/ObservedObject.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/State.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+Environment.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+ObservableObject.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+State.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ASCII.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/Application.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ArrowKeyParser.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/SwiftTUI.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ComposedView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/GenericView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/LayoutRootView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ModifierView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Node.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/PrimitiveView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/View.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Weak.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/WeakSet.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Button.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Color+View.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Divider.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/GeometryReader.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/ScrollView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Spacer.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Text.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/TextField.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/EmptyView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ForEach.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Group.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Background.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Bold.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Border.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FixedFrame.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FlexibleFrame.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/ForegroundColor.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Italic.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/OnAppear.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Padding.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/SetEnvironment.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Strikethrough.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Underline.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Optional+View.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Alignment.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Axis.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/HStack.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/VStack.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/ZStack.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/TupleView.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ViewBuilder.swift",
+        "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/_ConditionalView.swift"
+      ],
+      "tempsPath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "Colors" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "Colors",
+      "-incremental",
+      "-c",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorCell.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorRow.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorState.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ContentView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/main.swift",
+      "-I",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "Colors_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ],
+    "SwiftTUI" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "SwiftTUI",
+      "-incremental",
+      "-c",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Control.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Window.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Control+logTree.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Node+logTree.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/log.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/AttributeScopes+SwiftTUIAttributes.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Cell.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/CellAttributes.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Color.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Edges.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Extended.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Position.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rect.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/EscapeSequence.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Layer.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/LayerDrawing.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Renderer.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Size.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Binding.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Environment.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/ObservedObject.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/State.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+Environment.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+ObservableObject.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+State.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ASCII.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/Application.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ArrowKeyParser.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/SwiftTUI.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ComposedView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/GenericView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/LayoutRootView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ModifierView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Node.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/PrimitiveView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/View.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Weak.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/WeakSet.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Button.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Color+View.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Divider.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/GeometryReader.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/ScrollView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Spacer.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Text.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/TextField.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/EmptyView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ForEach.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Group.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Background.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Bold.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Border.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FixedFrame.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FlexibleFrame.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/ForegroundColor.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Italic.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/OnAppear.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Padding.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/SetEnvironment.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Strikethrough.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Underline.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Optional+View.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Alignment.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Axis.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/HStack.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/VStack.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/ZStack.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/TupleView.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ViewBuilder.swift",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/_ConditionalView.swift",
+      "-I",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "Colors" : [
+      "SwiftTUI"
+    ],
+    "SwiftTUI" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "enableAllTraits" : false
+  },
+  "writeCommands" : {
+    "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorCell.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorRow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ColorState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/Sources/Colors/main.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/sources"
+    },
+    "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorCell.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorRow.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ColorState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/Colors.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ASCII.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Alignment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Application.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ArrowKeyParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/AttributeScopes+SwiftTUIAttributes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Axis.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Background.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Binding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Bold.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Border.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Button.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Cell.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/CellAttributes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color+View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Color.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ComposedView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control+logTree.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Control.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Divider.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Edges.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EmptyView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Environment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/EscapeSequence.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Extended.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FixedFrame.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/FlexibleFrame.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForEach.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ForegroundColor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GenericView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/GeometryReader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Group.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/HStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Italic.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Layer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayerDrawing.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/LayoutRootView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ModifierView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node+logTree.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Node.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ObservedObject.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/OnAppear.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Optional+View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Padding.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Position.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/PrimitiveView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Rect.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Renderer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ScrollView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SetEnvironment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Size.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Spacer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/State.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Strikethrough.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SwiftTUI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/SwiftTUI.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Text.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TextField.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/TupleView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Underline.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/VStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+Environment.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+ObservableObject.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View+State.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/View.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ViewBuilder.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Weak.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/WeakSet.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/Window.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/ZStack.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/_ConditionalView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/log.swift.o"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/Colors.product/Objects.LinkFileList"
+    },
+    "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Control.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Controls/Window.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Control+logTree.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/Node+logTree.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Debug/log.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/AttributeScopes+SwiftTUIAttributes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Cell.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/CellAttributes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Color.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Edges.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Extended.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Position.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rect.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/EscapeSequence.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Layer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/LayerDrawing.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Rendering/Renderer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Drawing/Size.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Binding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/ObservedObject.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/State.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+Environment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+ObservableObject.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/PropertyWrappers/View+State.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ASCII.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/Application.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/RunLoop/ArrowKeyParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/SwiftTUI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ComposedView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/GenericView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/LayoutRootView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/ModifierView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Node.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/PrimitiveView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/Weak.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/ViewGraph/WeakSet.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Button.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Color+View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Divider.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/GeometryReader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/ScrollView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Spacer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/Text.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Controls/TextField.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/EmptyView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ForEach.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Group.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Background.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Bold.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Border.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FixedFrame.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/FlexibleFrame.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/ForegroundColor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Italic.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/OnAppear.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Padding.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/SetEnvironment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Strikethrough.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Modifiers/Underline.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Optional+View.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Alignment.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/Axis.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/HStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/VStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/Stacks/ZStack.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/TupleView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/ViewBuilder.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/SwiftTUI/SwiftTUI/Sources/SwiftTUI/Views/_ConditionalView.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/SwiftTUI.build/sources"
+    },
+    "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/usr/share/swift/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/SwiftTUI/SwiftTUI/Examples/Colors/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+    }
+  }
+}

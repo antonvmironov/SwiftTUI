@@ -18,9 +18,15 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftTUI",
-            dependencies: []),
+            dependencies: [],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
         .testTarget(
             name: "SwiftTUITests",
-            dependencies: ["SwiftTUI"]),
+            dependencies: ["SwiftTUI"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]),
     ]
 )

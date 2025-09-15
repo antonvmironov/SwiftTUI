@@ -1,171 +1,185 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class EdgesTests: XCTestCase {
+struct EdgesTests {
     
     // MARK: - Individual Edge Tests
     
-    func testIndividualEdges() throws {
-        XCTAssertEqual(Edges.top.rawValue, 1 << 0)
-        XCTAssertEqual(Edges.bottom.rawValue, 1 << 1)
-        XCTAssertEqual(Edges.left.rawValue, 1 << 2)
-        XCTAssertEqual(Edges.right.rawValue, 1 << 3)
+    @Test("Individual edges have correct raw values and are unique")
+    func individualEdges() throws {
+        #expect(Edges.top.rawValue == 1 << 0)
+        #expect(Edges.bottom.rawValue == 1 << 1)
+        #expect(Edges.left.rawValue == 1 << 2)
+        #expect(Edges.right.rawValue == 1 << 3)
         
         // Test that each edge is unique
-        XCTAssertNotEqual(Edges.top, Edges.bottom)
-        XCTAssertNotEqual(Edges.top, Edges.left)
-        XCTAssertNotEqual(Edges.top, Edges.right)
-        XCTAssertNotEqual(Edges.bottom, Edges.left)
-        XCTAssertNotEqual(Edges.bottom, Edges.right)
-        XCTAssertNotEqual(Edges.left, Edges.right)
+        #expect(Edges.top != Edges.bottom)
+        #expect(Edges.top != Edges.left)
+        #expect(Edges.top != Edges.right)
+        #expect(Edges.bottom != Edges.left)
+        #expect(Edges.bottom != Edges.right)
+        #expect(Edges.left != Edges.right)
     }
     
     // MARK: - Combined Edge Tests
     
-    func testAllEdges() throws {
+    @Test("All edges contains all individual edges")
+    func allEdges() throws {
         let all = Edges.all
         
         // Should contain all individual edges
-        XCTAssertTrue(all.contains(.top))
-        XCTAssertTrue(all.contains(.bottom))
-        XCTAssertTrue(all.contains(.left))
-        XCTAssertTrue(all.contains(.right))
+        #expect(all.contains(.top))
+        #expect(all.contains(.bottom))
+        #expect(all.contains(.left))
+        #expect(all.contains(.right))
         
         // Should equal the union of all edges
         let expected: Edges = [.top, .bottom, .left, .right]
-        XCTAssertEqual(all, expected)
+        #expect(all == expected)
     }
     
-    func testHorizontalEdges() throws {
+    @Test("Horizontal edges contains left and right only")
+    func horizontalEdges() throws {
         let horizontal = Edges.horizontal
         
         // Should contain left and right
-        XCTAssertTrue(horizontal.contains(.left))
-        XCTAssertTrue(horizontal.contains(.right))
+        #expect(horizontal.contains(.left))
+        #expect(horizontal.contains(.right))
         
         // Should not contain top and bottom
-        XCTAssertFalse(horizontal.contains(.top))
-        XCTAssertFalse(horizontal.contains(.bottom))
+        #expect(!horizontal.contains(.top))
+        #expect(!horizontal.contains(.bottom))
         
         // Should equal the union of left and right
         let expected: Edges = [.left, .right]
-        XCTAssertEqual(horizontal, expected)
+        #expect(horizontal == expected)
     }
     
-    func testVerticalEdges() throws {
+    @Test("Vertical edges contains top and bottom only")
+    func verticalEdges() throws {
         let vertical = Edges.vertical
         
         // Should contain top and bottom
-        XCTAssertTrue(vertical.contains(.top))
-        XCTAssertTrue(vertical.contains(.bottom))
+        #expect(vertical.contains(.top))
+        #expect(vertical.contains(.bottom))
         
         // Should not contain left and right
-        XCTAssertFalse(vertical.contains(.left))
-        XCTAssertFalse(vertical.contains(.right))
+        #expect(!vertical.contains(.left))
+        #expect(!vertical.contains(.right))
         
         // Should equal the union of top and bottom
         let expected: Edges = [.top, .bottom]
-        XCTAssertEqual(vertical, expected)
+        #expect(vertical == expected)
     }
     
     // MARK: - Option Set Behavior Tests
     
-    func testOptionSetUnion() throws {
+    @Test("OptionSet union behavior works correctly")
+    func optionSetUnion() throws {
         let topBottom: Edges = [.top, .bottom]
         let leftRight: Edges = [.left, .right]
         let all = topBottom.union(leftRight)
         
-        XCTAssertEqual(all, Edges.all)
+        #expect(all == Edges.all)
     }
     
-    func testOptionSetIntersection() throws {
+    @Test("OptionSet intersection behavior works correctly")
+    func optionSetIntersection() throws {
         let topLeft: Edges = [.top, .left]
         let topRight: Edges = [.top, .right]
         let intersection = topLeft.intersection(topRight)
         
-        XCTAssertEqual(intersection, Edges.top)
+        #expect(intersection == Edges.top)
     }
     
-    func testOptionSetSymmetricDifference() throws {
+    @Test("OptionSet symmetric difference works correctly")
+    func optionSetSymmetricDifference() throws {
         let topLeft: Edges = [.top, .left]
         let topRight: Edges = [.top, .right]
         let diff = topLeft.symmetricDifference(topRight)
         
         let expected: Edges = [.left, .right]
-        XCTAssertEqual(diff, expected)
+        #expect(diff == expected)
     }
     
-    func testOptionSetSubtracting() throws {
+    @Test("OptionSet subtracting works correctly")
+    func optionSetSubtracting() throws {
         let all = Edges.all
         let vertical = Edges.vertical
         let horizontal = all.subtracting(vertical)
         
-        XCTAssertEqual(horizontal, Edges.horizontal)
+        #expect(horizontal == Edges.horizontal)
     }
     
     // MARK: - Empty Set Tests
     
-    func testEmptyEdges() throws {
+    @Test("Empty edges contains no edges")
+    func emptyEdges() throws {
         let empty = Edges()
         
-        XCTAssertFalse(empty.contains(.top))
-        XCTAssertFalse(empty.contains(.bottom))
-        XCTAssertFalse(empty.contains(.left))
-        XCTAssertFalse(empty.contains(.right))
+        #expect(!empty.contains(.top))
+        #expect(!empty.contains(.bottom))
+        #expect(!empty.contains(.left))
+        #expect(!empty.contains(.right))
         
-        XCTAssertEqual(empty.rawValue, 0)
+        #expect(empty.rawValue == 0)
     }
     
     // MARK: - Raw Value Tests
     
-    func testRawValueInitialization() throws {
+    @Test("Raw value initialization creates correct edges")
+    func rawValueInitialization() throws {
         let edges1 = Edges(rawValue: 1) // top
         let edges2 = Edges(rawValue: 2) // bottom
         let edges3 = Edges(rawValue: 4) // left
         let edges4 = Edges(rawValue: 8) // right
         
-        XCTAssertEqual(edges1, .top)
-        XCTAssertEqual(edges2, .bottom)
-        XCTAssertEqual(edges3, .left)
-        XCTAssertEqual(edges4, .right)
+        #expect(edges1 == .top)
+        #expect(edges2 == .bottom)
+        #expect(edges3 == .left)
+        #expect(edges4 == .right)
     }
     
-    func testRawValueCombinations() throws {
+    @Test("Raw value combinations work correctly")
+    func rawValueCombinations() throws {
         let topBottom = Edges(rawValue: 3) // 1 + 2
         let expected: Edges = [.top, .bottom]
         
-        XCTAssertEqual(topBottom, expected)
-        XCTAssertEqual(topBottom, Edges.vertical)
+        #expect(topBottom == expected)
+        #expect(topBottom == Edges.vertical)
     }
     
     // MARK: - Sendable Conformance Tests
     
-    func testSendableConformance() throws {
+    @Test("Edges conforms to Sendable")
+    func sendableConformance() throws {
         // Test that Edges can be used across actor boundaries
         let edges = Edges.all
         
         // This test verifies that the type compiles with Sendable conformance
         // In actual usage, this would be passed to async functions or actors
-        XCTAssertEqual(edges, Edges.all)
+        #expect(edges == Edges.all)
     }
     
     // MARK: - Equality Tests
     
-    func testEdgesEquality() throws {
+    @Test("Edges equality works correctly")
+    func edgesEquality() throws {
         let edges1: Edges = [.top, .left]
         let edges2: Edges = [.top, .left]
         let edges3: Edges = [.top, .right]
         
-        XCTAssertEqual(edges1, edges2)
-        XCTAssertNotEqual(edges1, edges3)
+        #expect(edges1 == edges2)
+        #expect(edges1 != edges3)
     }
     
     // MARK: - Static Property Consistency Tests
     
-    func testStaticPropertyConsistency() throws {
+    @Test("Static properties have consistent raw values")
+    func staticPropertyConsistency() throws {
         // Ensure all static properties are consistent
-        XCTAssertEqual(Edges.all.rawValue, 15) // 1 + 2 + 4 + 8
-        XCTAssertEqual(Edges.horizontal.rawValue, 12) // 4 + 8
-        XCTAssertEqual(Edges.vertical.rawValue, 3) // 1 + 2
+        #expect(Edges.all.rawValue == 15) // 1 + 2 + 4 + 8
+        #expect(Edges.horizontal.rawValue == 12) // 4 + 8
+        #expect(Edges.vertical.rawValue == 3) // 1 + 2
     }
 }

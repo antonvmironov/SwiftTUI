@@ -1,64 +1,72 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class SizeTests: XCTestCase {
+struct SizeTests {
     
     // MARK: - Initialization Tests
     
-    func testSizeInitialization() throws {
+    @Test("Size initialization with width and height")
+    func sizeInitialization() throws {
         let size = Size(width: 10, height: 20)
-        XCTAssertEqual(size.width, Extended(10))
-        XCTAssertEqual(size.height, Extended(20))
+        #expect(size.width == Extended(10))
+        #expect(size.height == Extended(20))
     }
     
-    func testSizeWithExtended() throws {
+    @Test("Size initialization with Extended values")
+    func sizeWithExtended() throws {
         let size = Size(width: Extended(15), height: Extended.infinity)
-        XCTAssertEqual(size.width, Extended(15))
-        XCTAssertEqual(size.height, Extended.infinity)
+        #expect(size.width == Extended(15))
+        #expect(size.height == Extended.infinity)
     }
     
     // MARK: - Static Properties Tests
     
-    func testZeroSize() throws {
+    @Test("Zero size has correct dimensions")
+    func zeroSize() throws {
         let zero = Size.zero
-        XCTAssertEqual(zero.width, Extended(0))
-        XCTAssertEqual(zero.height, Extended(0))
+        #expect(zero.width == Extended(0))
+        #expect(zero.height == Extended(0))
     }
     
     // MARK: - Equality Tests
     
-    func testSizeEquality() throws {
+    @Test("Size equality works correctly")
+    func sizeEquality() throws {
         let size1 = Size(width: 10, height: 20)
         let size2 = Size(width: 10, height: 20)
         let size3 = Size(width: 15, height: 20)
         
-        XCTAssertEqual(size1, size2)
-        XCTAssertNotEqual(size1, size3)
+        #expect(size1 == size2)
+        #expect(size1 != size3)
     }
     
-    func testSizeEqualityWithInfinity() throws {
+    @Test("Size equality works with infinity")
+    func sizeEqualityWithInfinity() throws {
         let size1 = Size(width: Extended.infinity, height: 20)
         let size2 = Size(width: Extended.infinity, height: 20)
         let size3 = Size(width: 10, height: 20)
         
-        XCTAssertEqual(size1, size2)
-        XCTAssertNotEqual(size1, size3)
+        #expect(size1 == size2)
+        #expect(size1 != size3)
     }
     
     // MARK: - Description Tests
     
-    func testSizeDescription() throws {
+    @Test("Size description format is correct")
+    func sizeDescription() throws {
         let size = Size(width: 10, height: 20)
-        XCTAssertEqual(size.description, "10x20")
+        #expect(size.description == "10x20")
     }
     
-    func testSizeDescriptionWithInfinity() throws {
+    @Test("Size description works with infinity")
+    func sizeDescriptionWithInfinity() throws {
         let size = Size(width: Extended.infinity, height: 20)
-        XCTAssertEqual(size.description, "∞x20")
+        #expect(size.description == "∞x20")
     }
     
-    func testZeroSizeDescription() throws {
+    @Test("Zero size description is correct")
+    func zeroSizeDescription() throws {
         let zero = Size.zero
-        XCTAssertEqual(zero.description, "0x0")
+        #expect(zero.description == "0x0")
     }
 }

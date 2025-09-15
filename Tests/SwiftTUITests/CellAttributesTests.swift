@@ -1,21 +1,23 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class CellAttributesTests: XCTestCase {
+struct CellAttributesTests {
     
     // MARK: - Initialization Tests
     
-    func testDefaultInitialization() throws {
+    @Test("Default initialization sets all attributes to false")
+    func defaultInitialization() throws {
         let attributes = CellAttributes()
         
-        XCTAssertFalse(attributes.bold)
-        XCTAssertFalse(attributes.italic)
-        XCTAssertFalse(attributes.underline)
-        XCTAssertFalse(attributes.strikethrough)
-        XCTAssertFalse(attributes.inverted)
+        #expect(!attributes.bold)
+        #expect(!attributes.italic)
+        #expect(!attributes.underline)
+        #expect(!attributes.strikethrough)
+        #expect(!attributes.inverted)
     }
     
-    func testCustomInitialization() throws {
+    @Test("Custom initialization sets attributes correctly")
+    func customInitialization() throws {
         let attributes = CellAttributes(
             bold: true,
             italic: false,
@@ -24,35 +26,38 @@ final class CellAttributesTests: XCTestCase {
             inverted: true
         )
         
-        XCTAssertTrue(attributes.bold)
-        XCTAssertFalse(attributes.italic)
-        XCTAssertTrue(attributes.underline)
-        XCTAssertFalse(attributes.strikethrough)
-        XCTAssertTrue(attributes.inverted)
+        #expect(attributes.bold)
+        #expect(!attributes.italic)
+        #expect(attributes.underline)
+        #expect(!attributes.strikethrough)
+        #expect(attributes.inverted)
     }
     
-    func testPartialInitialization() throws {
+    @Test("Partial initialization uses defaults for unspecified properties")
+    func partialInitialization() throws {
         let attributes = CellAttributes(bold: true, underline: true)
         
-        XCTAssertTrue(attributes.bold)
-        XCTAssertFalse(attributes.italic)
-        XCTAssertTrue(attributes.underline)
-        XCTAssertFalse(attributes.strikethrough)
-        XCTAssertFalse(attributes.inverted)
+        #expect(attributes.bold)
+        #expect(!attributes.italic)
+        #expect(attributes.underline)
+        #expect(!attributes.strikethrough)
+        #expect(!attributes.inverted)
     }
     
     // MARK: - Equality Tests
     
-    func testEquality() throws {
+    @Test("Equality works correctly for similar attributes")
+    func equality() throws {
         let attributes1 = CellAttributes(bold: true, italic: false)
         let attributes2 = CellAttributes(bold: true, italic: false)
         let attributes3 = CellAttributes(bold: false, italic: false)
         
-        XCTAssertEqual(attributes1, attributes2)
-        XCTAssertNotEqual(attributes1, attributes3)
+        #expect(attributes1 == attributes2)
+        #expect(attributes1 != attributes3)
     }
     
-    func testEqualityWithAllProperties() throws {
+    @Test("Equality works with all properties set")
+    func equalityWithAllProperties() throws {
         let attributes1 = CellAttributes(
             bold: true,
             italic: true,
@@ -75,65 +80,72 @@ final class CellAttributesTests: XCTestCase {
             inverted: false // Different
         )
         
-        XCTAssertEqual(attributes1, attributes2)
-        XCTAssertNotEqual(attributes1, attributes3)
+        #expect(attributes1 == attributes2)
+        #expect(attributes1 != attributes3)
     }
     
     // MARK: - Individual Property Tests
     
-    func testBoldProperty() throws {
+    @Test("Bold property can be modified")
+    func boldProperty() throws {
         var attributes = CellAttributes()
-        XCTAssertFalse(attributes.bold)
+        #expect(!attributes.bold)
         
         attributes.bold = true
-        XCTAssertTrue(attributes.bold)
+        #expect(attributes.bold)
     }
     
-    func testItalicProperty() throws {
+    @Test("Italic property can be modified")
+    func italicProperty() throws {
         var attributes = CellAttributes()
-        XCTAssertFalse(attributes.italic)
+        #expect(!attributes.italic)
         
         attributes.italic = true
-        XCTAssertTrue(attributes.italic)
+        #expect(attributes.italic)
     }
     
-    func testUnderlineProperty() throws {
+    @Test("Underline property can be modified")
+    func underlineProperty() throws {
         var attributes = CellAttributes()
-        XCTAssertFalse(attributes.underline)
+        #expect(!attributes.underline)
         
         attributes.underline = true
-        XCTAssertTrue(attributes.underline)
+        #expect(attributes.underline)
     }
     
-    func testStrikethroughProperty() throws {
+    @Test("Strikethrough property can be modified")
+    func strikethroughProperty() throws {
         var attributes = CellAttributes()
-        XCTAssertFalse(attributes.strikethrough)
+        #expect(!attributes.strikethrough)
         
         attributes.strikethrough = true
-        XCTAssertTrue(attributes.strikethrough)
+        #expect(attributes.strikethrough)
     }
     
-    func testInvertedProperty() throws {
+    @Test("Inverted property can be modified")
+    func invertedProperty() throws {
         var attributes = CellAttributes()
-        XCTAssertFalse(attributes.inverted)
+        #expect(!attributes.inverted)
         
         attributes.inverted = true
-        XCTAssertTrue(attributes.inverted)
+        #expect(attributes.inverted)
     }
     
     // MARK: - Combined Properties Tests
     
-    func testMultipleAttributes() throws {
+    @Test("Multiple attributes can be set simultaneously")
+    func multipleAttributes() throws {
         let attributes = CellAttributes(bold: true, italic: true, underline: true)
         
-        XCTAssertTrue(attributes.bold)
-        XCTAssertTrue(attributes.italic)
-        XCTAssertTrue(attributes.underline)
-        XCTAssertFalse(attributes.strikethrough)
-        XCTAssertFalse(attributes.inverted)
+        #expect(attributes.bold)
+        #expect(attributes.italic)
+        #expect(attributes.underline)
+        #expect(!attributes.strikethrough)
+        #expect(!attributes.inverted)
     }
     
-    func testAllAttributesTrue() throws {
+    @Test("All attributes can be set to true")
+    func allAttributesTrue() throws {
         let attributes = CellAttributes(
             bold: true,
             italic: true,
@@ -142,10 +154,10 @@ final class CellAttributesTests: XCTestCase {
             inverted: true
         )
         
-        XCTAssertTrue(attributes.bold)
-        XCTAssertTrue(attributes.italic)
-        XCTAssertTrue(attributes.underline)
-        XCTAssertTrue(attributes.strikethrough)
-        XCTAssertTrue(attributes.inverted)
+        #expect(attributes.bold)
+        #expect(attributes.italic)
+        #expect(attributes.underline)
+        #expect(attributes.strikethrough)
+        #expect(attributes.inverted)
     }
 }

@@ -1,175 +1,190 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class AlignmentTests: XCTestCase {
+struct AlignmentTests {
     
     // MARK: - VerticalAlignment Tests
     
-    func testVerticalAlignmentCases() throws {
+    @Test("VerticalAlignment has all expected cases")
+    func verticalAlignmentCases() throws {
         let allCases = VerticalAlignment.allCases
-        XCTAssertEqual(allCases.count, 3)
-        XCTAssertTrue(allCases.contains(.top))
-        XCTAssertTrue(allCases.contains(.center))
-        XCTAssertTrue(allCases.contains(.bottom))
+        #expect(allCases.count == 3)
+        #expect(allCases.contains(.top))
+        #expect(allCases.contains(.center))
+        #expect(allCases.contains(.bottom))
     }
     
-    func testVerticalAlignmentDescription() throws {
-        XCTAssertEqual(VerticalAlignment.top.description, "top")
-        XCTAssertEqual(VerticalAlignment.center.description, "center")
-        XCTAssertEqual(VerticalAlignment.bottom.description, "bottom")
+    @Test("VerticalAlignment descriptions are correct")
+    func verticalAlignmentDescription() throws {
+        #expect(VerticalAlignment.top.description == "top")
+        #expect(VerticalAlignment.center.description == "center")
+        #expect(VerticalAlignment.bottom.description == "bottom")
     }
     
-    func testVerticalAlignmentEquality() throws {
-        XCTAssertEqual(VerticalAlignment.top, VerticalAlignment.top)
-        XCTAssertEqual(VerticalAlignment.center, VerticalAlignment.center)
-        XCTAssertEqual(VerticalAlignment.bottom, VerticalAlignment.bottom)
+    @Test("VerticalAlignment equality works correctly")
+    func verticalAlignmentEquality() throws {
+        #expect(VerticalAlignment.top == VerticalAlignment.top)
+        #expect(VerticalAlignment.center == VerticalAlignment.center)
+        #expect(VerticalAlignment.bottom == VerticalAlignment.bottom)
         
-        XCTAssertNotEqual(VerticalAlignment.top, VerticalAlignment.center)
-        XCTAssertNotEqual(VerticalAlignment.center, VerticalAlignment.bottom)
-        XCTAssertNotEqual(VerticalAlignment.top, VerticalAlignment.bottom)
+        #expect(VerticalAlignment.top != VerticalAlignment.center)
+        #expect(VerticalAlignment.center != VerticalAlignment.bottom)
+        #expect(VerticalAlignment.top != VerticalAlignment.bottom)
     }
     
-    func testVerticalAlignmentHashable() throws {
+    @Test("VerticalAlignment implements Hashable correctly")
+    func verticalAlignmentHashable() throws {
         let alignment1 = VerticalAlignment.top
         let alignment2 = VerticalAlignment.top
         let alignment3 = VerticalAlignment.center
         
-        XCTAssertEqual(alignment1.hashValue, alignment2.hashValue)
-        XCTAssertNotEqual(alignment1.hashValue, alignment3.hashValue)
+        #expect(alignment1.hashValue == alignment2.hashValue)
+        #expect(alignment1.hashValue != alignment3.hashValue)
         
         // Test that they can be used in sets
         let alignmentSet: Set<VerticalAlignment> = [.top, .center, .top]
-        XCTAssertEqual(alignmentSet.count, 2)
+        #expect(alignmentSet.count == 2)
     }
     
     // MARK: - HorizontalAlignment Tests
     
-    func testHorizontalAlignmentCases() throws {
+    @Test("HorizontalAlignment has all expected cases")
+    func horizontalAlignmentCases() throws {
         let allCases = HorizontalAlignment.allCases
-        XCTAssertEqual(allCases.count, 3)
-        XCTAssertTrue(allCases.contains(.leading))
-        XCTAssertTrue(allCases.contains(.center))
-        XCTAssertTrue(allCases.contains(.trailing))
+        #expect(allCases.count == 3)
+        #expect(allCases.contains(.leading))
+        #expect(allCases.contains(.center))
+        #expect(allCases.contains(.trailing))
     }
     
-    func testHorizontalAlignmentDescription() throws {
-        XCTAssertEqual(HorizontalAlignment.leading.description, "leading")
-        XCTAssertEqual(HorizontalAlignment.center.description, "center")
-        XCTAssertEqual(HorizontalAlignment.trailing.description, "trailing")
+    @Test("HorizontalAlignment descriptions are correct")
+    func horizontalAlignmentDescription() throws {
+        #expect(HorizontalAlignment.leading.description == "leading")
+        #expect(HorizontalAlignment.center.description == "center")
+        #expect(HorizontalAlignment.trailing.description == "trailing")
     }
     
-    func testHorizontalAlignmentEquality() throws {
-        XCTAssertEqual(HorizontalAlignment.leading, HorizontalAlignment.leading)
-        XCTAssertEqual(HorizontalAlignment.center, HorizontalAlignment.center)
-        XCTAssertEqual(HorizontalAlignment.trailing, HorizontalAlignment.trailing)
+    @Test("HorizontalAlignment equality works correctly")
+    func horizontalAlignmentEquality() throws {
+        #expect(HorizontalAlignment.leading == HorizontalAlignment.leading)
+        #expect(HorizontalAlignment.center == HorizontalAlignment.center)
+        #expect(HorizontalAlignment.trailing == HorizontalAlignment.trailing)
         
-        XCTAssertNotEqual(HorizontalAlignment.leading, HorizontalAlignment.center)
-        XCTAssertNotEqual(HorizontalAlignment.center, HorizontalAlignment.trailing)
-        XCTAssertNotEqual(HorizontalAlignment.leading, HorizontalAlignment.trailing)
+        #expect(HorizontalAlignment.leading != HorizontalAlignment.center)
+        #expect(HorizontalAlignment.center != HorizontalAlignment.trailing)
+        #expect(HorizontalAlignment.leading != HorizontalAlignment.trailing)
     }
     
-    func testHorizontalAlignmentHashable() throws {
+    @Test("HorizontalAlignment implements Hashable correctly")
+    func horizontalAlignmentHashable() throws {
         let alignment1 = HorizontalAlignment.leading
         let alignment2 = HorizontalAlignment.leading
         let alignment3 = HorizontalAlignment.center
         
-        XCTAssertEqual(alignment1.hashValue, alignment2.hashValue)
-        XCTAssertNotEqual(alignment1.hashValue, alignment3.hashValue)
+        #expect(alignment1.hashValue == alignment2.hashValue)
+        #expect(alignment1.hashValue != alignment3.hashValue)
         
         // Test that they can be used in sets
         let alignmentSet: Set<HorizontalAlignment> = [.leading, .center, .leading]
-        XCTAssertEqual(alignmentSet.count, 2)
+        #expect(alignmentSet.count == 2)
     }
     
     // MARK: - Alignment Tests
     
-    func testAlignmentInitialization() throws {
+    @Test("Alignment initialization sets properties correctly")
+    func alignmentInitialization() throws {
         let alignment = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
-        XCTAssertEqual(alignment.horizontalAlignment, .leading)
-        XCTAssertEqual(alignment.verticalAlignment, .top)
+        #expect(alignment.horizontalAlignment == .leading)
+        #expect(alignment.verticalAlignment == .top)
     }
     
-    func testAlignmentDescription() throws {
+    @Test("Alignment description format is correct")
+    func alignmentDescription() throws {
         let alignment1 = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
-        XCTAssertEqual(alignment1.description, "leading-top")
+        #expect(alignment1.description == "leading-top")
         
         let alignment2 = Alignment(horizontalAlignment: .center, verticalAlignment: .bottom)
-        XCTAssertEqual(alignment2.description, "center-bottom")
+        #expect(alignment2.description == "center-bottom")
         
         let alignment3 = Alignment(horizontalAlignment: .trailing, verticalAlignment: .center)
-        XCTAssertEqual(alignment3.description, "trailing-center")
+        #expect(alignment3.description == "trailing-center")
     }
     
-    func testAlignmentEquality() throws {
+    @Test("Alignment equality works correctly")
+    func alignmentEquality() throws {
         let alignment1 = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
         let alignment2 = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
         let alignment3 = Alignment(horizontalAlignment: .center, verticalAlignment: .top)
         let alignment4 = Alignment(horizontalAlignment: .leading, verticalAlignment: .center)
         
-        XCTAssertEqual(alignment1, alignment2)
-        XCTAssertNotEqual(alignment1, alignment3)
-        XCTAssertNotEqual(alignment1, alignment4)
-        XCTAssertNotEqual(alignment3, alignment4)
+        #expect(alignment1 == alignment2)
+        #expect(alignment1 != alignment3)
+        #expect(alignment1 != alignment4)
+        #expect(alignment3 != alignment4)
     }
     
-    func testAlignmentHashable() throws {
+    @Test("Alignment implements Hashable correctly")
+    func alignmentHashable() throws {
         let alignment1 = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
         let alignment2 = Alignment(horizontalAlignment: .leading, verticalAlignment: .top)
         let alignment3 = Alignment(horizontalAlignment: .center, verticalAlignment: .top)
         
-        XCTAssertEqual(alignment1.hashValue, alignment2.hashValue)
-        XCTAssertNotEqual(alignment1.hashValue, alignment3.hashValue)
+        #expect(alignment1.hashValue == alignment2.hashValue)
+        #expect(alignment1.hashValue != alignment3.hashValue)
         
         // Test that they can be used in sets
         let alignmentSet: Set<Alignment> = [alignment1, alignment2, alignment3]
-        XCTAssertEqual(alignmentSet.count, 2)
+        #expect(alignmentSet.count == 2)
     }
     
     // MARK: - Static Alignment Tests
     
-    func testStaticAlignments() throws {
+    @Test("Static alignments have correct component values")
+    func staticAlignments() throws {
         // Test all static alignments
-        XCTAssertEqual(Alignment.top.horizontalAlignment, .center)
-        XCTAssertEqual(Alignment.top.verticalAlignment, .top)
+        #expect(Alignment.top.horizontalAlignment == .center)
+        #expect(Alignment.top.verticalAlignment == .top)
         
-        XCTAssertEqual(Alignment.bottom.horizontalAlignment, .center)
-        XCTAssertEqual(Alignment.bottom.verticalAlignment, .bottom)
+        #expect(Alignment.bottom.horizontalAlignment == .center)
+        #expect(Alignment.bottom.verticalAlignment == .bottom)
         
-        XCTAssertEqual(Alignment.center.horizontalAlignment, .center)
-        XCTAssertEqual(Alignment.center.verticalAlignment, .center)
+        #expect(Alignment.center.horizontalAlignment == .center)
+        #expect(Alignment.center.verticalAlignment == .center)
         
-        XCTAssertEqual(Alignment.topLeading.horizontalAlignment, .leading)
-        XCTAssertEqual(Alignment.topLeading.verticalAlignment, .top)
+        #expect(Alignment.topLeading.horizontalAlignment == .leading)
+        #expect(Alignment.topLeading.verticalAlignment == .top)
         
-        XCTAssertEqual(Alignment.leading.horizontalAlignment, .leading)
-        XCTAssertEqual(Alignment.leading.verticalAlignment, .center)
+        #expect(Alignment.leading.horizontalAlignment == .leading)
+        #expect(Alignment.leading.verticalAlignment == .center)
         
-        XCTAssertEqual(Alignment.bottomLeading.horizontalAlignment, .leading)
-        XCTAssertEqual(Alignment.bottomLeading.verticalAlignment, .bottom)
+        #expect(Alignment.bottomLeading.horizontalAlignment == .leading)
+        #expect(Alignment.bottomLeading.verticalAlignment == .bottom)
         
-        XCTAssertEqual(Alignment.topTrailing.horizontalAlignment, .trailing)
-        XCTAssertEqual(Alignment.topTrailing.verticalAlignment, .top)
+        #expect(Alignment.topTrailing.horizontalAlignment == .trailing)
+        #expect(Alignment.topTrailing.verticalAlignment == .top)
         
-        XCTAssertEqual(Alignment.trailing.horizontalAlignment, .trailing)
-        XCTAssertEqual(Alignment.trailing.verticalAlignment, .center)
+        #expect(Alignment.trailing.horizontalAlignment == .trailing)
+        #expect(Alignment.trailing.verticalAlignment == .center)
         
-        XCTAssertEqual(Alignment.bottomTrailing.horizontalAlignment, .trailing)
-        XCTAssertEqual(Alignment.bottomTrailing.verticalAlignment, .bottom)
+        #expect(Alignment.bottomTrailing.horizontalAlignment == .trailing)
+        #expect(Alignment.bottomTrailing.verticalAlignment == .bottom)
     }
     
-    func testStaticAlignmentDescriptions() throws {
-        XCTAssertEqual(Alignment.top.description, "center-top")
-        XCTAssertEqual(Alignment.bottom.description, "center-bottom")
-        XCTAssertEqual(Alignment.center.description, "center-center")
-        XCTAssertEqual(Alignment.topLeading.description, "leading-top")
-        XCTAssertEqual(Alignment.leading.description, "leading-center")
-        XCTAssertEqual(Alignment.bottomLeading.description, "leading-bottom")
-        XCTAssertEqual(Alignment.topTrailing.description, "trailing-top")
-        XCTAssertEqual(Alignment.trailing.description, "trailing-center")
-        XCTAssertEqual(Alignment.bottomTrailing.description, "trailing-bottom")
+    @Test("Static alignment descriptions are correct")
+    func staticAlignmentDescriptions() throws {
+        #expect(Alignment.top.description == "center-top")
+        #expect(Alignment.bottom.description == "center-bottom")
+        #expect(Alignment.center.description == "center-center")
+        #expect(Alignment.topLeading.description == "leading-top")
+        #expect(Alignment.leading.description == "leading-center")
+        #expect(Alignment.bottomLeading.description == "leading-bottom")
+        #expect(Alignment.topTrailing.description == "trailing-top")
+        #expect(Alignment.trailing.description == "trailing-center")
+        #expect(Alignment.bottomTrailing.description == "trailing-bottom")
     }
     
-    func testStaticAlignmentUniqueness() throws {
+    @Test("All static alignments are unique")
+    func staticAlignmentUniqueness() throws {
         let alignments = [
             Alignment.top, Alignment.bottom, Alignment.center,
             Alignment.topLeading, Alignment.leading, Alignment.bottomLeading,
@@ -178,6 +193,6 @@ final class AlignmentTests: XCTestCase {
         
         // All static alignments should be unique
         let alignmentSet = Set(alignments)
-        XCTAssertEqual(alignmentSet.count, alignments.count)
+        #expect(alignmentSet.count == alignments.count)
     }
 }

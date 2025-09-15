@@ -1,24 +1,25 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class ColorTests: XCTestCase {
+struct ColorTests {
     
     // MARK: - ANSI Color Tests
     
-    func testBasicANSIColors() throws {
+    @Test("Basic ANSI colors are distinct and self-equal")
+    func basicANSIColors() throws {
         let black = Color.black
         let red = Color.red
         let green = Color.green
         let blue = Color.blue
         
         // Test that they are different colors
-        XCTAssertNotEqual(black, red)
-        XCTAssertNotEqual(red, green)
-        XCTAssertNotEqual(green, blue)
+        #expect(black != red)
+        #expect(red != green)
+        #expect(green != blue)
         
         // Test that same colors are equal
-        XCTAssertEqual(Color.black, Color.black)
-        XCTAssertEqual(Color.red, Color.red)
+        #expect(Color.black == Color.black)
+        #expect(Color.red == Color.red)
         
         // Test other colors exist
         _ = Color.yellow
@@ -27,18 +28,19 @@ final class ColorTests: XCTestCase {
         _ = Color.white
     }
     
-    func testBrightANSIColors() throws {
+    @Test("Bright ANSI colors are distinct from regular colors")
+    func brightANSIColors() throws {
         let brightBlack = Color.brightBlack
         let brightRed = Color.brightRed
         let brightGreen = Color.brightGreen
         
         // Test that bright colors are different from regular colors
-        XCTAssertNotEqual(Color.black, brightBlack)
-        XCTAssertNotEqual(Color.red, brightRed)
-        XCTAssertNotEqual(Color.green, brightGreen)
+        #expect(Color.black != brightBlack)
+        #expect(Color.red != brightRed)
+        #expect(Color.green != brightGreen)
         
         // Test gray alias
-        XCTAssertEqual(Color.gray, Color.brightBlack)
+        #expect(Color.gray == Color.brightBlack)
         
         // Test other bright colors exist
         _ = Color.brightYellow
@@ -48,125 +50,134 @@ final class ColorTests: XCTestCase {
         _ = Color.brightWhite
     }
     
-    func testDefaultColor() throws {
+    @Test("Default color is distinct and self-equal")
+    func defaultColor() throws {
         let defaultColor = Color.default
         
         // Test that default color is different from others
-        XCTAssertNotEqual(defaultColor, Color.black)
-        XCTAssertNotEqual(defaultColor, Color.white)
+        #expect(defaultColor != Color.black)
+        #expect(defaultColor != Color.white)
         
         // Test that multiple references are equal
-        XCTAssertEqual(Color.default, Color.default)
+        #expect(Color.default == Color.default)
     }
     
     // MARK: - XTerm Color Tests
     
-    func testXTermColorCreation() throws {
+    @Test("XTerm colors with different values are distinct")
+    func xtermColorCreation() throws {
         let color1 = Color.xterm(red: 0, green: 0, blue: 0)
         let color2 = Color.xterm(red: 5, green: 5, blue: 5)
         let color3 = Color.xterm(red: 2, green: 3, blue: 4)
         
         // Test that different colors are not equal
-        XCTAssertNotEqual(color1, color2)
-        XCTAssertNotEqual(color1, color3)
-        XCTAssertNotEqual(color2, color3)
+        #expect(color1 != color2)
+        #expect(color1 != color3)
+        #expect(color2 != color3)
         
         // Test that same colors are equal
         let color1Copy = Color.xterm(red: 0, green: 0, blue: 0)
-        XCTAssertEqual(color1, color1Copy)
+        #expect(color1 == color1Copy)
     }
     
-    func testXTermGrayscale() throws {
+    @Test("XTerm grayscale colors are distinct")
+    func xtermGrayscale() throws {
         let gray1 = Color.xterm(white: 0)
         let gray2 = Color.xterm(white: 23)
         let gray3 = Color.xterm(white: 12)
         
         // Test that different grayscale colors are not equal
-        XCTAssertNotEqual(gray1, gray2)
-        XCTAssertNotEqual(gray1, gray3)
-        XCTAssertNotEqual(gray2, gray3)
+        #expect(gray1 != gray2)
+        #expect(gray1 != gray3)
+        #expect(gray2 != gray3)
         
         // Test that same grayscale colors are equal
         let gray1Copy = Color.xterm(white: 0)
-        XCTAssertEqual(gray1, gray1Copy)
+        #expect(gray1 == gray1Copy)
     }
     
     // MARK: - True Color Tests
     
-    func testTrueColorCreation() throws {
+    @Test("True colors with different RGB values are distinct")
+    func trueColorCreation() throws {
         let color1 = Color.trueColor(red: 255, green: 0, blue: 0)
         let color2 = Color.trueColor(red: 0, green: 255, blue: 0)
         let color3 = Color.trueColor(red: 0, green: 0, blue: 255)
         
         // Test that different colors are not equal
-        XCTAssertNotEqual(color1, color2)
-        XCTAssertNotEqual(color1, color3)
-        XCTAssertNotEqual(color2, color3)
+        #expect(color1 != color2)
+        #expect(color1 != color3)
+        #expect(color2 != color3)
         
         // Test that same colors are equal
         let color1Copy = Color.trueColor(red: 255, green: 0, blue: 0)
-        XCTAssertEqual(color1, color1Copy)
+        #expect(color1 == color1Copy)
     }
     
-    func testTrueColorBoundaries() throws {
+    @Test("True color boundary values are handled correctly")
+    func trueColorBoundaries() throws {
         // Test boundary values
         let black = Color.trueColor(red: 0, green: 0, blue: 0)
         let white = Color.trueColor(red: 255, green: 255, blue: 255)
         let midRange = Color.trueColor(red: 128, green: 128, blue: 128)
         
-        XCTAssertNotEqual(black, white)
-        XCTAssertNotEqual(black, midRange)
-        XCTAssertNotEqual(white, midRange)
+        #expect(black != white)
+        #expect(black != midRange)
+        #expect(white != midRange)
     }
     
     // MARK: - Color Type Mixing Tests
     
-    func testDifferentColorTypes() throws {
+    @Test("Different color types are never equal")
+    func differentColorTypes() throws {
         let ansiRed = Color.red
         let trueRed = Color.trueColor(red: 255, green: 0, blue: 0)
         let xtermRed = Color.xterm(red: 5, green: 0, blue: 0)
         
         // Colors of different types should not be equal even if they represent similar colors
-        XCTAssertNotEqual(ansiRed, trueRed)
-        XCTAssertNotEqual(ansiRed, xtermRed)
-        XCTAssertNotEqual(trueRed, xtermRed)
+        #expect(ansiRed != trueRed)
+        #expect(ansiRed != xtermRed)
+        #expect(trueRed != xtermRed)
     }
     
     // MARK: - Hashable Tests
     
-    func testColorHashable() throws {
+    @Test("Colors implement Hashable correctly")
+    func colorHashable() throws {
         let color1 = Color.red
         let color2 = Color.red
         let color3 = Color.blue
         
         // Same colors should have same hash
-        XCTAssertEqual(color1.hashValue, color2.hashValue)
+        #expect(color1.hashValue == color2.hashValue)
         
         // Different colors should (likely) have different hashes
-        XCTAssertNotEqual(color1.hashValue, color3.hashValue)
+        #expect(color1.hashValue != color3.hashValue)
         
         // Test that colors can be used in sets
         let colorSet: Set<Color> = [Color.red, Color.blue, Color.red]
-        XCTAssertEqual(colorSet.count, 2) // Should only contain red and blue
+        #expect(colorSet.count == 2) // Should only contain red and blue
     }
     
     // MARK: - Internal Methods Tests (accessible via @testable import)
     
-    func testForegroundEscapeSequence() throws {
+    @Test("Foreground escape sequence contains correct ANSI codes")
+    func foregroundEscapeSequence() throws {
         let red = Color.red
         let escapeSeq = red.foregroundEscapeSequence
         
         // Should return some escape sequence string
-        XCTAssertFalse(escapeSeq.isEmpty)
-        XCTAssertTrue(escapeSeq.contains("31")) // ANSI red foreground code
+        #expect(!escapeSeq.isEmpty)
+        #expect(escapeSeq.contains("31")) // ANSI red foreground code
     }
     
-    func testBackgroundEscapeSequence() throws {
+    @Test("Background escape sequence contains correct ANSI codes")
+    func backgroundEscapeSequence() throws {
         let red = Color.red
         let escapeSeq = red.backgroundEscapeSequence
         
         // Should return some escape sequence string
-        XCTAssertFalse(escapeSeq.isEmpty)
-        XCTAssertTrue(escapeSeq.contains("41")) // ANSI red background code
+        #expect(!escapeSeq.isEmpty)
+        #expect(escapeSeq.contains("41")) // ANSI red background code
     }
 }

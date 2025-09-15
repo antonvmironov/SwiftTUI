@@ -1,117 +1,128 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class ExtendedTests: XCTestCase {
+struct ExtendedTests {
     
     // MARK: - Initialization Tests
     
-    func testIntInitialization() throws {
+    @Test("Int initialization sets correct value")
+    func intInitialization() throws {
         let extended = Extended(42)
-        XCTAssertEqual(extended.intValue, 42)
+        #expect(extended.intValue == 42)
     }
     
-    func testIntegerLiteralInitialization() throws {
+    @Test("Integer literal initialization works correctly")
+    func integerLiteralInitialization() throws {
         let extended: Extended = 100
-        XCTAssertEqual(extended.intValue, 100)
+        #expect(extended.intValue == 100)
     }
     
-    func testInfinityInitialization() throws {
+    @Test("Infinity initialization creates correct instance")
+    func infinityInitialization() throws {
         let infinity = Extended.infinity
         // infinity.intValue should crash with fatalError, so we won't test it directly
         // We can test that infinity was created successfully by comparing with another infinity
-        XCTAssertEqual(infinity, Extended.infinity)
+        #expect(infinity == Extended.infinity)
     }
     
     // MARK: - Equality Tests
     
-    func testNumberEquality() throws {
+    @Test("Number equality works correctly")
+    func numberEquality() throws {
         let a: Extended = 5
         let b: Extended = 5
         let c: Extended = 10
         
-        XCTAssertEqual(a, b)
-        XCTAssertNotEqual(a, c)
+        #expect(a == b)
+        #expect(a != c)
     }
     
-    func testInfinityEquality() throws {
+    @Test("Infinity equality works correctly")
+    func infinityEquality() throws {
         let inf1 = Extended.infinity
         let inf2 = Extended.infinity
         let finite: Extended = 100
         
-        XCTAssertEqual(inf1, inf2)
-        XCTAssertNotEqual(inf1, finite)
+        #expect(inf1 == inf2)
+        #expect(inf1 != finite)
     }
     
     // MARK: - Addition Tests
     
-    func testFiniteAddition() throws {
+    @Test("Finite addition produces correct results")
+    func finiteAddition() throws {
         let a: Extended = 5
         let b: Extended = 3
         let result = a + b
         
-        XCTAssertEqual(result.intValue, 8)
+        #expect(result.intValue == 8)
     }
     
-    func testInfinityAddition() throws {
+    @Test("Infinity addition behaves correctly")
+    func infinityAddition() throws {
         let inf = Extended.infinity
         let finite: Extended = 100
         
         let result1 = inf + finite
         let result2 = finite + inf
         
-        XCTAssertEqual(result1, Extended.infinity)
-        XCTAssertEqual(result2, Extended.infinity)
+        #expect(result1 == Extended.infinity)
+        #expect(result2 == Extended.infinity)
         
         // Test that adding two positive infinities works
         let result3 = inf + inf
-        XCTAssertEqual(result3, Extended.infinity)
+        #expect(result3 == Extended.infinity)
         
         // Test that adding two negative infinities works
         let negInf = -Extended.infinity
         let result4 = negInf + negInf
-        XCTAssertEqual(result4, negInf)
+        #expect(result4 == negInf)
     }
     
     // MARK: - Subtraction Tests
     
-    func testFiniteSubtraction() throws {
+    @Test("Finite subtraction produces correct results")
+    func finiteSubtraction() throws {
         let a: Extended = 10
         let b: Extended = 3
         let result = a - b
         
-        XCTAssertEqual(result.intValue, 7)
+        #expect(result.intValue == 7)
     }
     
-    func testInfinitySubtraction() throws {
+    @Test("Infinity subtraction behaves correctly")
+    func infinitySubtraction() throws {
         let inf = Extended.infinity
         let finite: Extended = 100
         
         let result1 = inf - finite
         let result2 = finite - inf
         
-        XCTAssertEqual(result1, Extended.infinity)
-        XCTAssertEqual(result2, -Extended.infinity)
+        #expect(result1 == Extended.infinity)
+        #expect(result2 == -Extended.infinity)
         
         // Test subtraction between positive and negative infinity
         let negInf = -Extended.infinity
         let result3 = inf - negInf
         let result4 = negInf - inf
         
-        XCTAssertEqual(result3, Extended.infinity)
-        XCTAssertEqual(result4, -Extended.infinity)
+        #expect(result3 == Extended.infinity)
+        #expect(result4 == -Extended.infinity)
     }
     
     // MARK: - Multiplication Tests
     
-    func testFiniteMultiplication() throws {
+    @Test("Finite multiplication produces correct results")
+    func finiteMultiplication() throws {
         let a: Extended = 4
         let b: Extended = 3
         let result = a * b
         
-        XCTAssertEqual(result.intValue, 12)
+        #expect(result.intValue == 12)
     }
     
-    func testInfinityMultiplication() throws {
+    @Test("Infinity multiplication behaves correctly")
+    func infinityMultiplication() throws {
         let inf = Extended.infinity
         let positive: Extended = 5
         let negative: Extended = -3
@@ -119,115 +130,126 @@ final class ExtendedTests: XCTestCase {
         let result1 = inf * positive
         let result2 = inf * negative
         
-        XCTAssertEqual(result1, Extended.infinity)
-        XCTAssertEqual(result2, -Extended.infinity)
+        #expect(result1 == Extended.infinity)
+        #expect(result2 == -Extended.infinity)
     }
     
     // MARK: - Division Tests
     
-    func testFiniteDivision() throws {
+    @Test("Finite division produces correct results")
+    func finiteDivision() throws {
         let a: Extended = 12
         let b: Extended = 3
         let result = a / b
         
-        XCTAssertEqual(result.intValue, 4)
+        #expect(result.intValue == 4)
     }
     
-    func testDivisionByZero() throws {
+    @Test("Division by zero returns infinity")
+    func divisionByZero() throws {
         let a: Extended = 10
         let zero: Extended = 0
         let result = a / zero
         
-        XCTAssertEqual(result, Extended.infinity)
+        #expect(result == Extended.infinity)
     }
     
-    func testInfinityDivision() throws {
+    @Test("Infinity division behaves correctly")
+    func infinityDivision() throws {
         let inf = Extended.infinity
         let finite: Extended = 100
         
         let result1 = inf / finite
         let result2 = finite / inf
         
-        XCTAssertEqual(result1, Extended.infinity)
-        XCTAssertEqual(result2, Extended(0))
+        #expect(result1 == Extended.infinity)
+        #expect(result2 == Extended(0))
     }
     
     // MARK: - Comparison Tests
     
-    func testFiniteComparison() throws {
+    @Test("Finite comparison works correctly")
+    func finiteComparison() throws {
         let a: Extended = 5
         let b: Extended = 10
         let c: Extended = 5
         
-        XCTAssertTrue(a < b)
-        XCTAssertFalse(b < a)
-        XCTAssertFalse(a < c)
-        XCTAssertFalse(c < a)
+        #expect(a < b)
+        #expect(!(b < a))
+        #expect(!(a < c))
+        #expect(!(c < a))
     }
     
-    func testInfinityComparison() throws {
+    @Test("Infinity comparison works correctly")
+    func infinityComparison() throws {
         let inf = Extended.infinity
         let negInf = -Extended.infinity
         let finite: Extended = 100
         
-        XCTAssertTrue(finite < inf)
-        XCTAssertFalse(inf < finite)
-        XCTAssertTrue(negInf < finite)
-        XCTAssertFalse(finite < negInf)
-        XCTAssertTrue(negInf < inf)
-        XCTAssertFalse(inf < negInf)
+        #expect(finite < inf)
+        #expect(!(inf < finite))
+        #expect(negInf < finite)
+        #expect(!(finite < negInf))
+        #expect(negInf < inf)
+        #expect(!(inf < negInf))
     }
     
     // MARK: - Negation Tests
     
-    func testFiniteNegation() throws {
+    @Test("Finite negation produces correct results")
+    func finiteNegation() throws {
         let a: Extended = 5
         let result = -a
         
-        XCTAssertEqual(result.intValue, -5)
+        #expect(result.intValue == -5)
     }
     
-    func testInfinityNegation() throws {
+    @Test("Infinity negation works correctly")
+    func infinityNegation() throws {
         let inf = Extended.infinity
         let negInf = -inf
         let posInf = -negInf
         
-        XCTAssertEqual(posInf, Extended.infinity)
+        #expect(posInf == Extended.infinity)
     }
     
     // MARK: - Max Function Tests
     
-    func testMaxFinite() throws {
+    @Test("Max function works for finite values")
+    func maxFinite() throws {
         let a: Extended = 5
         let b: Extended = 10
         let result = max(a, b)
         
-        XCTAssertEqual(result.intValue, 10)
+        #expect(result.intValue == 10)
     }
     
-    func testMaxWithInfinity() throws {
+    @Test("Max function works with infinity")
+    func maxWithInfinity() throws {
         let inf = Extended.infinity
         let finite: Extended = 100
         
         let result1 = max(inf, finite)
         let result2 = max(finite, inf)
         
-        XCTAssertEqual(result1, Extended.infinity)
-        XCTAssertEqual(result2, Extended.infinity)
+        #expect(result1 == Extended.infinity)
+        #expect(result2 == Extended.infinity)
     }
     
     // MARK: - Description Tests
     
-    func testFiniteDescription() throws {
+    @Test("Finite description returns correct string")
+    func finiteDescription() throws {
         let a: Extended = 42
-        XCTAssertEqual(a.description, "42")
+        #expect(a.description == "42")
     }
     
-    func testInfinityDescription() throws {
+    @Test("Infinity description returns correct symbols")
+    func infinityDescription() throws {
         let inf = Extended.infinity
         let negInf = -Extended.infinity
         
-        XCTAssertEqual(inf.description, "∞")
-        XCTAssertEqual(negInf.description, "-∞")
+        #expect(inf.description == "∞")
+        #expect(negInf.description == "-∞")
     }
 }

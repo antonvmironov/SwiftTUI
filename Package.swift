@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftTUI",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v15)
     ],
     products: [
         .library(
@@ -13,7 +13,7 @@ let package = Package(
             targets: ["SwiftTUI"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
+         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.4.2")
     ],
     targets: [
         .target(

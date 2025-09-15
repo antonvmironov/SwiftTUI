@@ -1,21 +1,23 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class BindingTests: XCTestCase {
+struct BindingTests {
     
     // MARK: - Initialization Tests
     
-    func testBasicInitialization() throws {
+    @Test("Basic binding initialization works correctly")
+    func basicInitialization() throws {
         var value = 42
         let binding = Binding(
             get: { value },
             set: { value = $0 }
         )
         
-        XCTAssertEqual(binding.wrappedValue, 42)
+        #expect(binding.wrappedValue == 42)
     }
     
-    func testGetterExecution() throws {
+    @Test("Getter is executed when accessing wrappedValue")
+    func getterExecution() throws {
         var value = "Hello"
         var getterCallCount = 0
         
@@ -27,19 +29,20 @@ final class BindingTests: XCTestCase {
             set: { value = $0 }
         )
         
-        XCTAssertEqual(getterCallCount, 0)
+        #expect(getterCallCount == 0)
         
         let result = binding.wrappedValue
-        XCTAssertEqual(result, "Hello")
-        XCTAssertEqual(getterCallCount, 1)
+        #expect(result == "Hello")
+        #expect(getterCallCount == 1)
         
         // Access again
         let result2 = binding.wrappedValue
-        XCTAssertEqual(result2, "Hello")
-        XCTAssertEqual(getterCallCount, 2)
+        #expect(result2 == "Hello")
+        #expect(getterCallCount == 2)
     }
     
-    func testSetterExecution() throws {
+    @Test("Setter is executed when modifying wrappedValue")
+    func setterExecution() throws {
         var value = 100
         var setterCallCount = 0
         
@@ -51,19 +54,20 @@ final class BindingTests: XCTestCase {
             }
         )
         
-        XCTAssertEqual(setterCallCount, 0)
-        XCTAssertEqual(value, 100)
+        #expect(setterCallCount == 0)
+        #expect(value == 100)
         
         binding.wrappedValue = 200
         
-        XCTAssertEqual(setterCallCount, 1)
-        XCTAssertEqual(value, 200)
-        XCTAssertEqual(binding.wrappedValue, 200)
+        #expect(setterCallCount == 1)
+        #expect(value == 200)
+        #expect(binding.wrappedValue == 200)
     }
     
     // MARK: - Projected Value Tests
     
-    func testProjectedValue() throws {
+    @Test("Projected value returns the binding itself")
+    func projectedValue() throws {
         var value = "Test"
         let binding = Binding(
             get: { value },
@@ -73,92 +77,98 @@ final class BindingTests: XCTestCase {
         let projected = binding.projectedValue
         
         // Projected value should be the binding itself
-        XCTAssertEqual(projected.wrappedValue, "Test")
+        #expect(projected.wrappedValue == "Test")
         
         projected.wrappedValue = "Updated"
-        XCTAssertEqual(value, "Updated")
-        XCTAssertEqual(binding.wrappedValue, "Updated")
+        #expect(value == "Updated")
+        #expect(binding.wrappedValue == "Updated")
     }
     
     // MARK: - Different Data Types Tests
     
-    func testIntBinding() throws {
+    @Test("Int binding works correctly")
+    func intBinding() throws {
         var intValue = 5
         let binding = Binding(
             get: { intValue },
             set: { intValue = $0 }
         )
         
-        XCTAssertEqual(binding.wrappedValue, 5)
+        #expect(binding.wrappedValue == 5)
         
         binding.wrappedValue = 10
-        XCTAssertEqual(intValue, 10)
-        XCTAssertEqual(binding.wrappedValue, 10)
+        #expect(intValue == 10)
+        #expect(binding.wrappedValue == 10)
     }
     
-    func testBoolBinding() throws {
+    @Test("Bool binding works correctly")
+    func boolBinding() throws {
         var boolValue = false
         let binding = Binding(
             get: { boolValue },
             set: { boolValue = $0 }
         )
         
-        XCTAssertFalse(binding.wrappedValue)
+        #expect(!binding.wrappedValue)
         
         binding.wrappedValue = true
-        XCTAssertTrue(boolValue)
-        XCTAssertTrue(binding.wrappedValue)
+        #expect(boolValue)
+        #expect(binding.wrappedValue)
     }
     
-    func testStringBinding() throws {
+    @Test("String binding works correctly")
+    func stringBinding() throws {
         var stringValue = "Initial"
         let binding = Binding(
             get: { stringValue },
             set: { stringValue = $0 }
         )
         
-        XCTAssertEqual(binding.wrappedValue, "Initial")
+        #expect(binding.wrappedValue == "Initial")
         
         binding.wrappedValue = "Modified"
-        XCTAssertEqual(stringValue, "Modified")
-        XCTAssertEqual(binding.wrappedValue, "Modified")
+        #expect(stringValue == "Modified")
+        #expect(binding.wrappedValue == "Modified")
     }
     
-    func testArrayBinding() throws {
+    @Test("Array binding works correctly")
+    func arrayBinding() throws {
         var arrayValue = [1, 2, 3]
         let binding = Binding(
             get: { arrayValue },
             set: { arrayValue = $0 }
         )
         
-        XCTAssertEqual(binding.wrappedValue, [1, 2, 3])
+        #expect(binding.wrappedValue == [1, 2, 3])
         
         binding.wrappedValue = [4, 5, 6]
-        XCTAssertEqual(arrayValue, [4, 5, 6])
-        XCTAssertEqual(binding.wrappedValue, [4, 5, 6])
+        #expect(arrayValue == [4, 5, 6])
+        #expect(binding.wrappedValue == [4, 5, 6])
     }
     
-    func testOptionalBinding() throws {
+    @Test("Optional binding works correctly")
+    func optionalBinding() throws {
         var optionalValue: Int? = nil
         let binding = Binding(
             get: { optionalValue },
             set: { optionalValue = $0 }
         )
         
-        XCTAssertNil(binding.wrappedValue)
+        #expect(binding.wrappedValue == nil)
         
         binding.wrappedValue = 42
-        XCTAssertEqual(optionalValue, 42)
-        XCTAssertEqual(binding.wrappedValue, 42)
+        #expect(optionalValue == 42)
+        #expect(binding.wrappedValue == 42)
         
         binding.wrappedValue = nil
-        XCTAssertNil(optionalValue)
-        XCTAssertNil(binding.wrappedValue)
+        #expect(optionalValue == nil)
+        #expect(binding.wrappedValue == nil)
     }
     
     // MARK: - Complex Object Tests
     
-    func testStructBinding() throws {
+    @Test("Struct binding works correctly")
+    func structBinding() throws {
         struct TestStruct: Equatable {
             var name: String
             var age: Int
@@ -170,17 +180,18 @@ final class BindingTests: XCTestCase {
             set: { structValue = $0 }
         )
         
-        XCTAssertEqual(binding.wrappedValue.name, "Alice")
-        XCTAssertEqual(binding.wrappedValue.age, 30)
+        #expect(binding.wrappedValue.name == "Alice")
+        #expect(binding.wrappedValue.age == 30)
         
         binding.wrappedValue = TestStruct(name: "Bob", age: 25)
-        XCTAssertEqual(structValue.name, "Bob")
-        XCTAssertEqual(structValue.age, 25)
+        #expect(structValue.name == "Bob")
+        #expect(structValue.age == 25)
     }
     
     // MARK: - Binding Chain Tests
     
-    func testBindingChain() throws {
+    @Test("Binding chains work correctly")
+    func bindingChain() throws {
         var originalValue = 10
         
         let firstBinding = Binding(
@@ -193,17 +204,18 @@ final class BindingTests: XCTestCase {
             set: { firstBinding.wrappedValue = $0 / 2 }
         )
         
-        XCTAssertEqual(secondBinding.wrappedValue, 20) // 10 * 2
+        #expect(secondBinding.wrappedValue == 20) // 10 * 2
         
         secondBinding.wrappedValue = 40
-        XCTAssertEqual(originalValue, 20) // 40 / 2
-        XCTAssertEqual(firstBinding.wrappedValue, 20)
-        XCTAssertEqual(secondBinding.wrappedValue, 40) // 20 * 2
+        #expect(originalValue == 20) // 40 / 2
+        #expect(firstBinding.wrappedValue == 20)
+        #expect(secondBinding.wrappedValue == 40) // 20 * 2
     }
     
     // MARK: - Nonmutating Setter Tests
     
-    func testNonmutatingSetterBehavior() throws {
+    @Test("Nonmutating setter allows modification through let binding")
+    func nonmutatingSetterBehavior() throws {
         var value = "Original"
         let binding = Binding(
             get: { value },
@@ -213,13 +225,14 @@ final class BindingTests: XCTestCase {
         // The binding is declared as 'let' but we can still modify wrappedValue
         // because the setter is nonmutating
         binding.wrappedValue = "Modified"
-        XCTAssertEqual(value, "Modified")
-        XCTAssertEqual(binding.wrappedValue, "Modified")
+        #expect(value == "Modified")
+        #expect(binding.wrappedValue == "Modified")
     }
     
     // MARK: - Capture and Escape Tests
     
-    func testEscapingClosures() throws {
+    @Test("Escaping closures work correctly")
+    func escapingClosures() throws {
         var value = 100
         
         func createBinding() -> Binding<Int> {
@@ -230,13 +243,14 @@ final class BindingTests: XCTestCase {
         }
         
         let binding = createBinding()
-        XCTAssertEqual(binding.wrappedValue, 100)
+        #expect(binding.wrappedValue == 100)
         
         binding.wrappedValue = 200
-        XCTAssertEqual(value, 200)
+        #expect(value == 200)
     }
     
-    func testMultipleBindingsToSameValue() throws {
+    @Test("Multiple bindings to same value work correctly")
+    func multipleBindingsToSameValue() throws {
         var sharedValue = 42
         
         let binding1 = Binding(
@@ -249,14 +263,14 @@ final class BindingTests: XCTestCase {
             set: { sharedValue = $0 }
         )
         
-        XCTAssertEqual(binding1.wrappedValue, 42)
-        XCTAssertEqual(binding2.wrappedValue, 42)
+        #expect(binding1.wrappedValue == 42)
+        #expect(binding2.wrappedValue == 42)
         
         binding1.wrappedValue = 100
-        XCTAssertEqual(binding2.wrappedValue, 100)
+        #expect(binding2.wrappedValue == 100)
         
         binding2.wrappedValue = 200
-        XCTAssertEqual(binding1.wrappedValue, 200)
-        XCTAssertEqual(sharedValue, 200)
+        #expect(binding1.wrappedValue == 200)
+        #expect(sharedValue == 200)
     }
 }

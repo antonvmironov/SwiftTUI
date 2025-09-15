@@ -1,8 +1,9 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class ViewBuildTests: XCTestCase {
-    func test_VStack_TupleView2() throws {
+struct ViewBuildTests {
+    @Test("VStack with TupleView2 builds correctly")
+    func vstackTupleView2() throws {
         struct MyView: View {
             var body: some View {
                 VStack {
@@ -14,14 +15,15 @@ final class ViewBuildTests: XCTestCase {
 
         let control = try buildView(MyView())
 
-        XCTAssertEqual(control.treeDescription, """
+        #expect(control.treeDescription == """
             → VStackControl
               → TextControl
               → TextControl
             """)
     }
 
-    func test_conditional_VStack() throws {
+    @Test("Conditional VStack builds correctly")
+    func conditionalVStack() throws {
         struct MyView: View {
             @State var value = true
 
@@ -36,7 +38,7 @@ final class ViewBuildTests: XCTestCase {
 
         let control = try buildView(MyView())
 
-        XCTAssertEqual(control.treeDescription, """
+        #expect(control.treeDescription == """
             → VStackControl
               → TextControl
             """)
@@ -45,7 +47,13 @@ final class ViewBuildTests: XCTestCase {
     private func buildView<V: View>(_ view: V) throws -> Control {
         let node = Node(view: VStack(content: view).view)
         node.build()
-        return try XCTUnwrap(node.control?.children.first)
+        guard let control = node.control?.children.first else {
+            throw TestError.missingControl
+        }
+        return control
     }
-
+    
+    private enum TestError: Error {
+        case missingControl
+    }
 }

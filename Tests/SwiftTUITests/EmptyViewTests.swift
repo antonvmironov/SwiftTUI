@@ -1,43 +1,48 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class EmptyViewTests: XCTestCase {
+struct EmptyViewTests {
     
     // MARK: - Initialization Tests
     
-    func testEmptyViewInitialization() throws {
+    @Test("EmptyView initializes without issues")
+    func emptyViewInitialization() throws {
         let emptyView = EmptyView()
         
         // Should initialize without issues
-        XCTAssertNotNil(emptyView)
+        #expect(emptyView != nil)
     }
     
     // MARK: - Static Properties Tests
     
-    func testStaticSize() throws {
+    @Test("Static size property returns zero")
+    func staticSize() throws {
         let size = EmptyView.size
-        XCTAssertEqual(size, 0)
+        #expect(size == 0)
     }
     
     // MARK: - View Protocol Conformance Tests
     
-    func testEmptyViewIsView() throws {
+    @Test("EmptyView conforms to View protocol")
+    func emptyViewIsView() throws {
         let emptyView = EmptyView()
         
         // Should conform to View protocol
-        XCTAssert(emptyView is any View)
+        #expect(emptyView is any View)
     }
     
-    func testEmptyViewIsPrimitiveView() throws {
+    @Test("EmptyView conforms to PrimitiveView protocol")
+    func emptyViewIsPrimitiveView() throws {
         let emptyView = EmptyView()
         
         // Should conform to PrimitiveView protocol
-        XCTAssert(emptyView is any PrimitiveView)
+        #expect(emptyView is any PrimitiveView)
     }
     
     // MARK: - Node Operations Tests
     
-    func testBuildNode() throws {
+    @Test("buildNode does not crash and handles empty state")
+    func buildNode() throws {
         let emptyView = EmptyView()
         let node = Node(view: emptyView.view)
         
@@ -45,10 +50,11 @@ final class EmptyViewTests: XCTestCase {
         emptyView.buildNode(node)
         
         // EmptyView should not add any children
-        XCTAssertEqual(node.children.count, 0)
+        #expect(node.children.count == 0)
     }
     
-    func testUpdateNode() throws {
+    @Test("updateNode does not crash or modify structure")
+    func updateNode() throws {
         let emptyView = EmptyView()
         let node = Node(view: emptyView.view)
         node.view = emptyView
@@ -57,23 +63,25 @@ final class EmptyViewTests: XCTestCase {
         emptyView.updateNode(node)
         
         // EmptyView should not modify node structure
-        XCTAssertEqual(node.children.count, 0)
+        #expect(node.children.count == 0)
     }
     
     // MARK: - Equality Tests
     
-    func testEmptyViewEquality() throws {
+    @Test("EmptyView instances behave consistently")
+    func emptyViewEquality() throws {
         let emptyView1 = EmptyView()
         let emptyView2 = EmptyView()
         
         // All empty views should be considered equivalent for testing purposes
         // Since EmptyView has no properties, any two instances should behave identically
-        XCTAssertEqual(EmptyView.size, EmptyView.size)
+        #expect(EmptyView.size == EmptyView.size)
     }
     
     // MARK: - Integration Tests
     
-    func testEmptyViewInContainer() throws {
+    @Test("EmptyView can be used in view hierarchies")
+    func emptyViewInContainer() throws {
         // Test that EmptyView can be used in view hierarchies
         struct TestView: View {
             var body: some View {
@@ -86,6 +94,6 @@ final class EmptyViewTests: XCTestCase {
         }
         
         let testView = TestView()
-        XCTAssertNotNil(testView.body)
+        #expect(testView.body != nil)
     }
 }

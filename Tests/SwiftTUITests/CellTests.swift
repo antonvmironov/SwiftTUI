@@ -1,20 +1,22 @@
-import XCTest
+import Testing
 @testable import SwiftTUI
 
-final class CellTests: XCTestCase {
+struct CellTests {
     
     // MARK: - Initialization Tests
     
-    func testDefaultInitialization() throws {
+    @Test("Default initialization sets correct defaults")
+    func defaultInitialization() throws {
         let cell = Cell(char: "A")
         
-        XCTAssertEqual(cell.char, "A")
-        XCTAssertEqual(cell.foregroundColor, Color.default)
-        XCTAssertNil(cell.backgroundColor)
-        XCTAssertEqual(cell.attributes, CellAttributes())
+        #expect(cell.char == "A")
+        #expect(cell.foregroundColor == Color.default)
+        #expect(cell.backgroundColor == nil)
+        #expect(cell.attributes == CellAttributes())
     }
     
-    func testFullInitialization() throws {
+    @Test("Full initialization sets all properties correctly")
+    func fullInitialization() throws {
         let attributes = CellAttributes(bold: true, italic: true)
         let cell = Cell(
             char: "B",
@@ -23,79 +25,86 @@ final class CellTests: XCTestCase {
             attributes: attributes
         )
         
-        XCTAssertEqual(cell.char, "B")
-        XCTAssertEqual(cell.foregroundColor, Color.red)
-        XCTAssertEqual(cell.backgroundColor, Color.blue)
-        XCTAssertEqual(cell.attributes, attributes)
+        #expect(cell.char == "B")
+        #expect(cell.foregroundColor == Color.red)
+        #expect(cell.backgroundColor == Color.blue)
+        #expect(cell.attributes == attributes)
     }
     
-    func testPartialInitialization() throws {
+    @Test("Partial initialization uses defaults for unspecified properties")
+    func partialInitialization() throws {
         let cell = Cell(char: "C", foregroundColor: Color.green)
         
-        XCTAssertEqual(cell.char, "C")
-        XCTAssertEqual(cell.foregroundColor, Color.green)
-        XCTAssertNil(cell.backgroundColor)
-        XCTAssertEqual(cell.attributes, CellAttributes())
+        #expect(cell.char == "C")
+        #expect(cell.foregroundColor == Color.green)
+        #expect(cell.backgroundColor == nil)
+        #expect(cell.attributes == CellAttributes())
     }
     
-    func testInitializationWithBackgroundOnly() throws {
+    @Test("Initialization with background only")
+    func initializationWithBackgroundOnly() throws {
         let cell = Cell(char: "D", backgroundColor: Color.yellow)
         
-        XCTAssertEqual(cell.char, "D")
-        XCTAssertEqual(cell.foregroundColor, Color.default)
-        XCTAssertEqual(cell.backgroundColor, Color.yellow)
-        XCTAssertEqual(cell.attributes, CellAttributes())
+        #expect(cell.char == "D")
+        #expect(cell.foregroundColor == Color.default)
+        #expect(cell.backgroundColor == Color.yellow)
+        #expect(cell.attributes == CellAttributes())
     }
     
-    func testInitializationWithAttributesOnly() throws {
+    @Test("Initialization with attributes only")
+    func initializationWithAttributesOnly() throws {
         let attributes = CellAttributes(underline: true)
         let cell = Cell(char: "E", attributes: attributes)
         
-        XCTAssertEqual(cell.char, "E")
-        XCTAssertEqual(cell.foregroundColor, Color.default)
-        XCTAssertNil(cell.backgroundColor)
-        XCTAssertEqual(cell.attributes, attributes)
+        #expect(cell.char == "E")
+        #expect(cell.foregroundColor == Color.default)
+        #expect(cell.backgroundColor == nil)
+        #expect(cell.attributes == attributes)
     }
     
     // MARK: - Character Tests
     
-    func testDifferentCharacters() throws {
+    @Test("Different character types are handled correctly")
+    func differentCharacters() throws {
         let alphanumeric = Cell(char: "1")
         let special = Cell(char: "@")
         let unicode = Cell(char: "🚀")
         let space = Cell(char: " ")
         
-        XCTAssertEqual(alphanumeric.char, "1")
-        XCTAssertEqual(special.char, "@")
-        XCTAssertEqual(unicode.char, "🚀")
-        XCTAssertEqual(space.char, " ")
+        #expect(alphanumeric.char == "1")
+        #expect(special.char == "@")
+        #expect(unicode.char == "🚀")
+        #expect(space.char == " ")
     }
     
     // MARK: - Equality Tests
     
-    func testEquality() throws {
+    @Test("Cell equality works for character and foreground color")
+    func equality() throws {
         let cell1 = Cell(char: "A", foregroundColor: Color.red)
         let cell2 = Cell(char: "A", foregroundColor: Color.red)
         let cell3 = Cell(char: "B", foregroundColor: Color.red)
         let cell4 = Cell(char: "A", foregroundColor: Color.blue)
         
-        XCTAssertEqual(cell1, cell2)
-        XCTAssertNotEqual(cell1, cell3)
-        XCTAssertNotEqual(cell1, cell4)
+        #expect(cell1 == cell2)
+        #expect(cell1 != cell3)
+        #expect(cell1 != cell4)
     }
     
-    func testEqualityWithBackground() throws {
+    @Test("Cell equality works with background color")
+    func equalityWithBackground() throws {
         let cell1 = Cell(char: "A", backgroundColor: Color.red)
         let cell2 = Cell(char: "A", backgroundColor: Color.red)
         let cell3 = Cell(char: "A", backgroundColor: Color.blue)
         let cell4 = Cell(char: "A") // No background
         
-        XCTAssertEqual(cell1, cell2)
-        XCTAssertNotEqual(cell1, cell3)
-        XCTAssertNotEqual(cell1, cell4)
+        #expect(cell1 == cell2)
+        #expect(cell1 != cell3)
+        #expect(cell1 != cell4)
     }
     
-    func testEqualityWithAttributes() throws {
+    @Test("Cell equality works with attributes")
+    func equalityWithAttributes() throws {
         let attributes1 = CellAttributes(bold: true)
         let attributes2 = CellAttributes(bold: true)
         let attributes3 = CellAttributes(italic: true)
@@ -104,11 +113,12 @@ final class CellTests: XCTestCase {
         let cell2 = Cell(char: "A", attributes: attributes2)
         let cell3 = Cell(char: "A", attributes: attributes3)
         
-        XCTAssertEqual(cell1, cell2)
-        XCTAssertNotEqual(cell1, cell3)
+        #expect(cell1 == cell2)
+        #expect(cell1 != cell3)
     }
     
-    func testFullEquality() throws {
+    @Test("Full equality with all properties set")
+    func fullEquality() throws {
         let attributes = CellAttributes(bold: true, italic: true)
         
         let cell1 = Cell(
@@ -124,52 +134,59 @@ final class CellTests: XCTestCase {
             attributes: attributes
         )
         
-        XCTAssertEqual(cell1, cell2)
+        #expect(cell1 == cell2)
     }
     
     // MARK: - Background Color Tests
     
-    func testNilBackgroundColor() throws {
+    @Test("Background color defaults to nil")
+    func nilBackgroundColor() throws {
         let cell = Cell(char: "A")
-        XCTAssertNil(cell.backgroundColor)
+        #expect(cell.backgroundColor == nil)
     }
     
-    func testSetBackgroundColor() throws {
+    @Test("Background color can be set")
+    func setBackgroundColor() throws {
         var cell = Cell(char: "A")
         cell.backgroundColor = Color.green
-        XCTAssertEqual(cell.backgroundColor, Color.green)
+        #expect(cell.backgroundColor == Color.green)
     }
     
-    func testClearBackgroundColor() throws {
+    @Test("Background color can be cleared")
+    func clearBackgroundColor() throws {
         var cell = Cell(char: "A", backgroundColor: Color.red)
         cell.backgroundColor = nil
-        XCTAssertNil(cell.backgroundColor)
+        #expect(cell.backgroundColor == nil)
     }
     
     // MARK: - Property Modification Tests
     
-    func testModifyChar() throws {
+    @Test("Character can be modified")
+    func modifyChar() throws {
         var cell = Cell(char: "A")
         cell.char = "B"
-        XCTAssertEqual(cell.char, "B")
+        #expect(cell.char == "B")
     }
     
-    func testModifyForegroundColor() throws {
+    @Test("Foreground color can be modified")
+    func modifyForegroundColor() throws {
         var cell = Cell(char: "A")
         cell.foregroundColor = Color.green
-        XCTAssertEqual(cell.foregroundColor, Color.green)
+        #expect(cell.foregroundColor == Color.green)
     }
     
-    func testModifyAttributes() throws {
+    @Test("Attributes can be modified")
+    func modifyAttributes() throws {
         var cell = Cell(char: "A")
         let newAttributes = CellAttributes(bold: true, underline: true)
         cell.attributes = newAttributes
-        XCTAssertEqual(cell.attributes, newAttributes)
+        #expect(cell.attributes == newAttributes)
     }
     
     // MARK: - Complex Scenarios Tests
     
-    func testCellWithAllFeatures() throws {
+    @Test("Cell with all features works correctly")
+    func cellWithAllFeatures() throws {
         let attributes = CellAttributes(
             bold: true,
             italic: true,
@@ -185,13 +202,14 @@ final class CellTests: XCTestCase {
             attributes: attributes
         )
         
-        XCTAssertEqual(cell.char, "★")
-        XCTAssertEqual(cell.foregroundColor, Color.brightYellow)
-        XCTAssertEqual(cell.backgroundColor, Color.black)
-        XCTAssertEqual(cell.attributes, attributes)
+        #expect(cell.char == "★")
+        #expect(cell.foregroundColor == Color.brightYellow)
+        #expect(cell.backgroundColor == Color.black)
+        #expect(cell.attributes == attributes)
     }
     
-    func testCellArrays() throws {
+    @Test("Cell arrays work correctly")
+    func cellArrays() throws {
         let cells = [
             Cell(char: "H"),
             Cell(char: "e"),
@@ -200,11 +218,11 @@ final class CellTests: XCTestCase {
             Cell(char: "o")
         ]
         
-        XCTAssertEqual(cells.count, 5)
-        XCTAssertEqual(cells[0].char, "H")
-        XCTAssertEqual(cells[4].char, "o")
+        #expect(cells.count == 5)
+        #expect(cells[0].char == "H")
+        #expect(cells[4].char == "o")
         
         // Test that different cells with same char are equal by default
-        XCTAssertEqual(cells[2], cells[3]) // Both are "l"
+        #expect(cells[2] == cells[3]) // Both are "l"
     }
 }

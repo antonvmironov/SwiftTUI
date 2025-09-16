@@ -18,8 +18,8 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - [x] Full `@Observable` macro support for automatic change tracking ✅ **COMPLETED**
 - [x] Enhanced `@State` with automatic view invalidation ✅ **COMPLETED**  
 - [x] `@Environment` with complex object support ✅ **COMPLETED**
-- [ ] `@StateObject` and `@ObservedObject` equivalents for MVVM patterns
-- [ ] `@Published` property wrapper support
+- [x] `@StateObject` and `@ObservedObject` equivalents for MVVM patterns ✅ **COMPLETED**
+- [x] `@Published` property wrapper support ✅ **COMPLETED**
 
 **Impact:** Would allow direct sharing of ViewModel classes and state management logic between SwiftUI and SwiftTUI implementations.
 
@@ -32,6 +32,11 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ **NEW**: Full integration with existing SwiftTUI state management (@State, @Binding)
 - ✅ **NEW**: Added comprehensive test suite (8 new tests, all passing)
 - ✅ **NEW**: Created complete example demonstrating reactive state patterns
+- ✅ **NEW**: Added `@StateObject` property wrapper using structured concurrency
+- ✅ **NEW**: Added `@ObservedObject` property wrapper using structured concurrency  
+- ✅ **NEW**: Added `@Published` property wrapper using structured concurrency
+- ✅ **NEW**: Added `PublishableObject` base class supporting @Published properties
+- ✅ **NEW**: Complete replacement of Combine with MainActor-based async patterns
 
 ### 2. Navigation and Routing
 
@@ -177,7 +182,8 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 
 **Wishlist:**
 - [x] `List` component with automatic keyboard navigation ✅ **COMPLETED**
-- [ ] `Table` with column headers, sorting, and selection
+- [x] `SimpleTable` with column headers for data display ✅ **COMPLETED**
+- [ ] `Table` with sorting and advanced selection
 - [ ] Search functionality with filtering
 - [ ] Automatic pagination for large datasets
 - [ ] Section headers and footers
@@ -196,6 +202,9 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ **NEW**: SwiftUI-compatible API: `List(data) { item in ... }` and `List(data, selection: $binding) { item in ... }`
 - ✅ **NEW**: Added comprehensive test suite (8 new tests, all passing)
 - ✅ **NEW**: Created complete example demonstrating List functionality
+- ✅ **NEW**: Added `SimpleTable` component for displaying tabular data with column headers
+- ✅ **NEW**: SimpleTable uses familiar SwiftUI patterns (VStack, HStack, ForEach)
+- ✅ **NEW**: Supports custom row content generation for flexible data display
 
 ## Advanced Features
 

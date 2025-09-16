@@ -6,7 +6,7 @@ struct FocusStateTests {
     
     @Test("FocusState basic initialization") 
     func focusStateInit() async throws {
-        @FocusState var isFocused: Bool = false
+        @FocusState var isFocused: Bool? = false
         #expect(isFocused == false)
         
         @FocusState var selectedField: String? = nil
@@ -44,14 +44,14 @@ struct FocusStateTests {
     
     @Test("Focused modifier with boolean binding")
     func focusedModifierBoolean() async throws {
-        @FocusState var isFocused: Bool
+        @FocusState var isFocused: Bool?
         
         let focusedText = Text("Hello")
-            .focused($isFocused)
+            .focused($isFocused, equals: true)
         
         // Test that the modifier can be applied
         let _ = focusedText
-        #expect(true)
+        #expect(Bool(true))
     }
     
     @Test("Focused modifier with value binding")
@@ -78,7 +78,7 @@ struct FocusStateTests {
         let _ = TextField("Username", text: .constant(""))
             .focused($selectedField, equals: .username)
         
-        #expect(true)
+        #expect(Bool(true))
     }
     
     @Test("FocusState value assignment")

@@ -16,4 +16,9 @@ public struct Binding<T> {
     }
 
     public var projectedValue: Binding<T> { self }
+    
+    /// Creates a binding with a constant value that cannot be changed
+    public static func constant(_ value: T) -> Binding<T> {
+        Binding(get: { value }, set: { _ in })
+    }
 }

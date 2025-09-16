@@ -57,7 +57,16 @@ private struct OnKeyPress<Content: View>: View, PrimitiveView, ModifierView {
         }
 
         override func handleEvent(_ char: Character) {
-            if char == key.character {
+            // Check if this character matches our key equivalent
+            var matches = false
+            
+            if let keyChar = key.key.character {
+                matches = char == keyChar
+            }
+            
+            // For now, we don't have modifier key detection in the terminal
+            // This is a simplified implementation that matches basic keys
+            if matches && key.modifiers.isEmpty {
                 Task { @MainActor [action] in 
                     action()
                 }

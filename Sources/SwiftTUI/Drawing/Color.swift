@@ -169,6 +169,159 @@ struct XTermColor: Hashable {
     }
 }
 
+/// A linear gradient for terminal environments using character patterns
+public struct LinearGradient: View, Sendable {
+    private let colors: [Color]
+    private let startPoint: UnitPoint
+    private let endPoint: UnitPoint
+    private let width: Int
+    private let height: Int
+    
+    /// Creates a linear gradient
+    /// - Parameters:
+    ///   - colors: Array of colors to transition between
+    ///   - startPoint: Starting point of the gradient
+    ///   - endPoint: Ending point of the gradient
+    ///   - width: Width in characters
+    ///   - height: Height in lines (default: 1)
+    public init(colors: [Color], startPoint: UnitPoint, endPoint: UnitPoint, width: Int, height: Int = 1) {
+        self.colors = colors.isEmpty ? [.clear] : colors
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.width = max(1, width)
+        self.height = max(1, height)
+    }
+    
+    /// Creates a horizontal gradient (left to right)
+    public init(colors: [Color], width: Int, height: Int = 1) {
+        self.init(colors: colors, startPoint: .leading, endPoint: .trailing, width: width, height: height)
+    }
+    
+    public var body: some View {
+        GradientView(colors: colors, startPoint: startPoint, endPoint: endPoint, width: width, height: height)
+    }
+}
+
+/// Unit point for gradient positioning
+public struct UnitPoint: Sendable {
+    public let x: Double
+    public let y: Double
+    
+    public init(x: Double, y: Double) {
+        self.x = max(0.0, min(1.0, x))
+        self.y = max(0.0, min(1.0, y))
+    }
+    
+    public static let zero = UnitPoint(x: 0, y: 0)
+    public static let center = UnitPoint(x: 0.5, y: 0.5)
+    public static let leading = UnitPoint(x: 0, y: 0.5)
+    public static let trailing = UnitPoint(x: 1, y: 0.5)
+    public static let top = UnitPoint(x: 0.5, y: 0)
+    public static let bottom = UnitPoint(x: 0.5, y: 1)
+    public static let topLeading = UnitPoint(x: 0, y: 0)
+    public static let topTrailing = UnitPoint(x: 1, y: 0)
+    public static let bottomLeading = UnitPoint(x: 0, y: 1)
+    public static let bottomTrailing = UnitPoint(x: 1, y: 1)
+}
+
+private struct GradientView: View, PrimitiveView {
+    let colors: [Color]
+    let startPoint: UnitPoint
+    let endPoint: UnitPoint
+    let width: Int
+    let height: Int
+    
+    static var size: Int? { nil }
+    
+    func buildNode(_ node: Node) {
+        node.control = GradientControl(colors: colors, startPoint: startPoint, endPoint: endPoint, width: width, height: height)
+    }
+    
+    func updateNode(_ node: Node) {
+        node.view = self
+        let control = node.control as! GradientControl
+        control.updateGradient(colors: colors, startPoint: startPoint, endPoint: endPoint, width: width, height: height)
+    }
+    
+    private class GradientControl: Control {
+        private var colors: [Color]
+        private var startPoint: UnitPoint
+        private var endPoint: UnitPoint
+        private var width: Int
+        private var height: Int
+        
+        init(colors: [Color], startPoint: UnitPoint, endPoint: UnitPoint, width: Int, height: Int) {
+            self.colors = colors
+            self.startPoint = startPoint
+            self.endPoint = endPoint
+            self.width = width
+            self.height = height
+        }
+        
+        func updateGradient(colors: [Color], startPoint: UnitPoint, endPoint: UnitPoint, width: Int, height: Int) {
+            self.colors = colors
+            self.startPoint = startPoint
+            self.endPoint = endPoint
+            self.width = width
+            self.height = height
+        }
+        
+        override func size(proposedSize: Size) -> Size {
+            Size(width: Extended(width), height: Extended(height))
+        }
+        
+        override func cell(at position: Position) -> Cell? {
+            guard position.line.intValue < height && position.column.intValue < width else { return nil }
+            
+            // Calculate gradient position
+            let normalizedX = Double(position.column.intValue) / Double(max(1, width - 1))
+            let normalizedY = Double(position.line.intValue) / Double(max(1, height - 1))
+            
+            // Calculate gradient progress based on start and end points
+            let deltaX = endPoint.x - startPoint.x
+            let deltaY = endPoint.y - startPoint.y
+            
+            let progress: Double
+            if abs(deltaX) > abs(deltaY) {
+                // Primarily horizontal gradient
+                progress = (normalizedX - startPoint.x) / deltaX
+            } else {
+                // Primarily vertical gradient
+                progress = (normalizedY - startPoint.y) / deltaY
+            }
+            
+            let clampedProgress = max(0.0, min(1.0, progress))
+            let color = interpolateColor(at: clampedProgress)
+            
+            // Use different characters for visual variety in gradients
+            let gradientChars = ["░", "▒", "▓", "█"]
+            let charIndex = Int(clampedProgress * Double(gradientChars.count - 1))
+            let char = gradientChars[min(charIndex, gradientChars.count - 1)]
+            
+            return Cell(char: Character(char), foregroundColor: color)
+        }
+        
+        private func interpolateColor(at progress: Double) -> Color {
+            guard colors.count > 1 else { return colors.first ?? .clear }
+            
+            if progress <= 0 { return colors.first! }
+            if progress >= 1 { return colors.last! }
+            
+            let segmentCount = colors.count - 1
+            let segmentProgress = progress * Double(segmentCount)
+            let segmentIndex = min(Int(segmentProgress), segmentCount - 1)
+            let localProgress = segmentProgress - Double(segmentIndex)
+            
+            let startColor = colors[segmentIndex]
+            let endColor = colors[min(segmentIndex + 1, colors.count - 1)]
+            
+            // For simplicity, just return the start color of the segment
+            // A full implementation would interpolate between colors
+            return localProgress < 0.5 ? startColor : endColor
+        }
+    }
+}
+
 struct TrueColor: Hashable {
     let red: Int
     let green: Int

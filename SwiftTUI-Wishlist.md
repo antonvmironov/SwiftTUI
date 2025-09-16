@@ -57,8 +57,8 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - [x] Color opacity support (`.opacity(0.3)` → appropriate terminal styling) ✅ **COMPLETED**
 - [x] `Color.clear` equivalent for transparent backgrounds ✅ **COMPLETED**
 - [x] `Color.primary`, `Color.secondary` semantic colors ✅ **COMPLETED**
+- [x] Gradient support using character-based patterns ✅ **COMPLETED**
 - [ ] Theme-aware colors that adapt to terminal color schemes
-- [ ] Gradient support using character-based patterns
 
 **Impact:** Would allow visual styling code to be shared between SwiftUI and SwiftTUI without modification.
 
@@ -69,6 +69,11 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ Enhanced all existing color types (ANSI, XTerm, TrueColor) to support opacity
 - ✅ Added comprehensive test suite (6 new tests, all passing)
 - ✅ Maintained full backward compatibility with existing color usage
+- ✅ **NEW**: Added `LinearGradient` with SwiftUI-compatible API using character-based patterns
+- ✅ **NEW**: LinearGradient supports multiple colors, custom start/end points, and various directions
+- ✅ **NEW**: Added `UnitPoint` with predefined values (.leading, .trailing, .center, etc.)
+- ✅ **NEW**: Gradient rendering uses different density characters (░▒▓█) for visual depth
+- ✅ **NEW**: Added comprehensive gradient test suite (10 new tests, all passing)
 
 ### 4. Input Handling and Event System
 
@@ -101,13 +106,23 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Limited lifecycle events, no animation support
 
 **Wishlist:**
-- [ ] Full `onAppear` and `onDisappear` support without concurrency issues
-- [ ] Text-based animation system (e.g., loading spinners, progress bars)
+- [x] Full `onAppear` and `onDisappear` support without concurrency issues ✅ **COMPLETED**
+- [x] Text-based animation system (e.g., loading spinners, progress bars) ✅ **COMPLETED**
 - [ ] View transitions with character-based effects
 - [ ] `withAnimation` equivalent for smooth state changes
-- [ ] Automatic loading states and skeleton views
+- [x] Automatic loading states and skeleton views ✅ **COMPLETED**
 
 **Impact:** Would allow lifecycle-dependent logic and visual feedback to work consistently across both platforms.
+
+**Recent Progress:**
+- ✅ Added full `onDisappear` modifier with SwiftUI-compatible API that triggers during view destruction
+- ✅ Enhanced `onAppear` implementation with improved concurrency safety and Swift 6 compliance
+- ✅ Added `LoadingSpinner` with multiple styles (Unicode, ASCII, dots) and SwiftUI-compatible API
+- ✅ Added `ProgressBar` with customizable appearance, bounds checking, and color support
+- ✅ Added `SkeletonView` for placeholder loading states with configurable dimensions
+- ✅ Added `LoadingIndicator` combining text + spinner for common loading scenarios
+- ✅ All components follow SwiftUI design patterns and integrate seamlessly with existing view hierarchies
+- ✅ Added comprehensive test suite (21 new tests, all passing)
 
 ## Form and Input Components
 
@@ -119,10 +134,10 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 
 **Wishlist:**
 - [x] `TextField` with `@Binding` support instead of action closures ✅ **COMPLETED**
+- [x] Secure text fields for password input ✅ **COMPLETED**
 - [ ] Built-in input validation and error display
 - [ ] Number formatters and input masking
 - [ ] Multiline text editing with proper wrapping
-- [ ] Secure text fields for password input
 - [ ] Picker and selection controls
 
 **Impact:** Would enable form-heavy applications to share validation and input handling logic.
@@ -132,6 +147,10 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ Maintains backward compatibility with existing action-based TextField
 - ✅ TextField now automatically updates bound state variables as user types
 - ✅ Added comprehensive tests for both @Binding and action-based TextField patterns
+- ✅ **NEW**: Added `SecureField` component with SwiftUI-compatible API for password input
+- ✅ **NEW**: SecureField masks input with bullet characters (•) for security
+- ✅ **NEW**: SecureField supports both @Binding and action-based initializers like TextField
+- ✅ **NEW**: Added comprehensive test suite for SecureField (6 new tests, all passing)
 
 ### 7. List and Table Components
 

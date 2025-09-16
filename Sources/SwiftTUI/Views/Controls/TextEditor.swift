@@ -92,12 +92,9 @@ public struct TextEditor: View {
             }
             .padding(.horizontal)
         }
-        .onAppear {
-            updateLines()
-        }
     }
     
-    private func updateLines() {
+    @MainActor private func updateLines() {
         if text.isEmpty {
             lines = []
         } else {
@@ -217,9 +214,6 @@ public struct WrappedTextEditor: View {
             }
             .padding(.horizontal)
         }
-        .onAppear {
-            updateWrappedLines()
-        }
     }
     
     private var wordCount: Int {
@@ -228,7 +222,7 @@ public struct WrappedTextEditor: View {
             .count
     }
     
-    private func updateWrappedLines() {
+    @MainActor private func updateWrappedLines() {
         guard !text.isEmpty else {
             wrappedLines = []
             return

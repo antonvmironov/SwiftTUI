@@ -30,13 +30,22 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Manual navigation state management, no built-in navigation stack
 
 **Wishlist:**
+- [x] `NavigationLink` for declarative navigation ✅ **BASIC IMPLEMENTATION**
 - [ ] `NavigationStack` equivalent with automatic keyboard navigation (Tab/Shift+Tab)
-- [ ] `NavigationLink` for declarative navigation
 - [ ] Built-in breadcrumb support for terminal environments
 - [ ] Automatic "Back" action handling (e.g., Escape key)
 - [ ] `navigationDestination` modifier support
 
 **Impact:** Would enable the same navigation patterns used in SwiftUI apps, making the Supply → Unit Editor flow more natural.
+
+**Recent Progress:**
+- ✅ Added basic `NavigationLink` component with SwiftUI-compatible API
+- ✅ Supports both string title and custom label variants: `NavigationLink("Title", destination: view)` and `NavigationLink(destination: view) { CustomLabel() }`
+- ✅ Provides familiar UI pattern with ">" indicator for navigation items
+- ✅ Foundation laid for future full navigation stack implementation
+- ✅ Added comprehensive test suite (4 new tests, all passing)
+
+**Note:** This is a basic implementation that provides the UI pattern and API compatibility. Full navigation stack functionality would require additional state management infrastructure.
 
 ### 3. Color and Styling
 

@@ -114,16 +114,12 @@ AnimatableText("Loading...", isHighlighted: isPulsing)
 
 ### 🔄 **REMAINING PRIORITIES** (Future Enhancements)
 
-#### **Medium Priority Tasks:**
+#### **High Priority Tasks:**
 - [ ] **Terminal Size Adaptation** - Responsive design for different terminal dimensions
 - [ ] **Enhanced Error Messaging** - Professional feedback and user guidance systems
-- [ ] **Performance Optimization** - Large dataset handling and memory efficiency
-- [ ] **Cross-Platform Support** - Better Linux and Windows terminal compatibility
+- [ ] **Keyboard Navigation Enhancement** - Arrow key support for table row selection
 
 #### **Lower Priority Tasks:**  
-- [ ] **Keyboard Navigation Enhancement** - Arrow key support for table row selection
-- [ ] **Column Management** - Resizing and reordering capabilities
-- [ ] **Internationalization** - Localization support for global applications
 - [ ] **Advanced Testing Tools** - Preview systems and automated UI testing
 
 **API Target:**

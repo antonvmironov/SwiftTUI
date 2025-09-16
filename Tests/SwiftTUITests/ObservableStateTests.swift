@@ -4,7 +4,7 @@ import SwiftTUI
 @Suite("Observable State Tests")
 struct ObservableStateTests {
     
-    class TestObservableObject: ObservableObject {
+    class TestObservableObject: ObservableObject, @unchecked Sendable {
         @ObservableProperty var name: String = ""
         @ObservableProperty var age: Int = 0
         @ObservableProperty var isActive: Bool = false

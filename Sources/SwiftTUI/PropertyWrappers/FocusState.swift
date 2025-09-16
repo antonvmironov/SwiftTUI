@@ -5,11 +5,6 @@ import Foundation
 public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable & Sendable {
     public let initialValue: Value?
     
-    /// Creates a focus state with an initial value
-    public init(initialValue: Value? = nil) {
-        self.initialValue = initialValue
-    }
-    
     /// Creates a focus state with a wrapped value
     public init(wrappedValue: Value? = nil) {
         self.initialValue = wrappedValue
@@ -81,12 +76,4 @@ protocol AnyFocusState {
 class FocusStateReference: @unchecked Sendable {
     weak var node: Node?
     var label: String?
-}
-
-/// Extension to support boolean focus state (common case)
-extension FocusState where Value == Bool {
-    /// Creates a boolean focus state
-    public init() {
-        self.initialValue = false
-    }
 }

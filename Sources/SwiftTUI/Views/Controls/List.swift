@@ -39,7 +39,7 @@ public struct List<Data, ID, Content>: View, PrimitiveView where Data: RandomAcc
         self.selection = selection
     }
     
-    static var size: Int? { nil }
+    public static var size: Int? { nil }
     
     func buildNode(_ node: Node) {
         let listControl = ListControl<Data, ID, Content>(

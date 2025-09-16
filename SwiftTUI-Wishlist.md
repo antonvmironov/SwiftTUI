@@ -92,7 +92,7 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Basic text input with action closures
 
 **Wishlist:**
-- [ ] `TextField` with `@Binding` support instead of action closures
+- [x] `TextField` with `@Binding` support instead of action closures ✅ **COMPLETED**
 - [ ] Built-in input validation and error display
 - [ ] Number formatters and input masking
 - [ ] Multiline text editing with proper wrapping
@@ -100,6 +100,12 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - [ ] Picker and selection controls
 
 **Impact:** Would enable form-heavy applications to share validation and input handling logic.
+
+**Recent Progress:**
+- ✅ Added new `TextField("placeholder", text: Binding<String>)` initializer for SwiftUI compatibility
+- ✅ Maintains backward compatibility with existing action-based TextField
+- ✅ TextField now automatically updates bound state variables as user types
+- ✅ Added comprehensive tests for both @Binding and action-based TextField patterns
 
 ### 7. List and Table Components
 

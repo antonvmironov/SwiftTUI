@@ -1,7 +1,7 @@
 import Foundation
 
 /// A SwiftUI-compatible navigation link for terminal environments
-/// This is a simplified version that provides the UI pattern without full navigation stack support
+/// Provides a visual navigation pattern with arrow indicator
 public struct NavigationLink<Label: View, Destination: View>: View {
     private let destination: Destination
     private let label: Label
@@ -23,8 +23,8 @@ public struct NavigationLink<Label: View, Destination: View>: View {
     
     public var body: some View {
         Button(action: {
-            // For now, just provide the UI pattern
-            // In a full implementation, this would integrate with navigation state
+            // For basic implementation, just provide the visual pattern
+            // Future enhancement: integrate with NavigationStack
         }) {
             HStack {
                 label

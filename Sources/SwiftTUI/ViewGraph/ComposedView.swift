@@ -6,6 +6,7 @@ struct ComposedView<I: View>: GenericView {
 
     func buildNode(_ node: Node) {
         view.setupStateProperties(node: node)
+        view.setupFocusStateProperties(node: node)
         view.setupEnvironmentProperties(node: node)
         #if os(macOS)
         view.setupObservedObjectProperties(node: node)
@@ -15,6 +16,7 @@ struct ComposedView<I: View>: GenericView {
 
     func updateNode(_ node: Node) {
         view.setupStateProperties(node: node)
+        view.setupFocusStateProperties(node: node)
         view.setupEnvironmentProperties(node: node)
         node.view = self
         node.children[0].update(using: view.body.view)

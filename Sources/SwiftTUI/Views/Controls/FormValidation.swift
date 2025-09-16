@@ -162,9 +162,6 @@ public struct ValidatedTextField: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 1) {
             TextField(title, text: $text)
-                .onAppear {
-                    validateInput()
-                }
             
             if let errorMessage = validationResult.errorMessage {
                 Text("❌ \(errorMessage)")
@@ -210,9 +207,6 @@ public struct ValidatedSecureField: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 1) {
             SecureField(title, text: $text)
-                .onAppear {
-                    validateInput()
-                }
             
             if let errorMessage = validationResult.errorMessage {
                 Text("❌ \(errorMessage)")
@@ -238,7 +232,7 @@ public struct ValidatedSecureField: View {
 }
 
 /// Form validation state manager
-public class FormValidator: ObservableObject {
+public class FormValidator: ObservableObject, @unchecked Sendable {
     @Published public var fields: [String: ValidationResult] = [:]
     @Published public var isValid: Bool = true
     

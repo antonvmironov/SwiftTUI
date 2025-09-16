@@ -2,17 +2,17 @@ import Foundation
 
 /// An advanced table component with sorting and selection capabilities
 /// Similar to SwiftUI's Table but optimized for terminal environments
-public struct Table<Data: RandomAccessCollection, RowValue>: View 
-where Data.Element: Identifiable, RowValue: Hashable {
+public struct Table<Data: RandomAccessCollection>: View 
+where Data.Element: Identifiable {
     
     private let data: Data
-    private let columns: [TableColumn<Data.Element, RowValue>]
+    private let columns: [TableColumn<Data.Element>]
     private let selection: Binding<Set<Data.Element.ID>>?
     @State private var sortOrder: [TableSortDescriptor] = []
     @State private var selectedRowIndex: Int? = nil
     
     /// Creates a table without selection
-    public init(_ data: Data, @TableColumnBuilder<Data.Element, RowValue> columns: () -> [TableColumn<Data.Element, RowValue>]) {
+    public init(_ data: Data, @TableColumnBuilder<Data.Element> columns: () -> [TableColumn<Data.Element>]) {
         self.data = data
         self.columns = columns()
         self.selection = nil
@@ -22,7 +22,7 @@ where Data.Element: Identifiable, RowValue: Hashable {
     public init(
         _ data: Data,
         selection: Binding<Set<Data.Element.ID>>,
-        @TableColumnBuilder<Data.Element, RowValue> columns: () -> [TableColumn<Data.Element, RowValue>]
+        @TableColumnBuilder<Data.Element> columns: () -> [TableColumn<Data.Element>]
     ) {
         self.data = data
         self.columns = columns()
@@ -110,7 +110,7 @@ where Data.Element: Identifiable, RowValue: Hashable {
         }
     }
     
-    private func toggleSort(for column: TableColumn<Data.Element, RowValue>) {
+    private func toggleSort(for column: TableColumn<Data.Element>) {
         if let existingIndex = sortOrder.firstIndex(where: { $0.columnId == column.id }) {
             // Toggle existing sort order
             let currentOrder = sortOrder[existingIndex].order
@@ -142,7 +142,7 @@ where Data.Element: Identifiable, RowValue: Hashable {
 }
 
 /// A table column definition
-public struct TableColumn<RowValue, SortValue: Hashable> {
+public struct TableColumn<RowValue> {
     let id: String
     let title: String
     let content: (RowValue) -> String
@@ -176,8 +176,8 @@ public enum SortOrder {
 
 /// Result builder for table columns
 @resultBuilder
-public struct TableColumnBuilder<RowValue, SortValue: Hashable> {
-    public static func buildBlock(_ components: TableColumn<RowValue, SortValue>...) -> [TableColumn<RowValue, SortValue>] {
+public struct TableColumnBuilder<RowValue> {
+    public static func buildBlock(_ components: TableColumn<RowValue>...) -> [TableColumn<RowValue>] {
         components
     }
 }

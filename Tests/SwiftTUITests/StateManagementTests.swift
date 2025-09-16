@@ -177,12 +177,13 @@ struct StateManagementTests {
     
     @Test("Property wrapper thread safety")
     func propertyWrapperThreadSafety() async throws {
-        @StateObject var model = TestViewModel()
+        let model = TestViewModel()
+        @StateObject var stateModel = model
         
         // Test concurrent access (basic smoke test)
         await withTaskGroup(of: Void.self) { group in
             for i in 0..<10 {
-                group.addTask {
+                group.addTask { @Sendable in
                     model.updateName("Name \(i)")
                     model.increment()
                 }

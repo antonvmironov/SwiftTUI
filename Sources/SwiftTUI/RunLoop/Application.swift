@@ -221,5 +221,22 @@ public class Application {
         tattr.c_lflag |= tcflag_t(ECHO | ICANON)
         tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
     }
+    
+    /// Updates the bool focus state
+    func updateBoolFocus(focused: Bool) {
+        // For Bool focus, we either focus a specific control or clear focus
+        if focused {
+            // Try to find a focusable control that should be focused
+            // For now, we'll just ensure there's a first responder
+            if window.firstResponder == nil {
+                window.firstResponder = control.firstSelectableElement
+                window.firstResponder?.becomeFirstResponder()
+            }
+        } else {
+            // Clear focus by resigning first responder
+            window.firstResponder?.resignFirstResponder()
+            window.firstResponder = nil
+        }
+    }
 
 }

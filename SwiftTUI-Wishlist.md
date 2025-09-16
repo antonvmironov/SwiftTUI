@@ -68,13 +68,22 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Basic input handling, manual key processing
 
 **Wishlist:**
-- [ ] `onKeyPress` modifier with `KeyEquivalent` support
-- [ ] `onTapGesture` equivalent (Enter key simulation)
+- [x] `onKeyPress` modifier with `KeyEquivalent` support ✅ **COMPLETED**
+- [x] `onTapGesture` equivalent (Enter key simulation) ✅ **COMPLETED**
 - [ ] Focus management system with `@FocusState`
 - [ ] Automatic tab order for form navigation
 - [ ] Gesture composition and priority handling
 
 **Impact:** Would enable interactive forms and complex input handling patterns used in SwiftUI apps.
+
+**Recent Progress:**
+- ✅ Added `KeyEquivalent` struct with common key definitions (escape, tab, space, enter, etc.)
+- ✅ Added `onKeyPress(_:action:)` modifier for specific key event handling
+- ✅ Added `onTapGesture(action:)` modifier that responds to Enter key presses
+- ✅ Added `onTapGesture(count:action:)` for multi-tap detection
+- ✅ All modifiers support async MainActor actions and integrate with existing event system
+- ✅ Added comprehensive test suite (9 new tests, all passing)
+- ✅ Full compatibility with existing SwiftTUI event handling
 
 ### 5. View Lifecycle and Animation
 

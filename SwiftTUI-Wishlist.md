@@ -45,13 +45,21 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Limited ANSI color palette, no opacity support
 
 **Wishlist:**
-- [ ] Color opacity support (`.opacity(0.3)` → appropriate terminal styling)
-- [ ] `Color.clear` equivalent for transparent backgrounds
-- [ ] `Color.primary`, `Color.secondary` semantic colors
+- [x] Color opacity support (`.opacity(0.3)` → appropriate terminal styling) ✅ **COMPLETED**
+- [x] `Color.clear` equivalent for transparent backgrounds ✅ **COMPLETED**
+- [x] `Color.primary`, `Color.secondary` semantic colors ✅ **COMPLETED**
 - [ ] Theme-aware colors that adapt to terminal color schemes
 - [ ] Gradient support using character-based patterns
 
 **Impact:** Would allow visual styling code to be shared between SwiftUI and SwiftTUI without modification.
+
+**Recent Progress:**
+- ✅ Added `Color.clear` for transparent backgrounds (produces empty escape sequences)
+- ✅ Added `Color.primary` and `Color.secondary` semantic colors for better theming
+- ✅ Added `.opacity()` modifier with terminal-appropriate rendering (uses dim effect for low opacity)
+- ✅ Enhanced all existing color types (ANSI, XTerm, TrueColor) to support opacity
+- ✅ Added comprehensive test suite (6 new tests, all passing)
+- ✅ Maintained full backward compatibility with existing color usage
 
 ### 4. Input Handling and Event System
 

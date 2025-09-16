@@ -9,19 +9,27 @@ import Foundation
 /// theme, and bold text automatically uses the bright color variant.
 public struct Color: Hashable, Sendable {
     private let data: Data
+    private let opacity: Double
 
     private enum Data: Hashable {
         case ansi(ANSIColor)
         case xterm(XTermColor)
         case trueColor(TrueColor)
+        case clear
     }
 
-    private init(data: Data) {
+    private init(data: Data, opacity: Double = 1.0) {
         self.data = data
+        self.opacity = opacity
     }
 
     static func ansi(_ color: ANSIColor) -> Color {
         Color(data: .ansi(color))
+    }
+
+    /// Creates a clear/transparent color
+    public static var clear: Color {
+        Color(data: .clear)
     }
 
     /// A low-resolution color from a 6 by 6 by 6 color cube. The red, green and blue components
@@ -41,30 +49,59 @@ public struct Color: Hashable, Sendable {
         Color(data: .trueColor(TrueColor(red: red, green: green, blue: blue)))
     }
 
+    /// Creates a new color with the specified opacity.
+    /// - Parameter opacity: The opacity value between 0.0 (transparent) and 1.0 (opaque)
+    /// - Returns: A new color with the specified opacity
+    public func opacity(_ opacity: Double) -> Color {
+        Color(data: self.data, opacity: max(0.0, min(1.0, opacity)))
+    }
+
     var foregroundEscapeSequence: String {
         switch data {
         case .ansi(let color):
-            return EscapeSequence.setForegroundColor(color)
+            return applyOpacity(EscapeSequence.setForegroundColor(color))
         case .trueColor(let color):
-            return EscapeSequence.setForegroundColor(red: color.red, green: color.green, blue: color.blue)
+            return applyOpacity(EscapeSequence.setForegroundColor(red: color.red, green: color.green, blue: color.blue))
         case .xterm(let color):
-            return EscapeSequence.setForegroundColor(xterm: color.value)
+            return applyOpacity(EscapeSequence.setForegroundColor(xterm: color.value))
+        case .clear:
+            return "" // Clear color produces no output
         }
     }
 
     var backgroundEscapeSequence: String {
         switch data {
         case .ansi(let color):
-            return EscapeSequence.setBackgroundColor(color)
+            return applyOpacity(EscapeSequence.setBackgroundColor(color))
         case .trueColor(let color):
-            return EscapeSequence.setBackgroundColor(red: color.red, green: color.green, blue: color.blue)
+            return applyOpacity(EscapeSequence.setBackgroundColor(red: color.red, green: color.green, blue: color.blue))
         case .xterm(let color):
-            return EscapeSequence.setBackgroundColor(xterm: color.value)
+            return applyOpacity(EscapeSequence.setBackgroundColor(xterm: color.value))
+        case .clear:
+            return "" // Clear color produces no output
         }
+    }
+
+    private func applyOpacity(_ escapeSequence: String) -> String {
+        if opacity < 1.0 {
+            // For terminal environments, we can simulate opacity by using dim text
+            // This is a simple approximation since true opacity isn't available in most terminals
+            if opacity < 0.5 {
+                return EscapeSequence.setDim + escapeSequence
+            }
+        }
+        return escapeSequence
     }
 
     public static var `default`: Color { Color.ansi(.default) }
 
+    // Semantic colors that adapt to terminal themes
+    /// Primary text color - adapts to terminal theme
+    public static var primary: Color { Color.ansi(.default) }
+    /// Secondary text color - usually dimmer than primary
+    public static var secondary: Color { Color.ansi(.brightBlack) }
+
+    // Basic ANSI colors
     public static var black: Color { .ansi(.black) }
     public static var red: Color { .ansi(.red) }
     public static var green: Color { .ansi(.green) }
@@ -74,6 +111,7 @@ public struct Color: Hashable, Sendable {
     public static var cyan: Color { .ansi(.cyan) }
     public static var white: Color { .ansi(.white) }
 
+    // Bright ANSI colors
     public static var brightBlack: Color { .ansi(.brightBlack) }
     public static var brightRed: Color { .ansi(.brightRed) }
     public static var brightGreen: Color { .ansi(.brightGreen) }

@@ -269,11 +269,20 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Basic text display
 
 **Wishlist:**
-- [ ] Screen reader compatibility
-- [ ] Keyboard-only navigation standards
+- [x] Screen reader compatibility ✅ **BASIC IMPLEMENTATION**
+- [x] Keyboard-only navigation standards ✅ **BASIC IMPLEMENTATION**
 - [ ] Localization support with `String` catalogs
 - [ ] Right-to-left language support
 - [ ] High contrast mode for accessibility
+
+**Recent Progress:**
+- ✅ **NEW**: Added complete accessibility API with SwiftUI-compatible modifiers
+- ✅ **NEW**: AccessibilityInfo struct for managing accessibility metadata
+- ✅ **NEW**: AccessibilityRole enum with 14 common UI element types
+- ✅ **NEW**: View extensions (.accessibilityLabel, .accessibilityHint, .accessibilityRole, .accessibilityHidden)
+- ✅ **NEW**: KeyboardNavigation utility with 13 standard shortcuts and hint generation
+- ✅ **NEW**: AccessibleButton and AccessibleTextField components with enhanced accessibility
+- ✅ **NEW**: Comprehensive test suite (8 accessibility tests, all passing)
 
 ### 10. Error Handling and Debugging
 
@@ -351,6 +360,7 @@ Implementing these improvements would significantly reduce the friction in porti
 11. ✅ **Enhanced form controls** - Picker, Stepper, Slider, professional input formatting ✅ **NEW**
 12. ✅ **Multiline text editing** - TextEditor, WrappedTextEditor, MultilineTextField ✅ **NEW**
 13. ✅ **Animation and transitions system** - withAnimation, timing curves, animated components ✅ **NEW**
+14. ✅ **Basic accessibility support** - Screen reader hints, keyboard navigation utilities ✅ **NEW**
 
 **Remaining High-Priority Items:**
 1. **Navigation system** - Full NavigationStack with automatic keyboard navigation

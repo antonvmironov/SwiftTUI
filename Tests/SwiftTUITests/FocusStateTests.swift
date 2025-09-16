@@ -18,7 +18,7 @@ struct FocusStateTests {
         @FocusState var selectedField: String? = "username"
         #expect(selectedField == "username")
         
-        @FocusState var isFocused: Bool = true
+        @BoolFocusState var isFocused: Bool = true
         #expect(isFocused == true)
     }
     
@@ -36,7 +36,7 @@ struct FocusStateTests {
     
     @Test("FocusState boolean extension")
     func focusStateBooleanExtension() async throws {
-        @FocusState var isFocused: Bool
+        @BoolFocusState var isFocused: Bool
         
         // Test default initialization works
         #expect(isFocused == false)

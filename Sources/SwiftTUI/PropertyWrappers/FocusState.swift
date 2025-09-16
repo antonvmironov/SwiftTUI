@@ -51,6 +51,62 @@ public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable &
     }
 }
 
+/// Specialized wrapper that works directly with Bool (non-optional)
+@propertyWrapper  
+public struct BoolFocusState: AnyFocusState, Sendable {
+    public let initialValue: Bool
+    
+    /// Creates a Bool focus state with default false
+    public init() {
+        self.initialValue = false
+    }
+    
+    /// Creates a Bool focus state with a wrapped value
+    public init(wrappedValue: Bool) {
+        self.initialValue = wrappedValue
+    }
+    
+    var valueReference = FocusStateReference()
+    
+    public var wrappedValue: Bool {
+        get {
+            guard let node = valueReference.node,
+                  let label = valueReference.label
+            else {
+                return initialValue
+            }
+            if let value = node.state[label] as? Bool {
+                return value
+            }
+            return initialValue
+        }
+        nonmutating set {
+            guard let node = valueReference.node,
+                  let label = valueReference.label
+            else {
+                return
+            }
+            
+            // Update the focus state
+            node.state[label] = newValue
+            
+            // Update the actual focus in the application
+            if let rootApplication = node.root.application {
+                Task { @MainActor [rootApplication, newValue] in
+                    rootApplication.updateBoolFocus(focused: newValue)
+                }
+            }
+        }
+    }
+    
+    public var projectedValue: BoolFocusStateBinding {
+        BoolFocusStateBinding(
+            get: { wrappedValue },
+            set: { wrappedValue = $0 }
+        )
+    }
+}
+
 /// A specialized binding for focus state
 public struct FocusStateBinding<Value>: Sendable where Value: Hashable & Sendable {
     private let get: @Sendable () -> Value?
@@ -62,6 +118,22 @@ public struct FocusStateBinding<Value>: Sendable where Value: Hashable & Sendabl
     }
     
     public var wrappedValue: Value? {
+        get { get() }
+        nonmutating set { set(newValue) }
+    }
+}
+
+/// A specialized binding for Bool focus state
+public struct BoolFocusStateBinding: Sendable {
+    private let get: @Sendable () -> Bool
+    private let set: @Sendable (Bool) -> Void
+    
+    init(get: @escaping @Sendable () -> Bool, set: @escaping @Sendable (Bool) -> Void) {
+        self.get = get
+        self.set = set
+    }
+    
+    public var wrappedValue: Bool {
         get { get() }
         nonmutating set { set(newValue) }
     }

@@ -1,4 +1,5 @@
 import SwiftTUI
+import Foundation
 
 /// Advanced Table Demo Application showcasing enhanced table features
 /// This demonstrates the improved Table component with search, filtering, 
@@ -6,8 +7,7 @@ import SwiftTUI
 @main
 struct AdvancedTableDemo {
     static func main() {
-        Application(rootView: AdvancedTableDemoView())
-            .run()
+        Application(rootView: AdvancedTableDemoView()).start()
     }
 }
 
@@ -57,11 +57,11 @@ struct AdvancedTableDemoView: View {
                 TableColumn("👤 Name", value: \Employee.name)
                 TableColumn("🏢 Department", value: \Employee.department)
                 TableColumn("💼 Role", value: \Employee.role)
-                TableColumn("💰 Salary") { employee in
+                TableColumn("💰 Salary") { (employee: Employee) in
                     formatSalary(employee.salary)
                 }
                 TableColumn("📅 Hire Date", value: \Employee.hireDate)
-                TableColumn("Status") { employee in
+                TableColumn("Status") { (employee: Employee) in
                     employee.isActive ? "🟢 Active" : "🔴 Inactive"
                 }
             }
@@ -113,11 +113,7 @@ struct AdvancedTableDemoView: View {
     }
     
     private func formatSalary(_ salary: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "USD"
-        formatter.maximumFractionDigits = 0
-        return formatter.string(from: NSNumber(value: salary)) ?? "$0"
+        return String(format: "$%.0f", salary)
     }
 }
 
@@ -153,13 +149,13 @@ struct TableVariationsDemo: View {
                 TableColumn("🆔", value: \Product.id)
                 TableColumn("📱 Product", value: \Product.name)
                 TableColumn("🏷️ Category", value: \Product.category)
-                TableColumn("💰 Price") { product in
+                TableColumn("💰 Price") { (product: Product) in
                     String(format: "$%.2f", product.price)
                 }
-                TableColumn("⭐ Rating") { product in
+                TableColumn("⭐ Rating") { (product: Product) in
                     String(format: "%.1f ⭐", product.rating)
                 }
-                TableColumn("📦 Stock") { product in
+                TableColumn("📦 Stock") { (product: Product) in
                     product.inStock ? "✅" : "❌"
                 }
             }

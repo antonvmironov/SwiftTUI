@@ -134,8 +134,8 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 **Wishlist:**
 - [x] Full `onAppear` and `onDisappear` support without concurrency issues ✅ **COMPLETED**
 - [x] Text-based animation system (e.g., loading spinners, progress bars) ✅ **COMPLETED**
-- [ ] View transitions with character-based effects
-- [ ] `withAnimation` equivalent for smooth state changes
+- [x] View transitions with character-based effects ✅ **COMPLETED**
+- [x] `withAnimation` equivalent for smooth state changes ✅ **COMPLETED**
 - [x] Automatic loading states and skeleton views ✅ **COMPLETED**
 
 **Impact:** Would allow lifecycle-dependent logic and visual feedback to work consistently across both platforms.
@@ -149,6 +149,14 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ Added `LoadingIndicator` combining text + spinner for common loading scenarios
 - ✅ All components follow SwiftUI design patterns and integrate seamlessly with existing view hierarchies
 - ✅ Added comprehensive test suite (21 new tests, all passing)
+- ✅ **NEW**: Complete animation system with `withAnimation` SwiftUI-compatible API
+- ✅ **NEW**: Animation timing curves (linear, easeIn, easeOut, easeInOut) with mathematical precision
+- ✅ **NEW**: Interpolation functions for smooth value transitions (Double, Float, Int)
+- ✅ **NEW**: Animation modifiers for property changes (`.animation(_:value:)`)
+- ✅ **NEW**: Simple animated components (SimpleSpinner, AnimatableText, AnimatableDots)
+- ✅ **NEW**: Transition system for view state changes (TransitionView)
+- ✅ **NEW**: Comprehensive test suite (17 new animation tests, all passing)
+- ✅ **NEW**: Professional demo application showcasing animation capabilities
 
 ## Form and Input Components
 
@@ -342,6 +350,7 @@ Implementing these improvements would significantly reduce the friction in porti
 10. ✅ **Navigation stack system** - NavigationStack with breadcrumb support and keyboard navigation ✅ **NEW**
 11. ✅ **Enhanced form controls** - Picker, Stepper, Slider, professional input formatting ✅ **NEW**
 12. ✅ **Multiline text editing** - TextEditor, WrappedTextEditor, MultilineTextField ✅ **NEW**
+13. ✅ **Animation and transitions system** - withAnimation, timing curves, animated components ✅ **NEW**
 
 **Remaining High-Priority Items:**
 1. **Navigation system** - Full NavigationStack with automatic keyboard navigation

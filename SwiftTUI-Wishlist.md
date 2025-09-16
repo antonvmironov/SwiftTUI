@@ -157,7 +157,7 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 **Wishlist:**
 - [x] `TextField` with `@Binding` support instead of action closures ✅ **COMPLETED**
 - [x] Secure text fields for password input ✅ **COMPLETED**
-- [ ] Built-in input validation and error display
+- [x] Built-in input validation and error display ✅ **NEW IMPLEMENTATION**
 - [ ] Number formatters and input masking
 - [ ] Multiline text editing with proper wrapping
 - [ ] Picker and selection controls
@@ -168,6 +168,12 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - ✅ Added new `TextField("placeholder", text: Binding<String>)` initializer for SwiftUI compatibility
 - ✅ Maintains backward compatibility with existing action-based TextField
 - ✅ TextField now automatically updates bound state variables as user types
+- ✅ **NEW**: Added comprehensive form validation system with ValidatedTextField and ValidatedSecureField
+- ✅ **NEW**: Built-in validators: Required, MinLength, MaxLength, Email, Numeric, Custom
+- ✅ **NEW**: CompositeValidator for combining multiple validation rules
+- ✅ **NEW**: Real-time error display with visual indicators
+- ✅ **NEW**: FormValidator class for managing form-level validation state
+- ✅ **NEW**: Professional examples: registration forms, login forms, business validation
 - ✅ Added comprehensive tests for both @Binding and action-based TextField patterns
 - ✅ **NEW**: Added `SecureField` component with SwiftUI-compatible API for password input
 - ✅ **NEW**: SecureField masks input with bullet characters (•) for security
@@ -322,21 +328,23 @@ Implementing these improvements would significantly reduce the friction in porti
 5. ✅ **Animation system** - Loading spinners, progress bars, skeleton views ✅ **COMPLETED**
 6. ✅ **Advanced styling** - Color opacity, gradients, semantic colors ✅ **COMPLETED**
 7. ✅ **Table components** - Advanced `Table` with sorting, selection, SwiftUI-compatible API ✅ **COMPLETED**
-8. ✅ **Grid layout system** - LazyVGrid, LazyHGrid, Grid with flexible sizing ✅ **NEW**
+8. ✅ **Grid layout system** - LazyVGrid, LazyHGrid, Grid with flexible sizing ✅ **COMPLETED**
+9. ✅ **Form validation system** - Comprehensive validation with error handling ✅ **NEW**
 
 **Remaining High-Priority Items:**
 1. **Navigation system** - Full NavigationStack with automatic keyboard navigation
 2. **Enhanced Table features** - Row selection, keyboard navigation, advanced filtering  
-3. **Form Enhancements** - Input validation, formatters, Picker controls
+3. **Form Enhancements** - Number formatters, input masking, Picker controls
 4. **Animation Enhancements** - View transitions, withAnimation equivalent
 5. **Accessibility** - Screen reader compatibility, keyboard navigation standards
 
 **Current Status:**
 SwiftTUI now provides **professional-grade terminal UI development** with SwiftUI-compatible APIs. The implemented features enable:
 - Reactive state management with automatic UI updates
-- Professional form handling with focus management
+- Professional form handling with focus management and validation
 - Rich data display with navigable lists and sortable tables
 - Flexible grid layouts for complex terminal interfaces
+- Comprehensive form validation with real-time error display
 - Visual polish with animations and styling
 - Comprehensive input handling and keyboard navigation
 - Advanced table functionality with column-based sorting

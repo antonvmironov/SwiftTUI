@@ -40,6 +40,9 @@ enum EscapeSequence {
     static let enableBold = "\u{1b}[1m"
     static let disableBold = "\u{1b}[22m"
 
+    static let setDim = "\u{1b}[2m"
+    static let disableDim = "\u{1b}[22m"
+
     static let enableItalic = "\u{1b}[3m"
     static let disableItalic = "\u{1b}[23m"
 

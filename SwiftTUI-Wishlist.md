@@ -30,13 +30,22 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Manual navigation state management, no built-in navigation stack
 
 **Wishlist:**
+- [x] `NavigationLink` for declarative navigation ✅ **BASIC IMPLEMENTATION**
 - [ ] `NavigationStack` equivalent with automatic keyboard navigation (Tab/Shift+Tab)
-- [ ] `NavigationLink` for declarative navigation
 - [ ] Built-in breadcrumb support for terminal environments
 - [ ] Automatic "Back" action handling (e.g., Escape key)
 - [ ] `navigationDestination` modifier support
 
 **Impact:** Would enable the same navigation patterns used in SwiftUI apps, making the Supply → Unit Editor flow more natural.
+
+**Recent Progress:**
+- ✅ Added basic `NavigationLink` component with SwiftUI-compatible API
+- ✅ Supports both string title and custom label variants: `NavigationLink("Title", destination: view)` and `NavigationLink(destination: view) { CustomLabel() }`
+- ✅ Provides familiar UI pattern with ">" indicator for navigation items
+- ✅ Foundation laid for future full navigation stack implementation
+- ✅ Added comprehensive test suite (4 new tests, all passing)
+
+**Note:** This is a basic implementation that provides the UI pattern and API compatibility. Full navigation stack functionality would require additional state management infrastructure.
 
 ### 3. Color and Styling
 
@@ -45,13 +54,21 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Limited ANSI color palette, no opacity support
 
 **Wishlist:**
-- [ ] Color opacity support (`.opacity(0.3)` → appropriate terminal styling)
-- [ ] `Color.clear` equivalent for transparent backgrounds
-- [ ] `Color.primary`, `Color.secondary` semantic colors
+- [x] Color opacity support (`.opacity(0.3)` → appropriate terminal styling) ✅ **COMPLETED**
+- [x] `Color.clear` equivalent for transparent backgrounds ✅ **COMPLETED**
+- [x] `Color.primary`, `Color.secondary` semantic colors ✅ **COMPLETED**
 - [ ] Theme-aware colors that adapt to terminal color schemes
 - [ ] Gradient support using character-based patterns
 
 **Impact:** Would allow visual styling code to be shared between SwiftUI and SwiftTUI without modification.
+
+**Recent Progress:**
+- ✅ Added `Color.clear` for transparent backgrounds (produces empty escape sequences)
+- ✅ Added `Color.primary` and `Color.secondary` semantic colors for better theming
+- ✅ Added `.opacity()` modifier with terminal-appropriate rendering (uses dim effect for low opacity)
+- ✅ Enhanced all existing color types (ANSI, XTerm, TrueColor) to support opacity
+- ✅ Added comprehensive test suite (6 new tests, all passing)
+- ✅ Maintained full backward compatibility with existing color usage
 
 ### 4. Input Handling and Event System
 
@@ -60,13 +77,22 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Basic input handling, manual key processing
 
 **Wishlist:**
-- [ ] `onKeyPress` modifier with `KeyEquivalent` support
-- [ ] `onTapGesture` equivalent (Enter key simulation)
+- [x] `onKeyPress` modifier with `KeyEquivalent` support ✅ **COMPLETED**
+- [x] `onTapGesture` equivalent (Enter key simulation) ✅ **COMPLETED**
 - [ ] Focus management system with `@FocusState`
 - [ ] Automatic tab order for form navigation
 - [ ] Gesture composition and priority handling
 
 **Impact:** Would enable interactive forms and complex input handling patterns used in SwiftUI apps.
+
+**Recent Progress:**
+- ✅ Added `KeyEquivalent` struct with common key definitions (escape, tab, space, enter, etc.)
+- ✅ Added `onKeyPress(_:action:)` modifier for specific key event handling
+- ✅ Added `onTapGesture(action:)` modifier that responds to Enter key presses
+- ✅ Added `onTapGesture(count:action:)` for multi-tap detection
+- ✅ All modifiers support async MainActor actions and integrate with existing event system
+- ✅ Added comprehensive test suite (9 new tests, all passing)
+- ✅ Full compatibility with existing SwiftTUI event handling
 
 ### 5. View Lifecycle and Animation
 
@@ -92,7 +118,7 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - SwiftTUI: Basic text input with action closures
 
 **Wishlist:**
-- [ ] `TextField` with `@Binding` support instead of action closures
+- [x] `TextField` with `@Binding` support instead of action closures ✅ **COMPLETED**
 - [ ] Built-in input validation and error display
 - [ ] Number formatters and input masking
 - [ ] Multiline text editing with proper wrapping
@@ -100,6 +126,12 @@ During the implementation of ChoreApp-tui as a terminal UI port of ChoreLib (whi
 - [ ] Picker and selection controls
 
 **Impact:** Would enable form-heavy applications to share validation and input handling logic.
+
+**Recent Progress:**
+- ✅ Added new `TextField("placeholder", text: Binding<String>)` initializer for SwiftUI compatibility
+- ✅ Maintains backward compatibility with existing action-based TextField
+- ✅ TextField now automatically updates bound state variables as user types
+- ✅ Added comprehensive tests for both @Binding and action-based TextField patterns
 
 ### 7. List and Table Components
 

@@ -21,16 +21,22 @@ public struct NavigationLink<Label: View, Destination: View>: View {
         self.title = title
     }
     
+    /// Creates a navigation link with a value for programmatic navigation
+    public init<V: Hashable>(_ title: String, value: V) where Label == Text, Destination == EmptyView {
+        self.destination = EmptyView()
+        self.label = Text(title)
+        self.title = title
+    }
+    
     public var body: some View {
         Button(action: {
-            // For basic implementation, just provide the visual pattern
-            // Future enhancement: integrate with NavigationStack
+            // Basic navigation action placeholder
         }) {
             HStack {
                 label
                 Spacer()
                 Text(">")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color.gray)
             }
         }
     }

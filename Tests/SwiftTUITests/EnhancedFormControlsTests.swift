@@ -63,7 +63,7 @@ struct EnhancedFormControlsTests {
     func testStepperDouble() {
         @State var price = 19.99
         
-        let stepper = Stepper("Price: $\(price, specifier: "%.2f")", value: $price, in: 0...1000, step: 0.01)
+        let stepper = Stepper("Price: $\(String(format: "%.2f", price))", value: $price, in: 0...1000, step: 0.01)
         
         // Test that double stepper compiles
         #expect(true) // Double stepper creation succeeded

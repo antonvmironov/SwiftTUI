@@ -98,6 +98,7 @@ struct AnimationSystemTests {
     }
     
     @Test("WithAnimation function")
+    @MainActor
     func testWithAnimation() {
         var result = 0
         

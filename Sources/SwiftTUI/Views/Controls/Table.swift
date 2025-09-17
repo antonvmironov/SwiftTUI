@@ -293,4 +293,11 @@ extension TableColumn {
             String(describing: row[keyPath: keyPath])
         }
     }
+    
+    /// Creates a column using a closure for custom value extraction
+    public init(_ title: String, content: @escaping (RowValue) -> String) {
+        self.id = title
+        self.title = title
+        self.content = content
+    }
 }

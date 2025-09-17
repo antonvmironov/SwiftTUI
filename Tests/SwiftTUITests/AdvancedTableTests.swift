@@ -95,8 +95,8 @@ struct TableTests {
     
     @Test("TableColumnBuilder result builder")
     func testTableColumnBuilder() {
-        @TableColumnBuilder<Person, String>
-        func buildColumns() -> [TableColumn<Person, String>] {
+        @TableColumnBuilder<Person>
+        func buildColumns() -> [TableColumn<Person>] {
             TableColumn("Name") { $0.name }
             TableColumn("Email") { $0.email }
         }
@@ -154,8 +154,8 @@ struct TableTests {
     
     @Test("Table column content extraction")
     func testColumnContentExtraction() {
-        let nameColumn = TableColumn<Person, String>("Name") { $0.name }
-        let ageColumn = TableColumn<Person, String>("Age") { String($0.age) }
+        let nameColumn = TableColumn<Person>("Name") { $0.name }
+        let ageColumn = TableColumn<Person>("Age") { String($0.age) }
         
         let person = sampleData[0]
         

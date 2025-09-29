@@ -27,6 +27,9 @@ struct SwiftTUIApp: AsyncParsableCommand {
             Button("I'm done here!") {
                 exit()
             }
+            Button("Bye!") {
+                exit()
+            }
         }
     }
 }

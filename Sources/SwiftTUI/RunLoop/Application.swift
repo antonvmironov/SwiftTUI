@@ -50,7 +50,7 @@ public class Application {
         do {
             try await withThrowingTaskGroup { group in
                 group.addTask {
-                    await self.inputLoop()
+                    try await self.inputLoop()
                 }
                 group.addTask {
                     await self.signalLoop(signal: SIGWINCH) { [weak self] in await self?.handleWindowSizeChange() }
@@ -67,19 +67,16 @@ public class Application {
     }
 
     // Async input loop using FileHandle
-    private func inputLoop() async {
+    private func inputLoop() async throws {
         let fileHandle = FileHandle.standardInput
         while true {
-            do {
-                let data = fileHandle.availableData
-                guard !data.isEmpty, let string = String(data: data, encoding: .utf8) else { continue }
+            let data = fileHandle.availableData
+            if !data.isEmpty, let string = String(data: data, encoding: .utf8) {
                 for char in string {
                     await handleInputChar(char)
                 }
-              try await ContinuousClock().sleep(for: .milliseconds(10)) // 10ms to avoid busy loop
-            } catch {
-                break
             }
+            try await ContinuousClock().sleep(for: .milliseconds(10)) // 10ms to avoid busy loop
         }
     }
 

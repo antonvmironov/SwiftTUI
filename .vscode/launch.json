@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTUI}",
+            "name": "Debug SwiftTUIApp",
+            "program": "${workspaceFolder:SwiftTUI}/.build/debug/SwiftTUIApp",
+            "preLaunchTask": "swift: Build Debug SwiftTUIApp"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTUI}",
+            "name": "Release SwiftTUIApp",
+            "program": "${workspaceFolder:SwiftTUI}/.build/release/SwiftTUIApp",
+            "preLaunchTask": "swift: Build Release SwiftTUIApp"
+        }
+    ]
+}

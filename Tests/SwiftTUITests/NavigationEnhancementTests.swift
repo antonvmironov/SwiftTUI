@@ -3,15 +3,16 @@ import Testing
 
 @Suite("Navigation Enhancement Tests")
 struct NavigationEnhancementTests {
-    
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+
     @Test("NavigationLink with string title compiles correctly")
     func navigationLinkWithTitle() {
         let destinationView = Text("Destination")
         let navLink = NavigationLink("Go to Destination", destination: destinationView)
         
-        // Should compile without issues
-        // NavigationLink should provide the UI pattern
-        #expect(true) // Basic compilation test
+        #expect(isView(destinationView))
+        #expect(isView(navLink))
     }
     
     @Test("NavigationLink with custom label compiles correctly")
@@ -24,8 +25,8 @@ struct NavigationEnhancementTests {
             }
         }
         
-        // Should compile without issues
-        #expect(true) // Basic compilation test
+        #expect(isView(destinationView))
+        #expect(isView(navLink))
     }
     
     @Test("NavigationLink provides SwiftUI-compatible API")
@@ -41,10 +42,11 @@ struct NavigationEnhancementTests {
             Text("Go to Details")
         }
         
-        // Both should be valid and compile
-        #expect(true)
+        #expect(isView(destination))
+        #expect(isView(link1))
+        #expect(isView(link2))
     }
-    
+
     @Test("NavigationLink integrates with other components")
     func navigationLinkIntegration() {
         let destinationView = VStack {
@@ -58,7 +60,7 @@ struct NavigationEnhancementTests {
             NavigationLink("Third Item", destination: destinationView)
         }
         
-        // Should work as part of larger UI structures
-        #expect(true)
+        #expect(isView(destinationView))
+        #expect(isView(listView))
     }
 }

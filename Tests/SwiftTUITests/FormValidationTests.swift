@@ -136,7 +136,7 @@ struct FormValidationTests {
         let validator = Validators.MinLength(8)
         
         let field = ValidatedSecureField("Password", text: $password, validator: validator)
-        #expect(field != nil)
+        #expect(isView(field))
     }
     
     @Test("FormValidator field registration")

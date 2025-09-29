@@ -3,6 +3,9 @@ import Testing
 
 struct EnhancedFormControlsTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     // MARK: - Picker Tests
     
     @Test("Picker initialization with string selection")
@@ -17,7 +20,7 @@ struct EnhancedFormControlsTests {
         }
         
         // Test that picker compiles and initializes properly
-        #expect(true) // Picker creation succeeded
+        #expect(isView(picker))
     }
     
     @Test("Picker initialization with custom label")
@@ -34,7 +37,7 @@ struct EnhancedFormControlsTests {
         }
         
         // Test that picker with custom label compiles
-        #expect(true) // Custom label picker creation succeeded
+        #expect(isView(picker))
     }
     
     @Test("PickerOption functionality")
@@ -56,7 +59,7 @@ struct EnhancedFormControlsTests {
         let stepper = Stepper("Quantity: \(quantity)", value: $quantity, in: 1...100)
         
         // Test that stepper compiles and initializes properly
-        #expect(true) // Integer stepper creation succeeded
+        #expect(isView(stepper))
     }
     
     @Test("Stepper with double value")
@@ -66,7 +69,7 @@ struct EnhancedFormControlsTests {
         let stepper = Stepper("Price: $\(String(format: "%.2f", price))", value: $price, in: 0...1000, step: 0.01)
         
         // Test that double stepper compiles
-        #expect(true) // Double stepper creation succeeded
+        #expect(isView(stepper))
     }
     
     @Test("Stepper with custom actions")
@@ -81,7 +84,8 @@ struct EnhancedFormControlsTests {
         )
         
         // Test that custom action stepper compiles
-        #expect(true) // Custom action stepper creation succeeded
+        #expect(isView(stepper))
+        #expect(!incrementCalled && !decrementCalled)
     }
     
     @Test("Stepper convenience methods")
@@ -93,7 +97,8 @@ struct EnhancedFormControlsTests {
         let decimalStepper = Stepper.decimal("Percentage", value: $percentage, in: 0...100, step: 0.1)
         
         // Test that convenience methods compile
-        #expect(true) // Stepper convenience methods succeeded
+        #expect(isView(integerStepper))
+        #expect(isView(decimalStepper))
     }
     
     // MARK: - Slider Tests
@@ -105,7 +110,7 @@ struct EnhancedFormControlsTests {
         let slider = Slider(value: $volume, in: 0...100)
         
         // Test that slider compiles and initializes properly
-        #expect(true) // Basic slider creation succeeded
+        #expect(isView(slider))
     }
     
     @Test("Slider with label")
@@ -117,7 +122,7 @@ struct EnhancedFormControlsTests {
         }
         
         // Test that slider with label compiles
-        #expect(true) // Labeled slider creation succeeded
+        #expect(isView(slider))
     }
     
     @Test("Slider with value labels")
@@ -133,7 +138,7 @@ struct EnhancedFormControlsTests {
         )
         
         // Test that slider with value labels compiles
-        #expect(true) // Value labeled slider creation succeeded
+        #expect(isView(slider))
     }
     
     @Test("Slider convenience methods")
@@ -145,7 +150,8 @@ struct EnhancedFormControlsTests {
         let volumeSlider = Slider.volume("Audio Level", value: $volume)
         
         // Test that convenience methods compile
-        #expect(true) // Slider convenience methods succeeded
+        #expect(isView(percentageSlider))
+        #expect(isView(volumeSlider))
     }
     
     // MARK: - Formatted TextField Tests
@@ -215,7 +221,10 @@ struct EnhancedFormControlsTests {
         let dateField = TextField.date("Date", text: $date)
         
         // Test that formatted text fields compile
-        #expect(true) // FormattedTextField creation succeeded
+        #expect(isView(currencyField))
+        #expect(isView(phoneField))
+        #expect(isView(emailField))
+        #expect(isView(dateField))
     }
     
     @Test("FormattedTextField with custom formatter")
@@ -230,7 +239,7 @@ struct EnhancedFormControlsTests {
         )
         
         // Test that custom formatted text field compiles
-        #expect(true) // Custom FormattedTextField creation succeeded
+        #expect(isView(textField))
     }
     
     // MARK: - Integration Tests
@@ -261,7 +270,7 @@ struct EnhancedFormControlsTests {
         }
         
         // Test that comprehensive form compiles
-        #expect(true) // Enhanced form integration succeeded
+        #expect(isView(form))
     }
     
     @Test("Stepper boundary validation")

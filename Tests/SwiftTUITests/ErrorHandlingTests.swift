@@ -3,6 +3,9 @@ import Testing
 
 struct ErrorHandlingTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     // MARK: - ErrorMessage Tests
     
     @Test("ErrorMessage creation")
@@ -16,7 +19,7 @@ struct ErrorHandlingTests {
         )
         
         let errorMessage = ErrorMessage(error: error, showDetails: true)
-        #expect(errorMessage != nil)
+        #expect(isView(errorMessage))
     }
     
     @Test("DisplayableError with different severities")
@@ -92,7 +95,7 @@ struct ErrorHandlingTests {
         )
         
         let errorMessage = ErrorMessage(error: error)
-        #expect(errorMessage != nil)
+        #expect(isView(errorMessage))
         #expect(error.actions.count == 2)
     }
     
@@ -111,7 +114,7 @@ struct ErrorHandlingTests {
             dismissed = true
         }
         
-        #expect(toast != nil)
+        #expect(isView(toast))
     }
     
     // MARK: - ErrorBoundary Tests
@@ -124,7 +127,7 @@ struct ErrorHandlingTests {
             Text("Error: \(error.message)")
         }
         
-        #expect(boundary != nil)
+        #expect(isView(boundary))
     }
     
     // MARK: - UserGuidance Tests
@@ -162,7 +165,7 @@ struct ErrorHandlingTests {
             dismissed = true
         }
         
-        #expect(overlay != nil)
+        #expect(isView(overlay))
         #expect(sections.count == 2)
     }
     
@@ -192,7 +195,7 @@ struct ErrorHandlingTests {
             completed = true
         }
         
-        #expect(tour != nil)
+        #expect(isView(tour))
         #expect(steps.count == 3)
     }
     
@@ -214,10 +217,10 @@ struct ErrorHandlingTests {
     @Test("StatusIndicator creation")
     func testStatusIndicatorCreation() {
         let indicator = StatusIndicator(status: .loading, message: "Processing...")
-        #expect(indicator != nil)
+        #expect(isView(indicator))
         
         let simpleIndicator = StatusIndicator(status: .success)
-        #expect(simpleIndicator != nil)
+        #expect(isView(simpleIndicator))
     }
     
     @Test("ProgressIndicator creation")
@@ -229,10 +232,10 @@ struct ErrorHandlingTests {
             showPercentage: true
         )
         
-        #expect(progress != nil)
+        #expect(isView(progress))
         
         let simpleProgress = ProgressIndicator(progress: 75)
-        #expect(simpleProgress != nil)
+        #expect(isView(simpleProgress))
     }
     
     @Test("GuidanceValidationResult creation")
@@ -264,8 +267,8 @@ struct ErrorHandlingTests {
         let feedback = ValidationFeedback(validations: validations)
         let feedbackWithSuccess = ValidationFeedback(validations: validations, showSuccessful: true)
         
-        #expect(feedback != nil)
-        #expect(feedbackWithSuccess != nil)
+        #expect(isView(feedback))
+        #expect(isView(feedbackWithSuccess))
     }
     
     @Test("QuickAction creation")
@@ -276,13 +279,13 @@ struct ErrorHandlingTests {
             actionExecuted = true
         }
         
-        #expect(action != nil)
+        #expect(!String(describing: action).isEmpty)
         
         let simpleAction = QuickAction(title: "Cancel") {
             actionExecuted = true
         }
         
-        #expect(simpleAction != nil)
+        #expect(!String(describing: simpleAction).isEmpty)
     }
     
     @Test("Tooltip creation")
@@ -290,8 +293,8 @@ struct ErrorHandlingTests {
         let tooltip = Tooltip(content: "This is a helpful tooltip")
         let hiddenTooltip = Tooltip(content: "Hidden tooltip", isVisible: false)
         
-        #expect(tooltip != nil)
-        #expect(hiddenTooltip != nil)
+        #expect(isView(tooltip))
+        #expect(isView(hiddenTooltip))
     }
     
     // MARK: - Integration Tests
@@ -321,7 +324,7 @@ struct ErrorHandlingTests {
             // Dismiss handler
         }
         
-        #expect(errorMessage != nil)
+        #expect(isView(errorMessage))
         #expect(error.suggestions.count == 3)
         #expect(error.actions.count == 3)
     }
@@ -365,8 +368,8 @@ struct ErrorHandlingTests {
         
         let guidedTour = GuidedTour(steps: tourSteps) { }
         
-        #expect(helpOverlay != nil)
-        #expect(guidedTour != nil)
+        #expect(isView(helpOverlay))
+        #expect(isView(guidedTour))
         #expect(helpSections.count == 2)
         #expect(tourSteps.count == 3)
     }
@@ -382,7 +385,7 @@ struct ErrorHandlingTests {
                 ])
             ])
         
-        #expect(view != nil)
+        #expect(isView(view))
     }
     
     @Test("Real-world error scenarios")

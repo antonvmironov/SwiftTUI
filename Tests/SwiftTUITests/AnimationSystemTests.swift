@@ -4,6 +4,9 @@ import Testing
 /// Tests for the animation system components
 struct AnimationSystemTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     @Test("Animation struct creation")
     func testAnimationCreation() {
         let defaultAnim = Animation.default
@@ -122,57 +125,57 @@ struct AnimationSystemTests {
     @Test("SimpleSpinner creation")
     func testSimpleSpinner() {
         let defaultSpinner = SimpleSpinner()
-        #expect(defaultSpinner != nil)
+        #expect(isView(defaultSpinner))
         
         let customSpinner = SimpleSpinner(characters: ["A", "B", "C"], current: 1)
-        #expect(customSpinner != nil)
+        #expect(isView(customSpinner))
         
         let asciiSpinner = SimpleSpinner.ascii(current: 2)
-        #expect(asciiSpinner != nil)
+        #expect(isView(asciiSpinner))
         
         let dotsSpinner = SimpleSpinner.dots(current: 0)
-        #expect(dotsSpinner != nil)
+        #expect(isView(dotsSpinner))
     }
     
     @Test("SimpleProgressBar creation")
     func testSimpleProgressBar() {
         let progressBar = SimpleProgressBar(progress: 0.5, width: 20)
-        #expect(progressBar != nil)
+        #expect(isView(progressBar))
         
         let fullProgressBar = SimpleProgressBar(progress: 1.0, width: 10)
-        #expect(fullProgressBar != nil)
+        #expect(isView(fullProgressBar))
         
         let emptyProgressBar = SimpleProgressBar(progress: 0.0, width: 15)
-        #expect(emptyProgressBar != nil)
+        #expect(isView(emptyProgressBar))
         
         // Test clamping
         let clampedProgressBar = SimpleProgressBar(progress: 1.5, width: 5)
-        #expect(clampedProgressBar != nil)
+        #expect(isView(clampedProgressBar))
         
         let negativeProgressBar = SimpleProgressBar(progress: -0.5, width: 8)
-        #expect(negativeProgressBar != nil)
+        #expect(isView(negativeProgressBar))
     }
     
     @Test("AnimatableText creation")
     func testAnimatableText() {
         let normalText = AnimatableText("Hello")
-        #expect(normalText != nil)
+        #expect(isView(normalText))
         
         let highlightedText = AnimatableText("World", isHighlighted: true)
-        #expect(highlightedText != nil)
+        #expect(isView(highlightedText))
     }
     
     @Test("AnimatableDots creation")
     func testAnimatableDots() {
         let defaultDots = AnimatableDots()
-        #expect(defaultDots != nil)
+        #expect(isView(defaultDots))
         
         let customDots = AnimatableDots(dotCount: 5, activeDot: 2)
-        #expect(customDots != nil)
+        #expect(isView(customDots))
         
         // Test active dot clamping
         let clampedDots = AnimatableDots(dotCount: 3, activeDot: 10)
-        #expect(clampedDots != nil)
+        #expect(isView(clampedDots))
     }
     
     @Test("TransitionView creation")
@@ -182,14 +185,14 @@ struct AnimationSystemTests {
             isVisible: true,
             direction: .slide
         )
-        #expect(visibleTransition != nil)
+        #expect(isView(visibleTransition))
         
         let hiddenTransition = TransitionView(
             content: Text("World"),
             isVisible: false,
             direction: .fade
         )
-        #expect(hiddenTransition != nil)
+        #expect(isView(hiddenTransition))
     }
     
     @Test("Animation modifiers")
@@ -198,15 +201,15 @@ struct AnimationSystemTests {
         
         // Test animation with value
         let animatedText = text.animation(.default, value: 42)
-        #expect(animatedText != nil)
+        #expect(isView(animatedText))
         
         // Test animation without value
         let globalAnimatedText = text.animation(.linear(duration: 1.0))
-        #expect(globalAnimatedText != nil)
+        #expect(isView(globalAnimatedText))
         
         // Test nil animation
         let nilAnimatedText = text.animation(nil, value: "test")
-        #expect(nilAnimatedText != nil)
+        #expect(isView(nilAnimatedText))
     }
     
     @Test("Animation equality")

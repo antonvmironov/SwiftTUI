@@ -4,12 +4,15 @@ import Testing
 @Suite("Animation Components Tests")
 struct AnimationComponentsTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     @Test("LoadingSpinner default initializer")
     func loadingSpinnerDefault() {
         let spinner = LoadingSpinner()
         
         // Should compile without issues - spinner uses default settings
-        #expect(spinner != nil)
+        #expect(isView(spinner))
     }
     
     @Test("LoadingSpinner custom characters")
@@ -18,7 +21,7 @@ struct AnimationComponentsTests {
         let spinner = LoadingSpinner(characters: customCharacters)
         
         // Should compile without issues
-        #expect(spinner != nil)
+        #expect(isView(spinner))
     }
     
     @Test("LoadingSpinner empty characters fallback")
@@ -26,7 +29,7 @@ struct AnimationComponentsTests {
         let spinner = LoadingSpinner(characters: [])
         
         // Should use fallback characters when empty array is provided
-        #expect(spinner != nil)
+        #expect(isView(spinner))
     }
     
     @Test("LoadingSpinner predefined styles")
@@ -35,8 +38,8 @@ struct AnimationComponentsTests {
         let dotsSpinner = LoadingSpinner.dots
         
         // Should compile without issues
-        #expect(asciiSpinner != nil)
-        #expect(dotsSpinner != nil)
+        #expect(isView(asciiSpinner))
+        #expect(isView(dotsSpinner))
     }
     
     @Test("ProgressBar basic functionality")
@@ -44,7 +47,7 @@ struct AnimationComponentsTests {
         let progressBar = ProgressBar(progress: 0.5)
         
         // Should compile without issues
-        #expect(progressBar != nil)
+        #expect(isView(progressBar))
     }
     
     @Test("ProgressBar with custom settings")
@@ -57,7 +60,7 @@ struct AnimationComponentsTests {
         )
         
         // Should compile without issues
-        #expect(progressBar != nil)
+        #expect(isView(progressBar))
     }
     
     @Test("ProgressBar progress bounds")
@@ -67,9 +70,9 @@ struct AnimationComponentsTests {
         let normalBar = ProgressBar(progress: 0.5)
         
         // Should handle out-of-bounds values gracefully
-        #expect(underflowBar != nil)
-        #expect(overflowBar != nil)
-        #expect(normalBar != nil)
+        #expect(isView(underflowBar))
+        #expect(isView(overflowBar))
+        #expect(isView(normalBar))
     }
     
     @Test("ProgressBar minimum width")
@@ -78,8 +81,8 @@ struct AnimationComponentsTests {
         let negativeWidthBar = ProgressBar(progress: 0.5, width: -5)
         
         // Should enforce minimum width
-        #expect(zeroWidthBar != nil)
-        #expect(negativeWidthBar != nil)
+        #expect(isView(zeroWidthBar))
+        #expect(isView(negativeWidthBar))
     }
     
     @Test("SkeletonView basic functionality")
@@ -87,7 +90,7 @@ struct AnimationComponentsTests {
         let skeleton = SkeletonView(width: 20)
         
         // Should compile without issues
-        #expect(skeleton != nil)
+        #expect(isView(skeleton))
     }
     
     @Test("SkeletonView with height")
@@ -95,7 +98,7 @@ struct AnimationComponentsTests {
         let skeleton = SkeletonView(width: 15, height: 3)
         
         // Should compile without issues
-        #expect(skeleton != nil)
+        #expect(isView(skeleton))
     }
     
     @Test("SkeletonView minimum dimensions")
@@ -105,9 +108,9 @@ struct AnimationComponentsTests {
         let negativeSkeleton = SkeletonView(width: -5, height: -3)
         
         // Should enforce minimum dimensions
-        #expect(zeroWidthSkeleton != nil)
-        #expect(zeroHeightSkeleton != nil)
-        #expect(negativeSkeleton != nil)
+        #expect(isView(zeroWidthSkeleton))
+        #expect(isView(zeroHeightSkeleton))
+        #expect(isView(negativeSkeleton))
     }
     
     @Test("LoadingIndicator basic functionality")
@@ -115,7 +118,7 @@ struct AnimationComponentsTests {
         let indicator = LoadingIndicator("Loading...")
         
         // Should compile without issues
-        #expect(indicator != nil)
+        #expect(isView(indicator))
     }
     
     @Test("LoadingIndicator with custom spinner")
@@ -124,7 +127,7 @@ struct AnimationComponentsTests {
         let indicator = LoadingIndicator("Processing...", spinner: customSpinner)
         
         // Should compile without issues
-        #expect(indicator != nil)
+        #expect(isView(indicator))
     }
     
     @Test("Animation components in view hierarchies")

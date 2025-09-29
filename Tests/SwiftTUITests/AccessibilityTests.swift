@@ -4,13 +4,16 @@ import Testing
 /// Tests for accessibility support in SwiftTUI
 struct AccessibilityTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     @Test("AccessibilityInfo creation")
     func testAccessibilityInfoCreation() {
         let info1 = AccessibilityInfo()
         #expect(info1.label == nil)
         #expect(info1.hint == nil)
         #expect(info1.role == nil)
-        #expect(info1.isHidden == false)
+        #expect(!info1.isHidden)
         
         let info2 = AccessibilityInfo(
             label: "Test Label",
@@ -21,7 +24,7 @@ struct AccessibilityTests {
         #expect(info2.label == "Test Label")
         #expect(info2.hint == "Test Hint")
         #expect(info2.role == .button)
-        #expect(info2.isHidden == true)
+        #expect(info2.isHidden)
     }
     
     @Test("AccessibilityRole descriptions")
@@ -47,23 +50,23 @@ struct AccessibilityTests {
         let text = Text("Hello")
         
         let labeledText = text.accessibilityLabel("Test Label")
-        #expect(labeledText != nil)
+        #expect(isView(labeledText))
         
         let hintedText = text.accessibilityHint("Test Hint")
-        #expect(hintedText != nil)
+        #expect(isView(hintedText))
         
         let roledText = text.accessibilityRole(.button)
-        #expect(roledText != nil)
+        #expect(isView(roledText))
         
         let hiddenText = text.accessibilityHidden()
-        #expect(hiddenText != nil)
+        #expect(isView(hiddenText))
         
         let combinedText = text.accessibility(
             label: "Combined Label",
             hint: "Combined Hint",
             role: .header
         )
-        #expect(combinedText != nil)
+        #expect(isView(combinedText))
     }
     
     @Test("KeyboardNavigation shortcuts")
@@ -113,7 +116,7 @@ struct AccessibilityTests {
         let button1 = AccessibleButton("Test Button") {
             buttonPressed = true
         }
-        #expect(button1 != nil)
+        #expect(isView(button1))
         
         let button2 = AccessibleButton(
             "Custom Button",
@@ -121,7 +124,8 @@ struct AccessibilityTests {
             accessibilityLabel: "Custom Label",
             accessibilityHint: "Custom Hint"
         )
-        #expect(button2 != nil)
+        #expect(isView(button2))
+        #expect(!buttonPressed)
     }
     
     @Test("AccessibleTextField creation")
@@ -129,7 +133,7 @@ struct AccessibilityTests {
         @State var text = "Initial"
         
         let textField1 = AccessibleTextField("Username", text: $text)
-        #expect(textField1 != nil)
+        #expect(isView(textField1))
         
         let textField2 = AccessibleTextField(
             "Email",
@@ -137,7 +141,7 @@ struct AccessibilityTests {
             accessibilityLabel: "Email Address",
             accessibilityHint: "Enter your email address"
         )
-        #expect(textField2 != nil)
+        #expect(isView(textField2))
     }
     
     @Test("AccessibilityInfo equality")

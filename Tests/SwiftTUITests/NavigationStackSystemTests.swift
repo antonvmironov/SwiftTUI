@@ -3,6 +3,9 @@ import Testing
 
 struct NavigationStackSystemTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     @Test("NavigationPath initialization and manipulation")
     func testNavigationPath() {
         var path = NavigationPath()
@@ -40,8 +43,7 @@ struct NavigationStackSystemTests {
             Text("Home Screen")
         }
         
-        // Test that navigation stack compiles and initializes properly
-        #expect(true) // Navigation stack creation succeeded
+        #expect(isView(stack))
     }
     
     @Test("NavigationStack with external path binding")
@@ -55,16 +57,14 @@ struct NavigationStackSystemTests {
             }
         }
         
-        // Test that navigation stack with binding compiles and initializes properly
-        #expect(true) // Navigation stack with binding creation succeeded
+        #expect(isView(stack))
     }
     
     @Test("Enhanced NavigationLink with value")
     func testNavigationLinkWithValue() {
         let link = NavigationLink("Profile", value: "user123")
         
-        // Test that navigation link with value compiles and initializes properly
-        #expect(true) // Navigation link with value creation succeeded
+        #expect(isView(link))
     }
     
     @Test("NavigationLink integration with NavigationStack")
@@ -79,8 +79,7 @@ struct NavigationStackSystemTests {
             }
         }
         
-        // Test that complex navigation hierarchy compiles properly
-        #expect(true) // Complex navigation setup succeeded
+        #expect(isView(navigationView))
     }
     
     @Test("KeyEquivalent with modifiers")
@@ -129,9 +128,7 @@ struct NavigationStackSystemTests {
             Text("Test")
         }
         
-        // Test that the navigation stack can handle keyboard shortcuts
-        // This tests the onKeyPress modifiers are properly attached
-        #expect(true) // Navigation stack keyboard shortcuts setup succeeded
+        #expect(isView(stack))
     }
     
     @Test("Navigation destination modifier")
@@ -141,8 +138,7 @@ struct NavigationStackSystemTests {
                 Text("Detail: \(value)")
             }
         
-        // Test that navigation destination modifier compiles
-        #expect(true) // Navigation destination modifier succeeded
+        #expect(isView(view))
     }
     
     @Test("NavigationStack breadcrumb functionality")
@@ -157,9 +153,8 @@ struct NavigationStackSystemTests {
             Text("Current View")
         }
         
-        // Test that breadcrumb navigation is properly set up
         #expect(path.count == 3)
-        #expect(true) // Breadcrumb navigation setup succeeded
+        #expect(isView(stack))
     }
     
     @Test("NavigationStack automatic keyboard navigation")
@@ -172,8 +167,6 @@ struct NavigationStackSystemTests {
             }
         }
         
-        // Test that automatic keyboard navigation is set up
-        // This would include tab order management in a full implementation
-        #expect(true) // Automatic keyboard navigation setup succeeded
+        #expect(isView(stack))
     }
 }

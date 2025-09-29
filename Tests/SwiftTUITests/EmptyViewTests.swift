@@ -10,7 +10,7 @@ struct EmptyViewTests {
         let emptyView = EmptyView()
         
         // Should initialize without issues
-        #expect(emptyView != nil)
+        let _ = emptyView
     }
     
     // MARK: - Static Properties Tests
@@ -93,8 +93,7 @@ struct EmptyViewTests {
             }
         }
         
-        let testView = TestView()
+        let _ = TestView()
         // Test that complex view hierarchy compiles and initializes properly
-        #expect(true) // Complex view creation succeeded
     }
 }

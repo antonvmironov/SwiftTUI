@@ -30,8 +30,8 @@ struct AdvancedTableEnhancementTests {
             TableColumn<Product>("Stock") { product in product.inStock ? "✓" : "✗" }
         }
         
-        // Test that enhanced table compiles and initializes
-        #expect(table != nil)
+        let _ = table
+        // Test that enhanced table compiles and initializes successfully
     }
     
     @Test("Table with selection and filtering")
@@ -44,7 +44,7 @@ struct AdvancedTableEnhancementTests {
             TableColumn<Product>("Price") { product in String(format: "$%.2f", product.price) }
         }
         
-        #expect(table != nil)
+        let _ = table
         #expect(selectedProducts.isEmpty) // Initially no selection
     }
     
@@ -79,7 +79,7 @@ struct AdvancedTableEnhancementTests {
             }
         }
         
-        #expect(complexTable != nil)
+        let _ = complexTable
     }
     
     @Test("Table sorting with multiple columns")
@@ -90,8 +90,8 @@ struct AdvancedTableEnhancementTests {
             TableColumn<Product>("Category", value: \Product.category)
         }
         
+        let _ = table
         // Test that sorting table compiles correctly
-        #expect(table != nil)
     }
     
     @Test("Empty table with search functionality")
@@ -103,18 +103,18 @@ struct AdvancedTableEnhancementTests {
             TableColumn<Product>("Category", value: \Product.category)
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table with single column filtering")
     func testSingleColumnTable() {
         let table = Table(sampleProducts) {
             TableColumn<Product>("Product Names", value: \Product.name)
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table selection state management")
     func testTableSelectionManagement() {
         @State var selectedIds: Set<Int> = [1, 3] // Pre-select some items
@@ -124,7 +124,7 @@ struct AdvancedTableEnhancementTests {
             TableColumn<Product>("Price") { product in String(format: "$%.2f", product.price) }
         }
         
-        #expect(table != nil)
+        let _ = table
         #expect(selectedIds.contains(1))
         #expect(selectedIds.contains(3))
         #expect(!selectedIds.contains(2))
@@ -213,7 +213,7 @@ struct AdvancedTableEnhancementTests {
             }
         }
         
-        #expect(enhancedTable != nil)
+        let _ = enhancedTable
         
         // Test that the enhanced features are properly integrated
         // (In a real implementation, these would test actual functionality)

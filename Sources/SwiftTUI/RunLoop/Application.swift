@@ -1,4 +1,3 @@
-
 import Foundation
 #if os(macOS)
 import AppKit
@@ -68,15 +67,30 @@ public class Application {
 
     // Async input loop using FileHandle
     private func inputLoop() async throws {
-        let fileHandle = FileHandle.standardInput
-        while true {
-            let data = fileHandle.availableData
-            if !data.isEmpty, let string = String(data: data, encoding: .utf8) {
-                for char in string {
-                    await handleInputChar(char)
+        let handle = FileHandle.standardInput
+        var utf8Buffer: [UInt8] = []
+
+        do {
+            for try await byte in handle.bytes {
+                utf8Buffer.append(byte)
+
+                // Only emit when we have a valid UTF-8 sequence in the buffer
+                if let string = String(bytes: utf8Buffer, encoding: .utf8) {
+                    for ch in string {
+                        await handleInputChar(ch)
+                    }
+                    utf8Buffer.removeAll(keepingCapacity: true)
                 }
             }
-            try await ContinuousClock().sleep(for: .milliseconds(10)) // 10ms to avoid busy loop
+
+            // Flush any remaining valid characters at EOF
+            if let string = String(bytes: utf8Buffer, encoding: .utf8) {
+                for ch in string {
+                    await handleInputChar(ch)
+                }
+            }
+        } catch {
+            throw error
         }
     }
 
@@ -116,7 +130,7 @@ public class Application {
 
         private init() {}
 
-        func register(signal: Int32, handler: @escaping () -> Void) {
+         func register(signal: Int32, handler: @escaping () -> Void) {
             queue.sync {
                 handlers[signal] = handler
             }

@@ -186,9 +186,9 @@ struct ResponsiveDesignTests {
         ]
         
         let table = ResponsiveTable(people) {
-            ResponsiveTableColumn("Name", priority: 3) { $0.name }
-            ResponsiveTableColumn("Email", priority: 2) { $0.email }
-            ResponsiveTableColumn("Age", priority: 1) { String($0.age) }
+            ResponsiveTableColumn<Person>("Name", priority: 3) { $0.name }
+            ResponsiveTableColumn<Person>("Email", priority: 2) { $0.email }
+            ResponsiveTableColumn<Person>("Age", priority: 1) { String($0.age) }
         }
         
         #expect(table != nil)
@@ -204,9 +204,9 @@ struct ResponsiveDesignTests {
         let items = [Item(id: 1, title: "Test")]
         
         let table = ResponsiveTable(items) {
-            ResponsiveTableColumn("Low Priority", priority: 1) { $0.title }
-            ResponsiveTableColumn("High Priority", priority: 3) { $0.title }
-            ResponsiveTableColumn("Medium Priority", priority: 2) { $0.title }
+            ResponsiveTableColumn<Item>("Low Priority", priority: 1) { $0.title }
+            ResponsiveTableColumn<Item>("High Priority", priority: 3) { $0.title }
+            ResponsiveTableColumn<Item>("Medium Priority", priority: 2) { $0.title }
         }
         
         #expect(table != nil)
@@ -279,8 +279,8 @@ struct ResponsiveDesignTests {
             }
             
             ResponsiveTable(people) {
-                ResponsiveTableColumn("Name", priority: 3) { $0.name }
-                ResponsiveTableColumn("Email", priority: 2) { $0.email }
+                ResponsiveTableColumn<Person>("Name", priority: 3) { $0.name }
+                ResponsiveTableColumn<Person>("Email", priority: 2) { $0.email }
             }
             .responsive()
             

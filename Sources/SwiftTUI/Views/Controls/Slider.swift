@@ -12,7 +12,7 @@ public struct Slider<Label: View, ValueLabel: View>: View {
     private let trackLength: Int
     
     /// Creates a slider with a range of values
-    public init<V: BinaryFloatingPoint>(
+    public init<V: BinaryFloatingPoint&Sendable>(
         value: Binding<V>,
         in bounds: ClosedRange<V>,
         step: V? = nil
@@ -30,7 +30,7 @@ public struct Slider<Label: View, ValueLabel: View>: View {
     }
     
     /// Creates a slider with a label
-    public init<V: BinaryFloatingPoint>(
+    public init<V: BinaryFloatingPoint&Sendable>(
         value: Binding<V>,
         in bounds: ClosedRange<V>,
         step: V? = nil,
@@ -49,7 +49,7 @@ public struct Slider<Label: View, ValueLabel: View>: View {
     }
     
     /// Creates a slider with value labels
-    public init<V: BinaryFloatingPoint>(
+    public init<V: BinaryFloatingPoint&Sendable>(
         value: Binding<V>,
         in bounds: ClosedRange<V>,
         step: V? = nil,
@@ -69,7 +69,7 @@ public struct Slider<Label: View, ValueLabel: View>: View {
     }
     
     /// Creates a slider with all labels
-    public init<V: BinaryFloatingPoint>(
+    public init<V: BinaryFloatingPoint&Sendable>(
         value: Binding<V>,
         in bounds: ClosedRange<V>,
         step: V? = nil,

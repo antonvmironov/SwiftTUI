@@ -1,11 +1,11 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
 import PackageDescription
 
 let package = Package(
     name: "Flags",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v26)
     ],
     dependencies: [
         .package(path: "../../")

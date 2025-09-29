@@ -20,9 +20,9 @@ struct TableTests {
     @Test("Table basic initialization without selection")
     func testTableBasicInit() {
         let table = Table(sampleData) {
-            TableColumn("Name") { person in person.name }
-            TableColumn("Age") { person in String(person.age) }
-            TableColumn("Email") { person in person.email }
+            TableColumn<Person>("Name") { person in person.name }
+            TableColumn<Person>("Age") { person in String(person.age) }
+            TableColumn<Person>("Email") { person in person.email }
         }
         
         #expect(table != nil)
@@ -33,8 +33,8 @@ struct TableTests {
         @State var selection: Set<Int> = []
         
         let table = Table(sampleData, selection: $selection) {
-            TableColumn("Name") { person in person.name }
-            TableColumn("Age") { person in String(person.age) }
+            TableColumn<Person>("Name") { person in person.name }
+            TableColumn<Person>("Age") { person in String(person.age) }
         }
         
         #expect(table != nil)
@@ -42,7 +42,7 @@ struct TableTests {
     
     @Test("TableColumn initialization with string extractor")
     func testTableColumnStringExtractor() {
-        let column = TableColumn<Person, String>("Name") { person in person.name }
+        let column = TableColumn<Person>("Name") { person in person.name }
         
         #expect(column.title == "Name")
         #expect(column.id == "Name")
@@ -53,7 +53,7 @@ struct TableTests {
     
     @Test("TableColumn initialization with custom ID")
     func testTableColumnCustomId() {
-        let column = TableColumn<Person, String>(
+        let column = TableColumn<Person>(
             id: "person_name",
             title: "Full Name"
         ) { person in person.name }
@@ -64,9 +64,9 @@ struct TableTests {
     
     @Test("TableColumn with KeyPath")
     func testTableColumnKeyPath() {
-        let nameColumn = TableColumn("Name", value: \Person.name)
-        let ageColumn = TableColumn("Age", value: \Person.age)
-        
+        let nameColumn = TableColumn<Person>("Name", value: \Person.name)
+        let ageColumn = TableColumn<Person>("Age", value: \Person.age)
+
         let person = Person(id: 1, name: "Alice", age: 30, email: "alice@example.com")
         
         #expect(nameColumn.content(person) == "Alice")
@@ -97,8 +97,8 @@ struct TableTests {
     func testTableColumnBuilder() {
         @TableColumnBuilder<Person>
         func buildColumns() -> [TableColumn<Person>] {
-            TableColumn("Name") { $0.name }
-            TableColumn("Email") { $0.email }
+            TableColumn<Person>("Name") { $0.name }
+            TableColumn<Person>("Email") { $0.email }
         }
         
         let columns = buildColumns()
@@ -110,10 +110,10 @@ struct TableTests {
     @Test("Table with complex column configuration")
     func testTableComplexColumns() {
         let table = Table(sampleData) {
-            TableColumn("ID", value: \Person.id)
-            TableColumn("Name", value: \Person.name)
-            TableColumn("Age", value: \Person.age)
-            TableColumn("Contact") { person in person.email }
+            TableColumn<Person>("ID", value: \Person.id)
+            TableColumn<Person>("Name", value: \Person.name)
+            TableColumn<Person>("Age", value: \Person.age)
+            TableColumn<Person>("Contact") { person in person.email }
         }
         
         #expect(table != nil)
@@ -124,7 +124,7 @@ struct TableTests {
         @State var selectedIds: Set<Int> = [1, 3]
         
         let table = Table(sampleData, selection: $selectedIds) {
-            TableColumn("Name", value: \Person.name)
+            TableColumn<Person>("Name", value: \Person.name)
         }
         
         #expect(table != nil)
@@ -136,8 +136,8 @@ struct TableTests {
         let emptyData: [Person] = []
         
         let table = Table(emptyData) {
-            TableColumn("Name", value: \Person.name)
-            TableColumn("Age", value: \Person.age)
+            TableColumn<Person>("Name", value: \Person.name)
+            TableColumn<Person>("Age", value: \Person.age)
         }
         
         #expect(table != nil)
@@ -146,7 +146,7 @@ struct TableTests {
     @Test("Table with single column")
     func testSingleColumnTable() {
         let table = Table(sampleData) {
-            TableColumn("Name", value: \Person.name)
+            TableColumn<Person>("Name", value: \Person.name)
         }
         
         #expect(table != nil)

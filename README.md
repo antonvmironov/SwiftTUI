@@ -1,6 +1,6 @@
 # SwiftTUI
 
-Swift 6.1+
+Swift 6.2+
 ![platform macos](https://user-images.githubusercontent.com/13484323/184016156-817e14dc-24b5-4b46-a4d4-0de9391a37a4.svg)
 ![platform linux](https://user-images.githubusercontent.com/13484323/184016263-afa5dd0c-8d9a-4fba-91fe-23e892d64cca.svg)
 

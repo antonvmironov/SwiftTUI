@@ -16,7 +16,7 @@ SwiftTUI is a professional terminal UI framework that brings SwiftUI's declarati
 ## Getting Started
 
 ### Prerequisites
-- Swift 6.1 or later
+- Swift 6.2 or later
 - macOS 15+ (primary development platform)
 - Linux support (secondary but important)
 - Terminal emulator for testing

@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 @testable import SwiftTUI
 
@@ -23,10 +24,10 @@ struct AdvancedTableEnhancementTests {
     @Test("Enhanced table with search functionality")
     func testTableWithSearchFeatures() {
         let table = Table(sampleProducts) {
-            TableColumn("Name") { product in product.name }
-            TableColumn("Category") { product in product.category }
-            TableColumn("Price") { product in String(format: "$%.2f", product.price) }
-            TableColumn("Stock") { product in product.inStock ? "✓" : "✗" }
+            TableColumn<Product>("Name") { product in product.name }
+            TableColumn<Product>("Category") { product in product.category }
+            TableColumn<Product>("Price") { product in String(format: "$%.2f", product.price) }
+            TableColumn<Product>("Stock") { product in product.inStock ? "✓" : "✗" }
         }
         
         // Test that enhanced table compiles and initializes
@@ -38,9 +39,9 @@ struct AdvancedTableEnhancementTests {
         @State var selectedProducts: Set<Int> = []
         
         let table = Table(sampleProducts, selection: $selectedProducts) {
-            TableColumn("Product", value: \Product.name)
-            TableColumn("Category", value: \Product.category)
-            TableColumn("Price") { product in String(format: "$%.2f", product.price) }
+            TableColumn<Product>("Product", value: \Product.name)
+            TableColumn<Product>("Category", value: \Product.category)
+            TableColumn<Product>("Price") { product in String(format: "$%.2f", product.price) }
         }
         
         #expect(table != nil)
@@ -65,15 +66,15 @@ struct AdvancedTableEnhancementTests {
     @Test("Table with complex data relationships")
     func testComplexTableData() {
         let complexTable = Table(sampleProducts) {
-            TableColumn("ID", value: \Product.id)
-            TableColumn("Product Name", value: \Product.name)
-            TableColumn("Category", value: \Product.category)
-            TableColumn("Price Range") { product in
+            TableColumn<Product>("ID", value: \Product.id)
+            TableColumn<Product>("Product Name", value: \Product.name)
+            TableColumn<Product>("Category", value: \Product.category)
+            TableColumn<Product>("Price Range") { product in
                 if product.price < 200 { return "Budget" }
                 else if product.price < 1000 { return "Mid-range" }
                 else { return "Premium" }
             }
-            TableColumn("Availability") { product in
+            TableColumn<Product>("Availability") { product in
                 product.inStock ? "🟢 In Stock" : "🔴 Out of Stock"
             }
         }
@@ -84,9 +85,9 @@ struct AdvancedTableEnhancementTests {
     @Test("Table sorting with multiple columns")
     func testTableSortingCapabilities() {
         let table = Table(sampleProducts) {
-            TableColumn("Name", value: \Product.name)
-            TableColumn("Price") { String(format: "%.2f", $0.price) }
-            TableColumn("Category", value: \Product.category)
+            TableColumn<Product>("Name", value: \Product.name)
+            TableColumn<Product>("Price") { String(format: "%.2f", $0.price) }
+            TableColumn<Product>("Category", value: \Product.category)
         }
         
         // Test that sorting table compiles correctly
@@ -98,8 +99,8 @@ struct AdvancedTableEnhancementTests {
         let emptyProducts: [Product] = []
         
         let table = Table(emptyProducts) {
-            TableColumn("Name", value: \Product.name)
-            TableColumn("Category", value: \Product.category)
+            TableColumn<Product>("Name", value: \Product.name)
+            TableColumn<Product>("Category", value: \Product.category)
         }
         
         #expect(table != nil)
@@ -108,7 +109,7 @@ struct AdvancedTableEnhancementTests {
     @Test("Table with single column filtering")
     func testSingleColumnTable() {
         let table = Table(sampleProducts) {
-            TableColumn("Product Names", value: \Product.name)
+            TableColumn<Product>("Product Names", value: \Product.name)
         }
         
         #expect(table != nil)
@@ -119,8 +120,8 @@ struct AdvancedTableEnhancementTests {
         @State var selectedIds: Set<Int> = [1, 3] // Pre-select some items
         
         let table = Table(sampleProducts, selection: $selectedIds) {
-            TableColumn("Name", value: \Product.name)
-            TableColumn("Price") { product in String(format: "$%.2f", product.price) }
+            TableColumn<Product>("Name", value: \Product.name)
+            TableColumn<Product>("Price") { product in String(format: "$%.2f", product.price) }
         }
         
         #expect(table != nil)
@@ -151,10 +152,10 @@ struct AdvancedTableEnhancementTests {
     func testAdvancedTableColumnBuilder() {
         @TableColumnBuilder<Product>
         func buildProductColumns() -> [TableColumn<Product>] {
-            TableColumn("Name", value: \Product.name)
-            TableColumn("Category", value: \Product.category)  
-            TableColumn("Price") { String(format: "$%.2f", $0.price) }
-            TableColumn("Stock Status") { $0.inStock ? "✓" : "✗" }
+            TableColumn<Product>("Name", value: \Product.name)
+            TableColumn<Product>("Category", value: \Product.category)
+            TableColumn<Product>("Price") { String(format: "$%.2f", $0.price) }
+            TableColumn<Product>("Stock Status") { $0.inStock ? "✓" : "✗" }
         }
         
         let columns = buildProductColumns()
@@ -201,13 +202,13 @@ struct AdvancedTableEnhancementTests {
         
         // Test comprehensive table with all enhancement features
         let enhancedTable = Table(sampleProducts, selection: $selection) {
-            TableColumn("🆔", value: \Product.id)
-            TableColumn("📱 Product", value: \Product.name)
-            TableColumn("🏷️ Category", value: \Product.category)
-            TableColumn("💰 Price") { product in
+            TableColumn<Product>("🆔", value: \Product.id)
+            TableColumn<Product>("📱 Product", value: \Product.name)
+            TableColumn<Product>("🏷️ Category", value: \Product.category)
+            TableColumn<Product>("💰 Price") { product in
                 String(format: "$%.2f", product.price)
             }
-            TableColumn("📦 Stock") { product in
+            TableColumn<Product>("📦 Stock") { product in
                 product.inStock ? "✅ Yes" : "❌ No"
             }
         }

@@ -245,13 +245,6 @@ public struct TableColumn<RowValue> {
     let title: String
     let content: (RowValue) -> String
     
-    /// Creates a table column with a title and content extractor
-    public init(_ title: String, value: @escaping (RowValue) -> String) {
-        self.id = title
-        self.title = title
-        self.content = value
-    }
-    
     /// Creates a table column with a custom ID
     public init(id: String, title: String, value: @escaping (RowValue) -> String) {
         self.id = id

@@ -1,6 +1,12 @@
 import Testing
 @testable import SwiftTUI
 
+actor CallFlag {
+    private var value = false
+    func set() { value = true }
+    func get() -> Bool { value }
+}
+
 @Suite("Input Handling Enhancement Tests")
 struct InputHandlingEnhancementTests {
     
@@ -43,42 +49,45 @@ struct InputHandlingEnhancementTests {
     }
     
     @Test("onKeyPress modifier compiles correctly")
-    func onKeyPressModifier() {
-        var actionCalled = false
-        
+    @MainActor
+    func onKeyPressModifier() async {
+        let flag = CallFlag()
+
         let testView = Text("Test")
             .onKeyPress(.space) {
-                actionCalled = true
+                Task { await flag.set() }
             }
         
-        // Should compile without issues
-        #expect(!actionCalled) // Action hasn't been triggered yet
+        // Should compile without issues and not signal before any event occurs
+        #expect(await flag.get() == false)
     }
     
     @Test("onTapGesture modifier compiles correctly")
-    func onTapGestureModifier() {
-        var actionCalled = false
+    @MainActor
+    func onTapGestureModifier() async {
+        let flag = CallFlag()
         
         let testView = Text("Test")
             .onTapGesture {
-                actionCalled = true
+                Task { await flag.set() }
             }
         
-        // Should compile without issues
-        #expect(!actionCalled) // Action hasn't been triggered yet
+        // Should compile without issues and not signal before any event occurs
+        #expect(await flag.get() == false)
     }
     
     @Test("onTapGesture with count modifier compiles correctly")
-    func onTapGestureCountModifier() {
-        var actionCalled = false
+    @MainActor
+    func onTapGestureCountModifier() async {
+        let flag = CallFlag()
         
         let testView = Text("Test")
             .onTapGesture(count: 2) {
-                actionCalled = true
+                Task { await flag.set() }
             }
         
-        // Should compile without issues
-        #expect(!actionCalled) // Action hasn't been triggered yet
+        // Should compile without issues and not signal before any event occurs
+        #expect(await flag.get() == false)
     }
     
     @Test("Common key equivalents are defined")
@@ -104,20 +113,21 @@ struct InputHandlingEnhancementTests {
     }
     
     @Test("Modifier composition works")
-    func modifierComposition() {
-        var keyPressed = false
-        var tapDetected = false
+    @MainActor
+    func modifierComposition() async {
+        let keyFlag = CallFlag()
+        let tapFlag = CallFlag()
         
         let testView = Text("Test")
             .onKeyPress(.escape) {
-                keyPressed = true
+                Task { await keyFlag.set() }
             }
             .onTapGesture {
-                tapDetected = true
+                Task { await tapFlag.set() }
             }
         
         // Should compile without issues and allow modifier composition
-        #expect(!keyPressed)
-        #expect(!tapDetected)
+        #expect(await keyFlag.get() == false)
+        #expect(await tapFlag.get() == false)
     }
 }

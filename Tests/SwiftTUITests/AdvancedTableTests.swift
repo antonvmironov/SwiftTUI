@@ -25,9 +25,9 @@ struct TableTests {
             TableColumn<Person>("Email") { person in person.email }
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table initialization with selection")
     func testTableWithSelection() {
         @State var selection: Set<Int> = []
@@ -37,9 +37,9 @@ struct TableTests {
             TableColumn<Person>("Age") { person in String(person.age) }
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("TableColumn initialization with string extractor")
     func testTableColumnStringExtractor() {
         let column = TableColumn<Person>("Name") { person in person.name }
@@ -116,9 +116,9 @@ struct TableTests {
             TableColumn<Person>("Contact") { person in person.email }
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table selection binding behavior")
     func testTableSelectionBinding() {
         @State var selectedIds: Set<Int> = [1, 3]
@@ -127,10 +127,10 @@ struct TableTests {
             TableColumn<Person>("Name", value: \Person.name)
         }
         
-        #expect(table != nil)
+        let _ = table
         // Note: In a real app, selection would be tested through UI interaction
     }
-    
+
     @Test("Empty table data")
     func testEmptyTable() {
         let emptyData: [Person] = []
@@ -140,18 +140,18 @@ struct TableTests {
             TableColumn<Person>("Age", value: \Person.age)
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table with single column")
     func testSingleColumnTable() {
         let table = Table(sampleData) {
             TableColumn<Person>("Name", value: \Person.name)
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("Table column content extraction")
     func testColumnContentExtraction() {
         let nameColumn = TableColumn<Person>("Name") { $0.name }

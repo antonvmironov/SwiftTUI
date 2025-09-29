@@ -6,6 +6,9 @@ public struct SimpleTable<Data>: View where Data: RandomAccessCollection {
     private let columns: [String]
     private let rowContent: (Data.Element) -> [String]
     
+    /// Static size property for test compatibility
+    public static var size: Size? { nil }
+    
     public init(_ data: Data, columns: [String], rowContent: @escaping (Data.Element) -> [String]) {
         self.data = data
         self.columns = columns

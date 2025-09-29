@@ -4,10 +4,12 @@ import Foundation
 @propertyWrapper
 public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable & Sendable {
     public let initialValue: Value?
+    private let fallbackStorage = FallbackStorage<Value>()
     
     /// Creates a focus state with a wrapped value
     public init(wrappedValue: Value? = nil) {
         self.initialValue = wrappedValue
+        self.fallbackStorage.value = wrappedValue
     }
     
     var valueReference = FocusStateReference()
@@ -17,7 +19,8 @@ public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable &
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
-                return initialValue
+                // Fallback to stored value when not connected to a node (e.g., in tests)
+                return fallbackStorage.value
             }
             if let value = node.state[label] {
                 return value as? Value
@@ -28,6 +31,8 @@ public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable &
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
+                // Fallback storage when not connected to a node (e.g., in tests)
+                fallbackStorage.value = newValue
                 return
             }
             
@@ -55,15 +60,18 @@ public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable &
 @propertyWrapper  
 public struct BoolFocusState: AnyFocusState, Sendable {
     public let initialValue: Bool
+    private let fallbackStorage = BoolFallbackStorage()
     
     /// Creates a Bool focus state with default false
     public init() {
         self.initialValue = false
+        self.fallbackStorage.value = false
     }
     
     /// Creates a Bool focus state with a wrapped value
     public init(wrappedValue: Bool) {
         self.initialValue = wrappedValue
+        self.fallbackStorage.value = wrappedValue
     }
     
     var valueReference = FocusStateReference()
@@ -73,7 +81,8 @@ public struct BoolFocusState: AnyFocusState, Sendable {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
-                return initialValue
+                // Fallback to stored value when not connected to a node (e.g., in tests)
+                return fallbackStorage.value
             }
             if let value = node.state[label] as? Bool {
                 return value
@@ -84,6 +93,8 @@ public struct BoolFocusState: AnyFocusState, Sendable {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
+                // Fallback storage when not connected to a node (e.g., in tests)
+                fallbackStorage.value = newValue
                 return
             }
             
@@ -148,4 +159,18 @@ protocol AnyFocusState {
 class FocusStateReference: @unchecked Sendable {
     weak var node: Node?
     var label: String?
+}
+
+/// Helper class for fallback storage when not connected to a node
+private class FallbackStorage<Value>: @unchecked Sendable where Value: Hashable & Sendable {
+    var value: Value?
+    
+    init() {
+        self.value = nil
+    }
+}
+
+/// Helper class for bool fallback storage
+private class BoolFallbackStorage: @unchecked Sendable {
+    var value: Bool = false
 }

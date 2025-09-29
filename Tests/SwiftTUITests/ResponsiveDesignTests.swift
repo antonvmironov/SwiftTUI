@@ -75,7 +75,7 @@ struct ResponsiveDesignTests {
         }
         
         // Create and build the view to trigger the closure
-        #expect(responsiveView != nil)
+        let _ = responsiveView
         // Note: In a real test, we'd need to actually layout the view to trigger the closure
     }
     
@@ -93,7 +93,7 @@ struct ResponsiveDesignTests {
             }
         }
         
-        #expect(view != nil)
+        let _ = view
     }
     
     // MARK: - View Extension Tests
@@ -107,9 +107,9 @@ struct ResponsiveDesignTests {
                 large: { Text("Large") }
             )
         
-        #expect(view != nil)
+        let _ = view
     }
-    
+
     @Test("Responsive view modifiers compilation")
     func testResponsiveModifiers() {
         let responsiveView = Text("Test").responsive()
@@ -117,10 +117,10 @@ struct ResponsiveDesignTests {
         let hiddenWhenShort = Text("Test").hideWhenShort()
         let spaciousOnly = Text("Test").showOnlyWhenSpacious()
         
-        #expect(responsiveView != nil)
-        #expect(hiddenWhenNarrow != nil)
-        #expect(hiddenWhenShort != nil)
-        #expect(spaciousOnly != nil)
+        let _ = responsiveView
+        let _ = hiddenWhenNarrow
+        let _ = hiddenWhenShort
+        let _ = spaciousOnly
     }
     
     // MARK: - AdaptiveGrid Tests
@@ -133,9 +133,9 @@ struct ResponsiveDesignTests {
             Text("Item 3")
         }
         
-        #expect(grid != nil)
+        let _ = grid
     }
-    
+
     @Test("AdaptiveGrid with default parameters")
     func testAdaptiveGridDefaults() {
         let grid = AdaptiveGrid {
@@ -144,9 +144,9 @@ struct ResponsiveDesignTests {
             }
         }
         
-        #expect(grid != nil)
+        let _ = grid
     }
-    
+
     // MARK: - AdaptiveList Tests
     
     @Test("AdaptiveList creation")
@@ -166,9 +166,9 @@ struct ResponsiveDesignTests {
             Text(item.name)
         }
         
-        #expect(list != nil)
+        let _ = list
     }
-    
+
     // MARK: - ResponsiveTable Tests
     
     @Test("ResponsiveTable creation")
@@ -191,9 +191,9 @@ struct ResponsiveDesignTests {
             ResponsiveTableColumn<Person>("Age", priority: 1) { String($0.age) }
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     @Test("ResponsiveTableColumn priority sorting")
     func testResponsiveTableColumnPriority() {
         struct Item: Identifiable {
@@ -209,9 +209,9 @@ struct ResponsiveDesignTests {
             ResponsiveTableColumn<Item>("Medium Priority", priority: 2) { $0.title }
         }
         
-        #expect(table != nil)
+        let _ = table
     }
-    
+
     // MARK: - ResponsiveForm Tests
     
     @Test("ResponsiveForm creation")
@@ -225,9 +225,9 @@ struct ResponsiveDesignTests {
             Button("Submit") { }
         }
         
-        #expect(form != nil)
+        let _ = form
     }
-    
+
     // MARK: - ResponsiveNavigationBar Tests
     
     @Test("ResponsiveNavigationBar creation")
@@ -241,8 +241,8 @@ struct ResponsiveDesignTests {
             }
         }
         
-        #expect(simpleNavBar != nil)
-        #expect(complexNavBar != nil)
+        let _ = simpleNavBar
+        let _ = complexNavBar
     }
     
     @Test("ResponsiveNavigationBar with empty content")
@@ -251,9 +251,9 @@ struct ResponsiveDesignTests {
             EmptyView()
         }
         
-        #expect(navBar != nil)
+        let _ = navBar
     }
-    
+
     // MARK: - Integration Tests
     
     @Test("Complete responsive layout compilation")
@@ -294,9 +294,9 @@ struct ResponsiveDesignTests {
             .hideWhenShort()
         }
         
-        #expect(layout != nil)
+        let _ = layout
     }
-    
+
     @Test("Responsive dashboard example")
     func testResponsiveDashboard() {
         let dashboard = ResponsiveView { context in
@@ -325,6 +325,6 @@ struct ResponsiveDesignTests {
             }
         }
         
-        #expect(dashboard != nil)
+        let _ = dashboard
     }
 }

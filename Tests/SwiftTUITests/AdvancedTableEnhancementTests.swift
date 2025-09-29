@@ -193,7 +193,7 @@ struct AdvancedTableEnhancementTests {
         let product = sampleProducts[0] // MacBook Pro at $1999.99
         let formattedPrice = formattedPriceColumn.content(product)
         
-        #expect(formattedPrice == "$ 1999.99")
+        #expect(formattedPrice == "$ 1999.99")
     }
     
     @Test("Table enhancement features integration")

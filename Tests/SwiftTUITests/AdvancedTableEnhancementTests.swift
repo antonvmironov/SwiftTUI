@@ -185,6 +185,7 @@ struct AdvancedTableEnhancementTests {
         let formattedPriceColumn = TableColumn<Product>("Formatted Price") { product in
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
+            formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.currencyCode = "USD"
             return formatter.string(from: NSNumber(value: product.price)) ?? "$0.00"
         }
@@ -192,8 +193,7 @@ struct AdvancedTableEnhancementTests {
         let product = sampleProducts[0] // MacBook Pro at $1999.99
         let formattedPrice = formattedPriceColumn.content(product)
         
-        #expect(formattedPrice.contains("$"))
-        #expect(formattedPrice.contains("1,999") || formattedPrice.contains("1999"))
+        #expect(formattedPrice == "$ 1999.99")
     }
     
     @Test("Table enhancement features integration")
@@ -220,3 +220,4 @@ struct AdvancedTableEnhancementTests {
         #expect(true) // Enhanced table integration successful
     }
 }
+

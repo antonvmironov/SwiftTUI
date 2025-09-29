@@ -1,7 +1,8 @@
 import Testing
 @testable import SwiftTUI
 
-/// Tests for the animation system components
+@Suite("Animation System Tests")
+@MainActor
 struct AnimationSystemTests {
     
     // Helper to assert a value conforms to SwiftTUI.View at compile time
@@ -101,7 +102,6 @@ struct AnimationSystemTests {
     }
     
     @Test("WithAnimation function")
-    @MainActor
     func testWithAnimation() {
         var result = 0
         

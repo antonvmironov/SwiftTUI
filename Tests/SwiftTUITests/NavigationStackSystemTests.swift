@@ -1,8 +1,10 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("Navigation Stack System Tests")
+@MainActor
 struct NavigationStackSystemTests {
-    
+
     // Helper to assert a value conforms to SwiftTUI.View at compile time
     private func isView<V: View>(_: V) -> Bool { true }
     

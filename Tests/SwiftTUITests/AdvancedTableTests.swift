@@ -1,8 +1,10 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("Table Tests")
+@MainActor
 struct TableTests {
-    
+
     // Test data structure
     struct Person: Identifiable {
         let id: Int

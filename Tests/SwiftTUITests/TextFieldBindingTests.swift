@@ -2,8 +2,9 @@ import Testing
 @testable import SwiftTUI
 
 @Suite("TextField Binding Tests")
+@MainActor
 struct TextFieldBindingTests {
-    
+
     @Test("TextField with @Binding initializer compiles correctly")
     func textFieldWithBinding() {
         // Test that we can create the view without crashing

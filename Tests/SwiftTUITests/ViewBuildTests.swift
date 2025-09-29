@@ -1,6 +1,8 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("View Build Tests")
+@MainActor
 struct ViewBuildTests {
     @Test("VStack with TupleView2 builds correctly")
     func vstackTupleView2() throws {

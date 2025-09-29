@@ -1,8 +1,9 @@
 import Testing
 @testable import SwiftTUI
 
+@MainActor
 struct SimpleTableTests {
-    
+
     // MARK: - Test Data Types
     
     struct Person {

@@ -2,8 +2,9 @@ import Testing
 import SwiftTUI
 
 @Suite("Observable State Tests")
+@MainActor
 struct ObservableStateTests {
-    
+
     class TestObservableObject: ObservableObject, @unchecked Sendable {
         @ObservableProperty var name: String = ""
         @ObservableProperty var age: Int = 0

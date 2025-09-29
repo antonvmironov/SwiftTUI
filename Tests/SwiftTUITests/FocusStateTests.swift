@@ -2,6 +2,7 @@ import Testing
 import SwiftTUI
 
 @Suite("Focus State Tests")
+@MainActor
 struct FocusStateTests {
     
     @Test("FocusState basic initialization") 

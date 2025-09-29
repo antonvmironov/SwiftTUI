@@ -2,6 +2,7 @@ import Testing
 @testable import SwiftTUI
 
 @Suite("View Lifecycle Tests")
+@MainActor
 struct ViewLifecycleTests {
     
     @Test("onAppear modifier compiles correctly")

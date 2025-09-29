@@ -2,6 +2,8 @@ import Foundation
 import Testing
 @testable import SwiftTUI
 
+@Suite("Advanced Table Enhancement Tests")
+@MainActor
 struct AdvancedTableEnhancementTests {
     
     // Test data structure

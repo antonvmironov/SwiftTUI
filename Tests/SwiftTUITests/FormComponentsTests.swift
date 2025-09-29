@@ -2,6 +2,7 @@ import Testing
 @testable import SwiftTUI
 
 @Suite("Form Components Tests")
+@MainActor
 struct FormComponentsTests {
     
     @Test("SecureField with binding compiles correctly")

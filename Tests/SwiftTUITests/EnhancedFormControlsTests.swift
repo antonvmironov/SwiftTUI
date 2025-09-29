@@ -1,8 +1,10 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("Enhanced Form Controls Tests")
+@MainActor
 struct EnhancedFormControlsTests {
-    
+
     // Helper to assert a value conforms to SwiftTUI.View at compile time
     private func isView<V: View>(_: V) -> Bool { true }
     

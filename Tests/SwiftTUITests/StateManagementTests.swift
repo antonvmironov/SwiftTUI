@@ -1,8 +1,10 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("State Management Tests")
+@MainActor
 struct StateManagementTests {
-    
+
     // MARK: - Test Classes
     
     class TestViewModel: ObservableObject, @unchecked Sendable {

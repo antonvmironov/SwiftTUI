@@ -2,6 +2,8 @@ import Testing
 @testable import SwiftTUI
 
 /// Tests for accessibility support in SwiftTUI
+@Suite("Accessibility Tests")
+@MainActor
 struct AccessibilityTests {
     
     // Helper to assert a value conforms to SwiftTUI.View at compile time

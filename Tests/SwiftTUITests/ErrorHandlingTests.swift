@@ -1,6 +1,8 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("Error Handling Tests")
+@MainActor
 struct ErrorHandlingTests {
     
     // Helper to assert a value conforms to SwiftTUI.View at compile time

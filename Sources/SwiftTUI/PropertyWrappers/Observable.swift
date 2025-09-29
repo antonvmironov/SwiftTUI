@@ -140,6 +140,7 @@ public struct ObservableState<T: Observable>: AnyObservableState {
     }
 }
 
+@MainActor
 protocol AnyObservableState {
     var valueReference: ObservableStateReference { get }
     func subscribe(_ action: @escaping () -> Void)

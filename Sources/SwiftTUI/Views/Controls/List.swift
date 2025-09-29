@@ -1,7 +1,7 @@
 import Foundation
 
 /// A container that presents rows of data arranged in a single column, with automatic keyboard navigation
-public struct List<Data, ID, Content>: View, PrimitiveView where Data: RandomAccessCollection, ID: Hashable, Content: View {
+public struct List<Data, ID, Content>: View, PrimitiveNodeViewBuilder where Data: RandomAccessCollection, ID: Hashable, Content: View {
     private let data: Data
     private let content: (Data.Element) -> Content
     private let id: KeyPath<Data.Element, ID>

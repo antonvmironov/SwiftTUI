@@ -157,13 +157,13 @@ public struct KeyboardNavigation {
 /// Accessibility-enhanced button
 public struct AccessibleButton: View {
     private let title: String
-    private let action: () -> Void
+    private let action: @MainActor () -> Void
     private let accessibilityLabel: String?
     private let accessibilityHint: String?
     
     public init(
         _ title: String,
-        action: @escaping () -> Void,
+        action: @escaping @MainActor () -> Void,
         accessibilityLabel: String? = nil,
         accessibilityHint: String? = nil
     ) {

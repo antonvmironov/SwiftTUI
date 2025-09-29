@@ -49,6 +49,7 @@ public struct Environment<T>: AnyEnvironment {
     }
 }
 
+@MainActor
 protocol AnyEnvironment {
     var valueReference: EnvironmentReference { get }
 }

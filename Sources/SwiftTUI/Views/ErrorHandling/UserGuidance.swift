@@ -376,9 +376,13 @@ public struct GuidanceValidationResult {
 public struct QuickAction: View {
     private let title: String
     private let shortcut: String?
-    private let action: () -> Void
-    
-    public init(title: String, shortcut: String? = nil, action: @escaping () -> Void) {
+    private let action: @MainActor () -> Void
+
+    public init(
+        title: String,
+        shortcut: String? = nil,
+        action: @escaping @MainActor() -> Void
+    ) {
         self.title = title
         self.shortcut = shortcut
         self.action = action

@@ -20,7 +20,7 @@ public extension View {
     }
 }
 
-private struct OnTapGesture<Content: View>: View, PrimitiveView, ModifierView {
+private struct OnTapGesture<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let action: @MainActor () -> Void
 
@@ -75,7 +75,7 @@ private struct OnTapGesture<Content: View>: View, PrimitiveView, ModifierView {
     }
 }
 
-private struct OnTapGestureCount<Content: View>: View, PrimitiveView, ModifierView {
+private struct OnTapGestureCount<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let count: Int
     let action: @MainActor () -> Void

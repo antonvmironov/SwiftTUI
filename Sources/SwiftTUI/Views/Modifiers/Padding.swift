@@ -14,7 +14,7 @@ public extension View {
     }
 }
 
-private struct Padding<Content: View>: View, PrimitiveView, ModifierView {
+private struct Padding<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let edges: Edges
     let length: Extended?

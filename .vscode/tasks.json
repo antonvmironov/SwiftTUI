@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run SwiftTUIApp",
+			"type": "shell",
+			"command": "swift run SwiftTUIApp",
+			"args": [],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run SwiftTUIApp",
+			"type": "shell",
+			"command": "swift run SwiftTUIApp",
+			"args": [],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

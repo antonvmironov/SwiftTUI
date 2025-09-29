@@ -1,7 +1,7 @@
 import Foundation
 
 /// A secure text field for password input that masks characters
-public struct SecureField: View, PrimitiveView {
+public struct SecureField: View, PrimitiveNodeViewBuilder {
     public let placeholder: String?
     public let action: ((String) -> Void)?
     public let text: Binding<String>?

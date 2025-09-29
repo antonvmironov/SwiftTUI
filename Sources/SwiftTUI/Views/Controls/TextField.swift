@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TextField: View, PrimitiveView {
+public struct TextField: View, PrimitiveNodeViewBuilder {
     public let placeholder: String?
     public let action: ((String) -> Void)?
     public let text: Binding<String>?

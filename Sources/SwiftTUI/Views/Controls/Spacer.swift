@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Spacer: View, PrimitiveView {
+public struct Spacer: View, PrimitiveNodeViewBuilder {
     @Environment(\.stackOrientation) var stackOrientation
     
     public init() {}

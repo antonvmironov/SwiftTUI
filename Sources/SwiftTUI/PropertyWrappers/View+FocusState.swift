@@ -14,7 +14,7 @@ extension View {
 }
 
 /// A modifier that makes a view focusable with a specific focus value
-private struct Focused<Content: View, Value>: View, PrimitiveView, ModifierView where Value: Hashable & Sendable {
+private struct Focused<Content: View, Value>: View, PrimitiveNodeViewBuilder, ModifierView where Value: Hashable & Sendable {
     let content: Content
     private let value: Value
     private let focusBinding: FocusStateBinding<Value>

@@ -224,7 +224,7 @@ public struct UnitPoint: Sendable {
     public static let bottomTrailing = UnitPoint(x: 1, y: 1)
 }
 
-private struct GradientView: View, PrimitiveView {
+private struct GradientView: View, PrimitiveNodeViewBuilder {
     let colors: [Color]
     let startPoint: UnitPoint
     let endPoint: UnitPoint

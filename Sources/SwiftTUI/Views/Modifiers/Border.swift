@@ -75,7 +75,7 @@ public struct BorderStyle: Equatable {
     }
 }
 
-private struct Border<Content: View>: View, PrimitiveView, ModifierView {
+private struct Border<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let color: Color?
     let style: BorderStyle

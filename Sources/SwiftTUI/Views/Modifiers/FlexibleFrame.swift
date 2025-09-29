@@ -14,7 +14,7 @@ public extension View {
     }
 }
 
-private struct FlexibleFrame<Content: View>: View, PrimitiveView, ModifierView {
+private struct FlexibleFrame<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let minWidth: Extended?
     let maxWidth: Extended?

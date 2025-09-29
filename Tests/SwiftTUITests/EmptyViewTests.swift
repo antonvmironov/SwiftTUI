@@ -34,11 +34,11 @@ struct EmptyViewTests {
         #expect(isView(emptyView))
     }
     
-    @Test("EmptyView conforms to PrimitiveView protocol")
-    func emptyViewIsPrimitiveView() throws {
+    @Test("EmptyView conforms to PrimitiveNodeViewBuilder protocol")
+    func emptyViewIsPrimitiveNodeViewBuilder() throws {
         let emptyView = EmptyView()
         
-        // Should conform to PrimitiveView protocol
+        // Should conform to PrimitiveNodeViewBuilder protocol
         #expect(isView(emptyView))
     }
     

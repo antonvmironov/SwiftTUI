@@ -6,11 +6,9 @@ This document provides a comprehensive index of all public declarations in Swift
 
 ### Application
 - **`Application`** - Main application class for starting SwiftTUI apps
-- **`Application.RunLoopType`** - Enum defining different run loop types (dispatch, etc.)
 
 ### View Protocol
 - **`View`** - Core protocol that all views must conform to
-- **`PrimitiveView`** - Protocol for primitive views that don't compose other views
 
 ## Property Wrappers & State Management
 
@@ -37,7 +35,7 @@ This document provides a comprehensive index of all public declarations in Swift
 
 ### Stack Layouts
 - **`VStack`** - Vertical stack layout
-- **`HStack`** - Horizontal stack layout  
+- **`HStack`** - Horizontal stack layout
 - **`ZStack`** - Depth-based stack layout
 - **`Spacer`** - Flexible space in layouts
 

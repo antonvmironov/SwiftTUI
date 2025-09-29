@@ -11,7 +11,7 @@ public extension View {
     }
 }
 
-private struct OnKeyPress<Content: View>: View, PrimitiveView, ModifierView {
+private struct OnKeyPress<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let key: KeyEquivalent
     let action: @MainActor () -> Void

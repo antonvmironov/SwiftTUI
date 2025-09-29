@@ -7,7 +7,7 @@ public extension View {
     }
 }
 
-private struct FixedFrame<Content: View>: View, PrimitiveView, ModifierView {
+private struct FixedFrame<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let width: Extended?
     let height: Extended?

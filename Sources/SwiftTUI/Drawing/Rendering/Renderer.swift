@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 class Renderer: @unchecked Sendable {
     var layer: Layer
 

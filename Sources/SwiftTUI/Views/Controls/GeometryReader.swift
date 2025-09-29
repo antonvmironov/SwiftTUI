@@ -1,6 +1,6 @@
 import Foundation
 
-public struct GeometryReader<Content: View>: View, PrimitiveView {
+public struct GeometryReader<Content: View>: View, PrimitiveNodeViewBuilder {
     let content: (Size) -> Content
 
     public init(@ViewBuilder content: @escaping (Size) -> Content) {

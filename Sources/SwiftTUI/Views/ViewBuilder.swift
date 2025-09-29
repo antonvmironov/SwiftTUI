@@ -1,6 +1,7 @@
 import Foundation
 
 @resultBuilder
+@MainActor
 public struct ViewBuilder {
     public static func buildBlock() -> EmptyView { EmptyView() }
 

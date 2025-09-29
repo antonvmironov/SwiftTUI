@@ -16,7 +16,7 @@ public extension View {
     }
 }
 
-private struct OnAppear<Content: View>: View, PrimitiveView, ModifierView {
+private struct OnAppear<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let action: @MainActor () -> Void
 
@@ -66,7 +66,7 @@ private struct OnAppear<Content: View>: View, PrimitiveView, ModifierView {
     }
 }
 
-private struct OnDisappear<Content: View>: View, PrimitiveView, ModifierView {
+private struct OnDisappear<Content: View>: View, PrimitiveNodeViewBuilder, ModifierView {
     let content: Content
     let action: @MainActor () -> Void
 

@@ -54,6 +54,7 @@ public struct State<T>: AnyState {
     }
 }
 
+@MainActor
 protocol AnyState {
     var valueReference: StateReference { get }
 }

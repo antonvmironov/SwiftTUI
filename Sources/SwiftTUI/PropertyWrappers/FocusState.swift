@@ -2,6 +2,7 @@ import Foundation
 
 /// A property wrapper type that tracks focus state in the terminal UI
 @propertyWrapper
+@MainActor
 public struct FocusState<Value>: AnyFocusState, Sendable where Value: Hashable & Sendable {
     public let initialValue: Value?
     private let fallbackStorage = FallbackStorage<Value>()
@@ -119,11 +120,12 @@ public struct BoolFocusState: AnyFocusState, Sendable {
 }
 
 /// A specialized binding for focus state
+@MainActor
 public struct FocusStateBinding<Value>: Sendable where Value: Hashable & Sendable {
-    private let get: @Sendable () -> Value?
-    private let set: @Sendable (Value?) -> Void
-    
-    init(get: @escaping @Sendable () -> Value?, set: @escaping @Sendable (Value?) -> Void) {
+    private let get: @MainActor () -> Value?
+    private let set: @MainActor (Value?) -> Void
+
+    init(get: @escaping @MainActor () -> Value?, set: @escaping @MainActor (Value?) -> Void) {
         self.get = get
         self.set = set
     }
@@ -135,11 +137,12 @@ public struct FocusStateBinding<Value>: Sendable where Value: Hashable & Sendabl
 }
 
 /// A specialized binding for Bool focus state
+@MainActor
 public struct BoolFocusStateBinding: Sendable {
-    private let get: @Sendable () -> Bool
-    private let set: @Sendable (Bool) -> Void
-    
-    init(get: @escaping @Sendable () -> Bool, set: @escaping @Sendable (Bool) -> Void) {
+    private let get: @MainActor () -> Bool
+    private let set: @MainActor (Bool) -> Void
+
+    init(get: @escaping @MainActor () -> Bool, set: @escaping @MainActor (Bool) -> Void) {
         self.get = get
         self.set = set
     }
@@ -151,17 +154,20 @@ public struct BoolFocusStateBinding: Sendable {
 }
 
 /// Protocol for focus state property wrappers
+@MainActor
 protocol AnyFocusState {
     var valueReference: FocusStateReference { get }
 }
 
 /// Reference holder for focus state
+@MainActor
 class FocusStateReference: @unchecked Sendable {
     weak var node: Node?
     var label: String?
 }
 
 /// Helper class for fallback storage when not connected to a node
+@MainActor
 private class FallbackStorage<Value>: @unchecked Sendable where Value: Hashable & Sendable {
     var value: Value?
     
@@ -171,6 +177,7 @@ private class FallbackStorage<Value>: @unchecked Sendable where Value: Hashable 
 }
 
 /// Helper class for bool fallback storage
+@MainActor
 private class BoolFallbackStorage: @unchecked Sendable {
     var value: Bool = false
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Text: View, PrimitiveView {
+public struct Text: View, PrimitiveNodeViewBuilder {
     private var text: String?
     
     private var _attributedText: Any?

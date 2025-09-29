@@ -1,6 +1,6 @@
 import Foundation
 
-public struct EmptyView: View, PrimitiveView {
+public struct EmptyView: View, PrimitiveNodeViewBuilder {
     public init() {}
 
     static var size: Int? { 0 }

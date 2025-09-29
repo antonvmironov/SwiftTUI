@@ -11,8 +11,9 @@ import Foundation
 ///
 /// Note that the control tree more closely resembles the layout hierarchy,
 /// because structural views (ForEach, etc.) have their own node.
-final class Node: @unchecked Sendable {
-    var view: GenericView
+@MainActor
+final class Node {
+    var view: NodeViewBuilder
 
     var state: [String: Any] = [:]
     var environment: ((inout EnvironmentValues) -> Void)?
@@ -30,11 +31,11 @@ final class Node: @unchecked Sendable {
 
     private(set) var built = false
 
-    init(view: GenericView) {
+    init(view: NodeViewBuilder) {
         self.view = view
     }
 
-    func update(using view: GenericView) {
+    func update(using view: NodeViewBuilder) {
         build()
         view.updateNode(self)
     }

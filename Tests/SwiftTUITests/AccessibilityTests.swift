@@ -7,6 +7,12 @@ struct AccessibilityTests {
     // Helper to assert a value conforms to SwiftTUI.View at compile time
     private func isView<V: View>(_: V) -> Bool { true }
     
+//    @Test("AnyView is a View")
+//    func testAnyViewIsView() {
+//        let any = AnyView(Text("Hello"))
+//        #expect(isView(any))
+//    }
+    
     @Test("AccessibilityInfo creation")
     func testAccessibilityInfoCreation() {
         let info1 = AccessibilityInfo()
@@ -154,3 +160,4 @@ struct AccessibilityTests {
         #expect(info1 != info3)
     }
 }
+

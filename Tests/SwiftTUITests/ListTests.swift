@@ -4,6 +4,9 @@ import SwiftTUI
 @Suite("List Component Tests") 
 struct ListTests {
     
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+    
     struct Item: Identifiable {
         let id: Int
         let name: String
@@ -22,6 +25,7 @@ struct ListTests {
         }
         
         // Test that the list has the expected static size
+        #expect(isView(list))
         #expect(List<[Item], Int, Text>.size == nil)
     }
     
@@ -32,6 +36,7 @@ struct ListTests {
         }
         
         // Verify the list can be created with custom ID
+        #expect(isView(list))
         #expect(List<[Item], Int, Text>.size == nil)
     }
     
@@ -45,6 +50,7 @@ struct ListTests {
         
         // Verify the list can be created with selection
         #expect(selectedItem == nil)
+        #expect(isView(list))
     }
     
     @Test("List with selection and custom ID")
@@ -57,6 +63,7 @@ struct ListTests {
         
         // Verify the list can be created with both selection and custom ID
         #expect(selectedItem == nil)
+        #expect(isView(list))
     }
     
     @Test("List with simple string data")
@@ -68,6 +75,7 @@ struct ListTests {
         }
         
         // Verify list works with simple string data
+        #expect(isView(list))
         #expect(List<[String], String, Text>.size == nil)
     }
     
@@ -85,6 +93,7 @@ struct ListTests {
         
         // Verify selection binding works
         #expect(selectedItem == 2)
+        #expect(isView(list))
     }
     
     @Test("List handles empty data gracefully")
@@ -96,6 +105,7 @@ struct ListTests {
         }
         
         // List should handle empty data without issues
+        #expect(isView(list))
         #expect(List<[Item], Int, Text>.size == nil)
     }
     
@@ -110,8 +120,6 @@ struct ListTests {
             }
         }
         
-        // Verify complex content works - just check that it compiles successfully
-        let _ = list
-        #expect(true) // Simple test that the list can be created
+        #expect(isView(list))
     }
 }

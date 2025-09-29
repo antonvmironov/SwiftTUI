@@ -1,8 +1,11 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("FormValidation Tests")
 struct FormValidationTests {
-    
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+
     @Test("ValidationResult enum")
     func testValidationResult() {
         let valid = ValidationResult.valid
@@ -124,7 +127,7 @@ struct FormValidationTests {
         let validator = Validators.Required()
         
         let field = ValidatedTextField("Username", text: $text, validator: validator)
-        #expect(field != nil)
+        #expect(isView(field))
     }
     
     @Test("ValidatedSecureField initialization")
@@ -172,7 +175,7 @@ struct FormValidationTests {
             ValidatedTextField("Email", text: .constant(""), validator: Validators.Email())
         }
         
-        #expect(form != nil)
+        #expect(isView(form))
     }
     
     @Test("Password validation example")

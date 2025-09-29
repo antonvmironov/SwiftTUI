@@ -1,22 +1,25 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("NavigationStack Tests")
 struct NavigationStackTests {
-    
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+
     @Test("NavigationLink initialization with destination")
     func testNavigationLinkWithDestination() {
         let link = NavigationLink(destination: Text("Destination")) {
             Text("Label")
         }
         
-        #expect(link != nil)
+        #expect(isView(link))
     }
     
     @Test("NavigationLink initialization with string title")
     func testNavigationLinkWithTitle() {
         let link = NavigationLink("My Link", destination: Text("Destination"))
         
-        #expect(link != nil)
+        #expect(isView(link))
     }
     
     @Test("NavigationLink with complex view hierarchy")
@@ -26,7 +29,7 @@ struct NavigationStackTests {
             NavigationLink("Advanced", destination: Text("Advanced Settings"))
         })
         
-        #expect(link != nil)
+        #expect(isView(link))
     }
     
     @Test("NavigationLink visual pattern")
@@ -39,8 +42,8 @@ struct NavigationStackTests {
                 Text("Label")
             }
         }
-        
-        #expect(simpleLink != nil)
-        #expect(customLink != nil)
+
+        #expect(isView(simpleLink))
+        #expect(isView(customLink))
     }
 }

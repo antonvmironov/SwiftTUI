@@ -115,6 +115,7 @@ struct ErrorHandlingTests {
         }
         
         #expect(isView(toast))
+        #expect(!dismissed) // should not have been triggered
     }
     
     // MARK: - ErrorBoundary Tests
@@ -167,6 +168,7 @@ struct ErrorHandlingTests {
         
         #expect(isView(overlay))
         #expect(sections.count == 2)
+        #expect(!dismissed) // should not have been triggered
     }
     
     @Test("TourStep creation")
@@ -197,6 +199,7 @@ struct ErrorHandlingTests {
         
         #expect(isView(tour))
         #expect(steps.count == 3)
+        #expect(!completed) // should not have been triggered
     }
     
     @Test("ApplicationStatus properties")
@@ -286,6 +289,7 @@ struct ErrorHandlingTests {
         }
         
         #expect(!String(describing: simpleAction).isEmpty)
+        #expect(!actionExecuted) // should not have been triggered
     }
     
     @Test("Tooltip creation")

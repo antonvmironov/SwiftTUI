@@ -3,6 +3,8 @@ import Testing
 
 @Suite("Gradient Tests")
 struct GradientTests {
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
     
     @Test("LinearGradient basic functionality")
     func linearGradientBasic() {
@@ -14,7 +16,7 @@ struct GradientTests {
         )
         
         // Should compile without issues
-        #expect(gradient != nil)
+        #expect(isView(gradient))
     }
     
     @Test("LinearGradient horizontal convenience initializer")
@@ -26,7 +28,7 @@ struct GradientTests {
         )
         
         // Should compile without issues
-        #expect(gradient != nil)
+        #expect(isView(gradient))
     }
     
     @Test("LinearGradient with single color")
@@ -40,7 +42,7 @@ struct GradientTests {
         )
         
         // Should handle single color gracefully
-        #expect(gradient != nil)
+        #expect(isView(gradient))
     }
     
     @Test("LinearGradient with empty colors")
@@ -54,7 +56,7 @@ struct GradientTests {
         )
         
         // Should handle empty colors array gracefully
-        #expect(gradient != nil)
+        #expect(isView(gradient))
     }
     
     @Test("UnitPoint predefined values")
@@ -94,7 +96,7 @@ struct GradientTests {
     
     @Test("LinearGradient in view hierarchies")
     func linearGradientInHierarchies() {
-        _ = VStack {
+        let view = VStack {
             Text("Header")
                 .bold()
             
@@ -119,12 +121,12 @@ struct GradientTests {
             Text("Footer")
         }
         
-        // Should work in complex view hierarchies
+        #expect(isView(view))
     }
     
     @Test("LinearGradient with modifiers")
     func linearGradientWithModifiers() {
-        _ = LinearGradient(
+        let view = LinearGradient(
             colors: [.cyan, .magenta],
             width: 25,
             height: 1
@@ -132,7 +134,7 @@ struct GradientTests {
         .padding()
         .border(.white)
         
-        // Should work with standard view modifiers
+        #expect(isView(view))
     }
     
     @Test("LinearGradient various directions")
@@ -161,9 +163,9 @@ struct GradientTests {
         )
         
         // All gradient directions should work
-        #expect(horizontalGradient != nil)
-        #expect(verticalGradient != nil)
-        #expect(diagonalGradient != nil)
+        #expect(isView(horizontalGradient))
+        #expect(isView(verticalGradient))
+        #expect(isView(diagonalGradient))
     }
     
     @Test("LinearGradient dimension bounds")
@@ -181,7 +183,7 @@ struct GradientTests {
         )
         
         // Should enforce minimum dimensions
-        #expect(zeroWidthGradient != nil)
-        #expect(zeroHeightGradient != nil)
+        #expect(isView(zeroWidthGradient))
+        #expect(isView(zeroHeightGradient))
     }
 }

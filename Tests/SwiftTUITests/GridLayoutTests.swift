@@ -1,7 +1,10 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("Grid Layout Tests")
 struct GridLayoutTests {
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
     
     @Test("LazyVGrid basic initialization")
     func testLazyVGridInit() {
@@ -17,7 +20,7 @@ struct GridLayoutTests {
             Text("Item 3")
         }
         
-        #expect(grid != nil)
+        #expect(isView(grid))
     }
     
     @Test("LazyVGrid with column count convenience initializer")
@@ -28,7 +31,7 @@ struct GridLayoutTests {
             }
         }
         
-        #expect(grid != nil)
+        #expect(isView(grid))
     }
     
     @Test("LazyHGrid basic initialization")
@@ -45,7 +48,7 @@ struct GridLayoutTests {
             Text("D")
         }
         
-        #expect(grid != nil)
+        #expect(isView(grid))
     }
     
     @Test("LazyHGrid with row count convenience initializer")
@@ -56,7 +59,7 @@ struct GridLayoutTests {
             }
         }
         
-        #expect(grid != nil)
+        #expect(isView(grid))
     }
     
     @Test("Grid simple initialization")
@@ -68,7 +71,7 @@ struct GridLayoutTests {
             Text("Bottom Right")
         }
         
-        #expect(grid != nil)
+        #expect(isView(grid))
     }
     
     @Test("GridItem size types")
@@ -81,7 +84,7 @@ struct GridLayoutTests {
         case .fixed(let size):
             #expect(size == 20)
         default:
-            #expect(false, "Expected fixed size")
+            Issue.record("Expected fixed size")
         }
         
         switch flexibleItem.size {
@@ -89,7 +92,7 @@ struct GridLayoutTests {
             #expect(min == 5)
             #expect(max == 50)
         default:
-            #expect(false, "Expected flexible size")
+            Issue.record("Expected flexible size")
         }
         
         switch adaptiveItem.size {
@@ -97,7 +100,7 @@ struct GridLayoutTests {
             #expect(min == 10)
             #expect(max == 30)
         default:
-            #expect(false, "Expected adaptive size")
+            Issue.record("Expected adaptive size")
         }
     }
     
@@ -111,7 +114,7 @@ struct GridLayoutTests {
         case .fixed(let size):
             #expect(size == 15)
         default:
-            #expect(false, "Fixed factory method failed")
+            Issue.record("Fixed factory method failed")
         }
         
         switch flexible.size {
@@ -119,7 +122,7 @@ struct GridLayoutTests {
             #expect(min == 3)
             #expect(max == 25)
         default:
-            #expect(false, "Flexible factory method failed")
+            Issue.record("Flexible factory method failed")
         }
         
         switch adaptive.size {
@@ -127,7 +130,7 @@ struct GridLayoutTests {
             #expect(min == 8)
             #expect(max == 40)
         default:
-            #expect(false, "Adaptive factory method failed")
+            Issue.record("Adaptive factory method failed")
         }
     }
     
@@ -163,7 +166,7 @@ struct GridLayoutTests {
             Text("Column 3")
         }
         
-        #expect(row != nil)
+        #expect(isView(row))
     }
     
     @Test("GridBorder character sets")
@@ -198,8 +201,8 @@ struct GridLayoutTests {
         }
         .gridBorder(.rounded)
         
-        #expect(gridWithBorder != nil)
-        #expect(gridWithRoundedBorder != nil)
+        #expect(isView(gridWithBorder))
+        #expect(isView(gridWithRoundedBorder))
     }
     
     @Test("Complex grid layout")
@@ -218,8 +221,7 @@ struct GridLayoutTests {
             }
         }
         
-        // Test that complex grid compiles and initializes properly
-        #expect(true) // Complex grid creation succeeded
+        #expect(isView(complexGrid))
     }
     
     @Test("Grid with mixed content types")
@@ -233,8 +235,7 @@ struct GridLayoutTests {
             Spacer()
         }
         
-        // Test that mixed content grid compiles and initializes properly
-        #expect(true) // Mixed content grid creation succeeded
+        #expect(isView(mixedGrid))
     }
     
     @Test("Grid performance with large datasets")
@@ -247,8 +248,7 @@ struct GridLayoutTests {
             }
         }
         
-        // Test that performance grid compiles and initializes properly
-        #expect(true) // Performance grid creation succeeded
+        #expect(isView(performanceGrid))
         // In a real implementation, this would test layout performance
     }
     
@@ -264,3 +264,4 @@ struct GridLayoutTests {
         #expect(alignments.contains(.bottom))
     }
 }
+

@@ -9,7 +9,9 @@ actor CallFlag {
 
 @Suite("Input Handling Enhancement Tests")
 struct InputHandlingEnhancementTests {
-    
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+
     @Test("KeyEquivalent basic functionality")
     func keyEquivalentBasics() {
         let spaceKey = KeyEquivalent(" ")
@@ -60,6 +62,7 @@ struct InputHandlingEnhancementTests {
         
         // Should compile without issues and not signal before any event occurs
         #expect(await flag.get() == false)
+        #expect(isView(testView))
     }
     
     @Test("onTapGesture modifier compiles correctly")
@@ -74,6 +77,7 @@ struct InputHandlingEnhancementTests {
         
         // Should compile without issues and not signal before any event occurs
         #expect(await flag.get() == false)
+        #expect(isView(testView))
     }
     
     @Test("onTapGesture with count modifier compiles correctly")
@@ -88,6 +92,7 @@ struct InputHandlingEnhancementTests {
         
         // Should compile without issues and not signal before any event occurs
         #expect(await flag.get() == false)
+        #expect(isView(testView))
     }
     
     @Test("Common key equivalents are defined")
@@ -129,5 +134,6 @@ struct InputHandlingEnhancementTests {
         // Should compile without issues and allow modifier composition
         #expect(await keyFlag.get() == false)
         #expect(await tapFlag.get() == false)
+        #expect(isView(testView))
     }
 }

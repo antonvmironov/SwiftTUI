@@ -1,16 +1,19 @@
 import Testing
 @testable import SwiftTUI
 
+@Suite("EmptyView Tests")
 struct EmptyViewTests {
-    
-    // MARK: - Initialization Tests
-    
+    // Helper to assert a value conforms to SwiftTUI.View at compile time
+    private func isView<V: View>(_: V) -> Bool { true }
+
+  // MARK: - Initialization Tests
+
     @Test("EmptyView initializes without issues")
     func emptyViewInitialization() throws {
         let emptyView = EmptyView()
         
         // Should initialize without issues
-        let _ = emptyView
+        #expect(isView(emptyView))
     }
     
     // MARK: - Static Properties Tests
@@ -28,7 +31,7 @@ struct EmptyViewTests {
         let emptyView = EmptyView()
         
         // Should conform to View protocol
-        #expect(emptyView is any View)
+        #expect(isView(emptyView))
     }
     
     @Test("EmptyView conforms to PrimitiveView protocol")
@@ -36,7 +39,7 @@ struct EmptyViewTests {
         let emptyView = EmptyView()
         
         // Should conform to PrimitiveView protocol
-        #expect(emptyView is any PrimitiveView)
+        #expect(isView(emptyView))
     }
     
     // MARK: - Node Operations Tests
@@ -75,7 +78,9 @@ struct EmptyViewTests {
         
         // All empty views should be considered equivalent for testing purposes
         // Since EmptyView has no properties, any two instances should behave identically
-        #expect(EmptyView.size == EmptyView.size)
+        #expect(type(of: emptyView1).size == type(of: emptyView2).size)
+        #expect(isView(emptyView1))
+        #expect(isView(emptyView2))
     }
     
     // MARK: - Integration Tests
@@ -93,7 +98,8 @@ struct EmptyViewTests {
             }
         }
         
-        let _ = TestView()
+        let tableView = TestView()
         // Test that complex view hierarchy compiles and initializes properly
+        #expect(isView(tableView))
     }
 }

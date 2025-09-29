@@ -33,8 +33,17 @@ public struct CurrencyFormatter: InputFormatter {
     }
     
     public func isValid(_ input: String) -> Bool {
+        // Empty input is valid
+        if input.isEmpty { return true }
+        
+        // Clean input by removing non-numeric characters except decimal point
         let cleanInput = input.filter { $0.isNumber || $0 == "." }
-        return Double(cleanInput) != nil || cleanInput.isEmpty
+        
+        // If the clean input is empty but original wasn't, it means it contained only invalid characters
+        if cleanInput.isEmpty && !input.isEmpty { return false }
+        
+        // Check if clean input can be converted to a valid number
+        return Double(cleanInput) != nil
     }
 }
 

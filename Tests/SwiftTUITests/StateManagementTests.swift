@@ -11,10 +11,12 @@ struct StateManagementTests {
         
         func updateName(_ newName: String) {
             name = newName
+            notifyObservers() // Manually trigger notification for testing
         }
         
         func increment() {
             count += 1
+            notifyObservers() // Manually trigger notification for testing
         }
     }
     

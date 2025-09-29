@@ -73,12 +73,13 @@ struct ListTests {
     
     @Test("List selection binding updates")
     func listSelectionUpdates() async throws {
-        @State var selectedItem: Int? = nil
+        var selectedItem: Int? = nil
         
         // Set initial selection
         selectedItem = 2
         
-        let list = List(sampleItems, selection: $selectedItem) { item in
+        let binding = Binding(get: { selectedItem }, set: { selectedItem = $0 })
+        let list = List(sampleItems, selection: binding) { item in
             Text(item.name)
         }
         

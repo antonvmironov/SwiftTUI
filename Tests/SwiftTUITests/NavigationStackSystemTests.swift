@@ -147,12 +147,13 @@ struct NavigationStackSystemTests {
     
     @Test("NavigationStack breadcrumb functionality")
     func testNavigationStackBreadcrumbs() {
-        @State var path = NavigationPath()
+        var path = NavigationPath()
         path.append("Settings")
         path.append("Privacy")
         path.append("Location")
         
-        let stack = NavigationStack(path: $path) {
+        let binding = Binding(get: { path }, set: { path = $0 })
+        let stack = NavigationStack(path: binding) {
             Text("Current View")
         }
         

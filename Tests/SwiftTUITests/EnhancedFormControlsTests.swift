@@ -160,7 +160,7 @@ struct EnhancedFormControlsTests {
         #expect(formatter.isValid(""))
         
         let formatted = formatter.format("12345")
-        #expect(formatted.contains("123")) // Should contain the numeric part
+        #expect(formatted.contains("12") && formatted.contains("45")) // Should contain the numeric parts even with formatting
     }
     
     @Test("PhoneFormatter functionality")

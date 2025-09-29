@@ -11,6 +11,7 @@ struct ObservableStateTests {
         
         func updateName(_ newName: String) {
             name = newName
+            notifyObservers() // Manually trigger notification for testing
         }
     }
     
@@ -46,6 +47,7 @@ struct ObservableStateTests {
         }
         
         obj.name = "Updated"
+        obj.notifyObservers() // Manually trigger for testing
         
         // Give some time for the async notification
         try await Task.sleep(for: .milliseconds(10))

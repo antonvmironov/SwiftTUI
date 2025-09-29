@@ -5,6 +5,7 @@ import Foundation
 @propertyWrapper
 public struct StateObject<T: Observable>: AnyObservableState {
     private let factory: () -> T
+    private let fallbackStorage = FallbackObjectStorage<T>()
     
     public init(wrappedValue factory: @escaping @autoclosure () -> T) {
         self.factory = factory
@@ -21,7 +22,11 @@ public struct StateObject<T: Observable>: AnyObservableState {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
-                return factory()
+                // Fallback for testing - create and store instance if needed
+                if fallbackStorage.value == nil {
+                    fallbackStorage.value = factory()
+                }
+                return fallbackStorage.value!
             }
             
             // Check if we already have an instance stored
@@ -53,6 +58,8 @@ public struct StateObject<T: Observable>: AnyObservableState {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
+                // Fallback storage for testing
+                fallbackStorage.value = newValue
                 return
             }
             node.state[label] = newValue
@@ -91,9 +98,11 @@ public struct StateObject<T: Observable>: AnyObservableState {
 @propertyWrapper
 public struct ObservedObject<T: Observable>: AnyObservableState {
     public let initialValue: T
+    private let fallbackStorage = FallbackObjectStorage<T>()
     
     public init(wrappedValue: T) {
         self.initialValue = wrappedValue
+        self.fallbackStorage.value = wrappedValue
     }
     
     var valueReference = ObservableStateReference()
@@ -103,7 +112,8 @@ public struct ObservedObject<T: Observable>: AnyObservableState {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
-                return initialValue
+                // Fallback for testing
+                return fallbackStorage.value ?? initialValue
             }
             if let value = node.state[label] {
                 return value as! T
@@ -114,6 +124,8 @@ public struct ObservedObject<T: Observable>: AnyObservableState {
             guard let node = valueReference.node,
                   let label = valueReference.label
             else {
+                // Fallback storage for testing
+                fallbackStorage.value = newValue
                 return
             }
             node.state[label] = newValue
@@ -135,6 +147,11 @@ public struct ObservedObject<T: Observable>: AnyObservableState {
     }
     
     func subscribe(_ action: @escaping () -> Void) {
-        initialValue.subscribe(action)
+        (fallbackStorage.value ?? initialValue).subscribe(action)
     }
+}
+
+/// Helper class for fallback object storage
+private class FallbackObjectStorage<T>: @unchecked Sendable {
+    var value: T?
 }

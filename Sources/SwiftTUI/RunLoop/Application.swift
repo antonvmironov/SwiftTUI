@@ -1,8 +1,4 @@
 import Foundation
-#if os(macOS)
-import AppKit
-#endif
-
 import _Concurrency
 
 @MainActor
@@ -67,13 +63,12 @@ public class Application {
 
     // Async input loop using FileHandle
     private func inputLoop() async throws {
+    #if os(macOS)
         let handle = FileHandle.standardInput
         var utf8Buffer: [UInt8] = []
-
         do {
             for try await byte in handle.bytes {
                 utf8Buffer.append(byte)
-
                 // Only emit when we have a valid UTF-8 sequence in the buffer
                 if let string = String(bytes: utf8Buffer, encoding: .utf8) {
                     for ch in string {
@@ -82,7 +77,6 @@ public class Application {
                     utf8Buffer.removeAll(keepingCapacity: true)
                 }
             }
-
             // Flush any remaining valid characters at EOF
             if let string = String(bytes: utf8Buffer, encoding: .utf8) {
                 for ch in string {
@@ -92,6 +86,59 @@ public class Application {
         } catch {
             throw error
         }
+    #elseif os(Linux)
+        var utf8Buffer: [UInt8] = []
+        let bufferSize = 1024
+        var buffer = [UInt8](repeating: 0, count: bufferSize)
+        let clock = ContinuousClock()
+        while true {
+            let bytesRead = read(STDIN_FILENO, &buffer, bufferSize)
+            if bytesRead > 0 {
+                utf8Buffer.append(contentsOf: buffer[0..<bytesRead])
+                while !utf8Buffer.isEmpty {
+                    if let string = String(bytes: utf8Buffer, encoding: .utf8) {
+                        for ch in string {
+                            await handleInputChar(ch)
+                        }
+                        utf8Buffer.removeAll(keepingCapacity: true)
+                        break
+                    } else {
+                        // Try to find the longest valid prefix
+                        var validLength = utf8Buffer.count
+                        while validLength > 0 {
+                            if let _ = String(bytes: utf8Buffer[0..<validLength], encoding: .utf8) {
+                                let string = String(bytes: utf8Buffer[0..<validLength], encoding: .utf8)!
+                                for ch in string {
+                                    await handleInputChar(ch)
+                                }
+                                utf8Buffer.removeFirst(validLength)
+                                break
+                            }
+                            validLength -= 1
+                        }
+                        if validLength == 0 {
+                            // No valid prefix, wait for more bytes
+                            break
+                        }
+                    }
+                }
+            } else if bytesRead == 0 {
+                // EOF
+                if let string = String(bytes: utf8Buffer, encoding: .utf8) {
+                    for ch in string {
+                        await handleInputChar(ch)
+                    }
+                }
+                break
+            } else {
+                // Error
+                throw NSError(domain: "SwiftTUI.LinuxInputLoop", code: Int(errno), userInfo: nil)
+            }
+            try? await clock.sleep(for: .milliseconds(10))
+        }
+        #else
+        // Platform not supported
+        #endif
     }
 
     // Async signal handler using Task
@@ -134,7 +181,11 @@ public class Application {
             queue.sync {
                 handlers[signal] = handler
             }
+#if os(macOS)
             _ = Darwin.signal(signal, SignalHandlerRegistry.signalHandler)
+#elseif os(Linux)
+// FIXME: _ = Glibc.signal(signal, SignalHandlerRegistry.signalHandler)
+#endif
         }
 
         func unregister(signal: Int32) {

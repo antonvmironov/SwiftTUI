@@ -23,6 +23,10 @@ let package = Package(
             url: "https://github.com/apple/swift-argument-parser.git",
             .upToNextMinor(from: "1.6.1")
         ),
+        .package(
+            url: "https://github.com/apple/swift-container-plugin",
+            from: "1.1.0"
+        ),
     ],
     targets: [
         .executableTarget(
@@ -36,7 +40,8 @@ let package = Package(
         ),
         .target(
             name: "SwiftTUI",
-            dependencies: [],
+            dependencies: [
+            ],
             swiftSettings: [
             ]),
         .testTarget(
